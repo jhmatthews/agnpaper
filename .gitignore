@@ -1,0 +1,9 @@
+*~
+*.spec
+*.log
+*.aux
+*.dvi
+*.ps 
+# generate/
+# *.bbl
+*.blg
