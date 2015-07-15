@@ -165,17 +165,15 @@ pose a number of difficult challenges to such a model.
 
 \section{Introduction}
 
-Introduction focussing on key points
+% Introduction focussing on key points
 
-\begin{itemize}
-\item standard wind + BALQSO introduction
-\item focus on unification and that we are testing it
-\item some discussion of scales, referencing e.g. reverb maps, variability, microlensing, Arav 
-\item clumping background: stellar winds, clumping in AGN winds, variability
-\end{itemize}
+% \begin{itemize}
+% \item standard wind + BALQSO introduction
+% \item focus on unification and that we are testing it
+% \item some discussion of scales, referencing e.g. reverb maps, variability, microlensing, Arav 
+% \item clumping background: stellar winds, clumping in AGN winds, variability
+% \end{itemize}
 %%\item 
-
-\clearpage
 Quasars and luminous active galactic nuclei (AGN) 
 exhibit spectral energy distributions (SEDs) that
 typically exhibit a series of strong emission lines (e.g. \la, \civ, \nv) 
@@ -184,17 +182,16 @@ The BBB is normally attributed to
 emission from a geometrically thin, optically thick accretion disc 
 surrounding the central black hole (REF), similar
 to that described by \cite{shakurasunyaev1973}.
-
 In addition to the inflowing accreting material, 
-outflowing material is ubiquitous in active galactic nuclei (AGN) 
-and quasi-stellar objects (QSOs). These outflows can take the form of 
-highly collimated radio jets \citep{bellonijet2010}, 
+outflows are ubiquitous in AGN
+and quasars (REFs). These outflows can take the form of 
+highly collimated radio jets \citep{bellonijet2010}(BETTER REF), 
 or mass-loaded `winds' emanating from the accretion disc. 
-Approximately $20\%$ of QSOs exhibit broad absorption lines (BALs) in the ultraviolet,
+Approximately $20\%$ of quasars exhibit broad absorption lines (BALs) in the ultraviolet,
 providing clear evidence for outflowing absorbing material
 \citep{weymann1991, knigge2008, turnermiller2009, allen2011}.
 The simplest explanation for the incidence of 
-BALs in quasar samples is in terms of an accretion disc wind (ADW). 
+BAL quasars (BALQSOs) is in terms of an accretion disc wind (ADW). 
 Within this paradigm, the BALQSO fraction is associated with
 the covering factor of the outflow.
 
@@ -205,18 +202,44 @@ In such a model, a biconical wind rises from
 the accretion disc, and the class of object is explained by the material
 intercepting the line of sight. Depending on viewing angle, an observer 
 may then see a BALQSO, LoBAL-QSO or normal `Type 1' quasar.
-
-As well as acting as a source of photoionized plasma, 
-a disc wind may also have a profound effect on the structure and 
+Within this framework, the broad-line region (BLR) is normally
+assumed to correspond to the dense wind base.
+% As well as acting as a source of photoionized plasma, a 
+A disc wind may also have a profound effect on the structure and 
 emergent continuum of the accretion disc itself.
 Mass-loss will alter the accretion rate and resultant 
 temperature of the accretion disc, possibly explaining some 
-of the features we typically see in luminous AGN (REF).
+of the features we typically see in luminous AGN \citep{laordavis2014}.
 Recent results from \cite{capellupo2015} find 
 that if one includes a combination of mass-loss, general relativity (GR) and Comptonisation
 then AGN SEDs can, in general, be fitted well with accretion disc models.
 In general, mass-loss treatments appear to be critical if an $\alpha$-disc
 model is to successfully fit AGN SEDs, particular in the UV region of the spectrum.
+
+Despite the clear importance of ADWs in understanding AGN SEDs and accretion physics, 
+much of the underlying outflow physics remains highly uncertain. 
+Several possible driving mechanisms for ADWs have been proposed, including
+thermal pressure (REFs), magnetocentrifugal forces \citep{blandfordpayne} and 
+radiation pressure on spectral lines \citep[`line-driving'][]{lucysolomon1970, MCGV95}.
+Of these, line-driving is possibly the most attractive, due 
+to the strong absorption lines seen in BALQSOs and the X-ray spectra of AGN (REFs).
+The presence of line-locked features (REFs) and the so-called `ghost of \la' \citep{arav1996}
+in the spectra of such objects also gives clearer evidence that line-driving is
+at least partially contributing to the acceleration of the wind.
+The efficiency of line-driving is crucially dependent on the ionization state 
+of the outflowing plasma. \cite{MCGV95} proposed a potential solution: 
+a region of `hitchhiking gas' that could shield the wind from the central X-ray source. 
+Hydrodynamic simulations of line-driven disc winds also found a shielding region
+was required to maintain the correct ionization state \citep{PSK2000,PK04}. 
+However, \cite{H14} showed that including multiple scattering means the ionizing radiation 
+field could still reach the previously shielded regions in those particular models.
+
+An alternative solution is that the wind is clumped (REFs), possibly on multiple scale lengths.
+Local density enhancements could lower the ionization parameter of the plasma
+while still maintaining the same mass-loss rate and column density. 
+An inhomogenous outflow has been proposed as a model for the BLR (REFs)
+Clumping is expected in outflows and BLRs.
+
 
 % The UV spectrum of {\em non-BAL} QSOs is typified by a series
 % of strong emission lines (e.g. \la, \civ, \nv) with an underlying blue continuum
@@ -736,7 +759,7 @@ to the current unification picture.
 %% \texttt{mn2e.cls} \textsc{Latex} document class. 
 
 
-\bibliography{mybib.bib}
+\bibliography{mybib.bib,stellar.bib,h14.bib,h13.bib}
 \newpage
 %\appendix
 \end{document}
