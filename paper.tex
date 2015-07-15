@@ -49,10 +49,17 @@
 %% Lines and ions
 \def\civ{C~\textsc{iv}}
 \def\nv{N~\textsc{v}}
+\def\hei{He~\textsc{i}}
+\def\heii{He~\textsc{ii}}
+\def\mg{Mg~\textsc{ii}}
+\def\al{Al~\textsc{iii}}
 \def\heii{He~\textsc{ii}}
 \def\ovi{O~\textsc{vi}}
-\def\la{Ly$\alpha$}
-\def\ha{H$\alpha$}
+\def\la{Ly~$\alpha$}
+\def\ha{H~$\alpha$}
+\def\hb{H~$\beta$}
+
+
 
 %% Journal definitions
 \def\araa{ARAA}
@@ -165,24 +172,22 @@ pose a number of difficult challenges to such a model.
 
 \section{Introduction}
 
-Introduction focussing on key points
+% Introduction focussing on key points
+% \begin{itemize}
+% \item standard wind + BALQSO introduction
+% \item focus on unification and that we are testing it
+% \item some discussion of scales, referencing e.g. reverb maps, variability, microlensing, Arav 
+% \item clumping background: stellar winds, clumping in AGN winds, variability
+% \end{itemize}
+% %%\item 
+% \clearpage
 
-\begin{itemize}
-\item standard wind + BALQSO introduction
-\item focus on unification and that we are testing it
-\item some discussion of scales, referencing e.g. reverb maps, variability, microlensing, Arav 
-\item clumping background: stellar winds, clumping in AGN winds, variability
-\end{itemize}
-%%\item 
-
-\clearpage
-Quasars and luminous active galactic nuclei (AGN) 
-exhibit spectral energy distributions (SEDs) that
+The spectral energy distributions (SEDs) of 
+quasars and luminous active galactic nuclei (AGN) 
 typically exhibit a series of strong emission lines (e.g. \la, \civ, \nv) 
 with an underlying blue continuum - the so-called {\sl `big blue bump'} (BBB). 
-The BBB is normally attributed to 
-emission from a geometrically thin, optically thick accretion disc 
-surrounding the central black hole (REF), similar
+The BBB is normally attributed to emission from a geometrically thin, 
+optically thick accretion disc surrounding the central black hole (REF), similar
 to that described by \cite{shakurasunyaev1973}.
 
 In addition to the inflowing accreting material, 
@@ -358,9 +363,8 @@ and in principle allows the direct addition of extra physical processes such as 
 \subsection{Atomic Data}
 
 We use the same atomic data as described by LK02 and since
-updated by H13 and M15, with the addition of direct ionization data from Dere (????). 
-Photoionization cross-sections are from Topbase (REF) and 
-\cite{vfky}.
+updated by H13 and M15, with the addition of direct ionization data from Dere (YEAR). 
+Photoionization cross-sections are from Topbase (REF) and  \cite{vfky}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -373,11 +377,15 @@ Photoionization cross-sections are from Topbase (REF) and
 \bigskip
 \bigskip
 
-\section{A Clumpy Biconical Disk Wind Model for QSOs}
+\section{A Clumpy Biconical Disk Wind Model for Quasars}
 
 Our kinematic prescription for a biconical disc wind model
 follows \cite{SV93}, and is described further by
-LK02, H13 and M15. 
+LK02, H13 and M15. A schematic is shown in figure~\ref{fig:cartoon},
+with key aspects marked. The general biconical
+geometry is similar to that invoked by \cite{MCGV95} and 
+\cite{elvis2000} in order to explain the phenomenonology
+of quasars and BALQSOs.
 
 
 \begin{figure}
@@ -400,20 +408,26 @@ our biconical wind model.
 
 \subsubsection{Photon Sources}
 
-Describe the photon sources in the model.
+%Describe the photon sources in the model.
 
 The accretion disc in our model is geometrically thin, but optically thick
 and this adopt a standard multi-temperature blackbody
 using a \cite{shakurasunyaev1973} temperature profile. 
 The emergent SED is thus determined by the specified accretion rate ($\dot{m}$)
 and central BH mass ($M_{BH}$).
-The inner radius of the disc extends to the innermost stable circular orbit
-(ISCO) of the BH. 
-%% OUTER RADIUS? 
+The inner radius of the disc extends to the innermost 
+stable circular orbit (ISCO) of the BH. 
 We assume a Schwarzchild BH with an ISCO at $6~R_G$.
 The X-ray source in our model is treated as an isotropic sphere at the ISCO,
-which emits photons according to a power law,
-
+which emits photons according to a power law with index $\alpha_X$.
+The normalisation of this power law is such that it produces the specified 
+2-10kev luminosity.
+In addition to the disc and X-ray source, 
+the wind is able to reprocess radiation. However, new 
+photon packets are not produced in the wind (as in LK02). 
+Instead, this reprocessing is dealt with by enforcing strict
+radiative equilibrium via an indivisible energy packet
+constraint (see Lucy 2002, M15).
 % \begin{equation}
 
 % \end{equation}
@@ -509,24 +523,43 @@ Introduce microclumping.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
 
 \section{Results}
 
+Here we describe the results from our model.
 
 \begin{figure*}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/wind.eps}
 \caption
 {
-Physical properties of the outflow.
+Physical properties of the outflow, shown by the coloured contours.
+The solid black line marks a sphere at $1000~R_G$.
+The dotted lines show the $75^\circ$ and $80^\circ$ sightlines 
+to the centre of the system, and illustrate that different sightlines
+intersect material of different ionization states.
 }
 \label{fig:uvspec}
 \end{figure*}
 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/sightlines.eps}
+\caption
+{
+The classes of sightlines and the corresponding possible 
+system types in the framework of our model.
+[FIGURE NEEDS IMPROVING]
+}
+\label{fig:lobal}
+\end{figure}
+
+
+
+
 \begin{figure*}
 \centering
-\includegraphics[width=1.0\textwidth]{figures/uvspec.eps}
+\includegraphics[width=0.8\textwidth]{figures/uvspec.eps}
 \caption
 {
 Synthetic spectra at four viewing angles in the clumpy model. Plot would look different probably,
@@ -559,32 +592,6 @@ the BQS sample (ref) and the Saez et al. (2012) sample of BALQSOs.
 \label{fig:xray}
 \end{figure*}
 
-\subsection{Physical Conditions and Ionization State}
-
-Show that clumping stops over-ionization.
-
-
-{\bf Figure 2: Physical conditions of the wind, showing e.g. CIV fraction.} 
-
-\subsection{Synthetic Spectra}
-
-Present a spectrum of the UV and possible optical too. 
-
-
-{\bf Figures 3 and 4: UV and optical spectra.} 
-
-\subsection{X-ray Properties}
-
-discuss the figure showing X-ray properties briefly. 
-Present an X-ray spectrum? compare to observations e.g. Giustini?
-
-{\bf Figures 5 and 6: $L_{2kev}$ v $L_{2500}$ plot and X-ray spectrum compared to Grupe and Nousek (broadband SED?)} 
-
-\subsection{LoBALs and trends with inclination}
-
-{\bf Figure 7: line profiles of CIV, Mg II and Al III as a function of inclination.} 
-
-
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{figures/xray_spectrum_lnu.eps}
@@ -596,6 +603,126 @@ from Grupe \& Nousek (2015).
 \label{fig:xray}
 \end{figure}
 
+\subsection{Physical Conditions and Ionization State}
+
+The wind rises slowly from the disc at first, with clumped densities
+of $n_H \sim 10^{11}~\rm{cm^{-3}}$ close to the disc plane.
+The flow then accelerates over a scale length of $R_V=10^{19}~\rm{cm}$
+up to a terminal velocity of around $3$ times the escape velocity 
+($\sim10,000~\rm{km~s^{-1}}$). This gradual acceleration means that
+the wind exhibits a stratified ionization structure, with low ionization material
+in the base of the wind giving way to highly ionized plasma further out.
+By clumping the wind, we are able to produce the range of ionization states observed
+in Quasars and BALQSOs, while adopting a realistic $2-10$ keV X-ray luminosity
+of $L_{X}=10^{43}~\rm{ergs~s^{-1}}$. Without clumping, this wind would be over-ionized 
+to the extent that opacities in e.g., \civ\ would be entirely negligible (see H13).
+
+One commonly used measure of the ionization state is the ionization parameter, $U$, given by
+\begin{equation}
+U = \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}}}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu}.
+\end{equation}
+\noindent where $\rm{n_H}$ is the local number density of H, and $\nu$ denotes photon 
+frequency. The ionization parameter represents the ratio of the number density of 
+ionizing photons to the local H density. It is however, a poor measure of the 
+ionization state of the resonance species such as \civ\ as it encodes no information
+about the shape of the SED. In this case the X-ray photons 
+are dominant in the photoionization of the UV resonance line ions. 
+This explains why a factor of 100 increase in X-ray luminosity requires
+a clumping factor of 0.01, even though the value of U changes by roughly ?? compared to 
+H13. 
+
+Clumping also causes the total line luminosity to increase dramatically,
+as recombination and collisional excitation are both proportional to
+$n_e^2$. This line emission typically emerges on the edge of the wind
+nearest the central source. The location of the line emitting regions
+is dependent on the ionization state, as well as the X-rays heating the plasma.
+The radii of these emitting regions is important,
+and can be compared to observations. Our \civ\ line emission region 
+is located at about $1000~R_G$ ($\sim10^{18}~\rm{cm}$).
+This is in rough agreement with the reverberation mapping 
+results of Kaspi (2000) for the $2.6\times10^{9} M_\odot$ quasar S5 0836+71,
+and also compares favourably with microlensing measurements of the size of the
+\civ\ emission line region in the BALQSO H1413+117 \citep{odowd2015}.
+
+
+\subsection{Synthetic Spectra}
+
+Present a spectrum of the UV and possible optical too. 
+
+
+
+\subsection{X-ray Properties and Broadband SEDs}
+
+The bottom panel of figure~\ref{fig:xray} shows the emergent $L_{2keV}$ 
+monochromatic luminosity ($L_\nu$) and $\alpha_{OX}$ plotted against 
+$L_\nu$ at $2500$\AA\ for a number of different viewing angles in our model.
+$\alpha_{OX}$ is a spectral index from near UV to X-rays defined by
+
+\begin{equation}
+\alpha_{OX}=0.3838\log\left(\frac{L_{\nu}(2~keV)}{L_{\nu}(2500~\mbox{\scriptsize{\AA}})}\right).
+\end{equation}
+
+The properties are calculated from the synthetic spectra and thus include
+the effects of wind reprocessing and attenuation. In addition to model outputs,
+we also show the BALQSO sample of Saez et al. (2012) and luminous AGN and quasar
+samples from Steffen et al. (2006). For low inclination, `quasar-like' viewing angles,
+we now show excellent agreement with AGN samples. The trend with inclination
+in our models is caused by a combination of disc foreshortening/limb-darkening 
+(resulting in a lower $L_{2500}$ for higher inclinations) and the fact that the disk 
+is opaque and thus the X-ray source subtends a smaller solid angle at high inclinations
+(resulting in a lower $L_{2keV}$ for higher inclinations). 
+
+Although the low inclination, `BALQSO-like' viewing angles show moderate agreement with the data,
+it appears that our models tend to underpredict the emergent X-ray luminosity at 
+although we are limited by poor statistics. It appears that our models tend
+It is possible that this is due to our wind being overly optically thick to 
+electron scattering at angles which look through the wind. It could also be that the
+isotropic X-ray source assumption is incorrect and BALQSOs are {\em intrinsically} 
+X-ray weak, as suggested by REFS. Nevertheless, our input X-ray spectrum
+now reproduces the X-ray properties of a luminous quasar.
+
+We can also examine the emergent X-ray spectra. 
+Figure 6 shows the broadband SED from the model, compared to a number of BALQSO spectra
+from Grupe \& Nousek (2015) - note that lower mass and super-Eddington sources
+are excluded. Our code is not yet optimized for producing X-ray spectra, as we do not yet 
+include all lines and levels of e.g. Fe or macro-atom treatments of 
+higher order ions (cf. Sim et al. 2008, 2010). 
+However, the bound-free opacity sources are complete, and comparisons of the shape
+of the heavily absorbed spectra can be useful.
+
+
+
+
+
+
+% discuss the figure showing X-ray properties briefly. 
+% Present an X-ray spectrum? compare to observations e.g. Giustini?
+
+% {\bf Figures 5 and 6: $L_{2kev}$ v $L_{2500}$ plot and X-ray spectrum compared to Grupe and Nousek (broadband SED?)} 
+
+\subsection{LoBALs and trends with inclination}
+
+At certain sightlines, our model now produces blue-shifted BALs in \al\ and \mg --
+the absorption lines seen in LoBALQSOs. Line profiles in velocity space 
+for \civ, \al\ and \mg, are shown in figure~\ref{fig:lobal} for a range
+of BALQSO viewing angles. We confirm the behaviour expected from 
+a unification model such as Elvis (2000), in which ionization stratification
+explains the incidence of LoBALQSOs. In this framework, the lower
+ionization material is intercepted by a smaller family of sightlines.
+This is also the explanation here, as shown by figure~\ref{fig:wind}.
+
+These line profiles also indicate a potential problem with our model. 
+\cite{odowd2015} find that the LoBAL profiles in H1413+117 have a 
+higher velocity onset than the higher ionization BALs, suggesting that the
+wind becomes less ionized as radius increases. 
+We find the opposite trend in velocity onsets. In addition, examination of 
+figure~\ref{fig:wind} shows that ionization parameter decreases with radius, 
+because the decrease in density wins over geometric dilution of the radiation 
+field. While the \cite{odowd2015} hypothesis comes from one object,
+it is clear that {\em at least some} BALQSOs must become less ionized at 
+higher velocities, contrary to what one expects from our modelling.
+
+
 
 \begin{figure*}
 \centering
@@ -606,7 +733,7 @@ Carbon IV, Al III and Mg II line profiles with inclination for wind angles.
 Showing how the line profiles change
 and how LoBALs kick in at particularly high inclinations.
 }
-\label{fig:xray}
+\label{fig:lobal}
 \end{figure*}
 
 
@@ -697,7 +824,7 @@ the viability of such a model for geometric unification of quasars.
 We find the following main points:
 
 \begin{enumerate}
-\item We have introduced a simple, first-order treatment 
+\item We have introduced a first-order treatment 
 of clumping in our model, and found that it can now maintain
 the required ionization state while agreeing well with the X-ray
 properties of AGN/QSOs.
@@ -732,6 +859,9 @@ to the current unification picture.
 
 
 \section*{Acknowledgements}
+
+We would like to thank Omer Blaes, Ivan Hubeny, Shane Davis, 
+Michael Crenshaw, Nahum Arav, Daniel Proga, 
 
 %% \texttt{mn2e.cls} \textsc{Latex} document class. 
 
