@@ -1,5 +1,26 @@
 FILE=draft
 FILE2=paper
+FILE3=paper_mnras
+
+paper:
+	python mnras.py paper.tex paper_mnras.tex
+	latex ${FILE2}
+	bibtex ${FILE2}
+	latex ${FILE2}
+	latex ${FILE2}
+	dvips -o ${FILE2}.ps ${FILE2}
+	ps2pdf ${FILE2}.ps ${FILE2}.pdf 
+
+	latex ${FILE3}
+	bibtex ${FILE3}
+	latex ${FILE3}
+	latex ${FILE3}
+	#
+	#cp ${FILE}.pdf ~/Dropbox/Documents/
+	dvips -o ${FILE3}.ps ${FILE3}
+	ps2pdf ${FILE3}.ps ${FILE3}.pdf 	
+	open -a preview ${FILE3}.pdf
+
 
 draft: 
 	latex draft
@@ -15,19 +36,6 @@ draft:
 	@echo "WORDCOUNT"
 	#wc report.out
 
-paper:
-	latex ${FILE2}
-	bibtex ${FILE2}
-	latex ${FILE2}
-	latex ${FILE2}
-	#
-	#cp ${FILE}.pdf ~/Dropbox/Documents/
-	dvips -o ${FILE2}.ps ${FILE2}
-	ps2pdf ${FILE2}.ps ${FILE2}.pdf 	
-	open -a preview ${FILE2}.pdf
-#	gv ${FILE}.ps &
-	@echo "WORDCOUNT"
-	#wc report.out
 
 
 
