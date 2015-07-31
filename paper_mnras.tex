@@ -737,7 +737,7 @@ The dotted lines show the $72^\circ$ and $78^\circ$ sightlines
 to the centre of the system, and illustrate that different sightlines
 intersect material of different ionization states.
 }
-\label{fig:uvspec}
+\label{fig:wind}
 \end{figure*} %fullpage
 
 \begin{figure}
@@ -749,7 +749,7 @@ The classes of sightlines and the corresponding possible
 system types in the framework of our model.
 %[FIGURE NEEDS IMPROVING]
 }
-\label{fig:lobal}
+\label{fig:sightline}
 \end{figure}
 
 
@@ -793,6 +793,7 @@ $f$ 	&	 $0.01^*$  \\
 
 \subsection{Physical Conditions and Ionization State}
 
+Figure~\ref{fig:wind} shows the physical properties of the wind.
 The wind rises slowly from the disc at first, with clumped densities
 of $n_H \sim 10^{11}~\rm{cm^{-3}}$ close to the disc plane.
 The flow then accelerates over a scale length of $R_V=10^{19}~\rm{cm}$
@@ -826,8 +827,9 @@ $n_e^2$. This line emission typically emerges on the edge of the wind
 nearest the central source. The location of the line emitting regions
 is dependent on the ionization state, as well as the X-rays heating the plasma.
 The radii of these emitting regions is important,
-and can be compared to observations. Our \civ\ line emission region 
-is located at about $1000~R_G$ ($\sim10^{18}~\rm{cm}$).
+and can be compared to observations. As shown in ~\ref{fig:wind},
+the \civ\ line in our model is typically formed between 
+$100-1000~R_G$ ($\sim10^{17}-10^{18}~\rm{cm}$).
 This is in rough agreement with the reverberation mapping 
 results of Kaspi (2000) for the $2.6\times10^{9} M_\odot$ quasar S5 0836+71,
 and also compares favourably with microlensing measurements of the size of the
@@ -863,8 +865,17 @@ Figure 4 shows the synthetic spectrum in the UV from the two models, with the
 benchmark model from H13 also shown for comparison. We also show a comparison
 to composite quasar and BALQSO spectra in figure 5, with the optical waveband 
 included. In the UV, strong BAL profiles are formed in both models. This
-highlights the first success of our model: clumping allows the correct ionization state 
-to be maintained in the presence of strong X-rays. 
+highlights the first success of our model: clumping means the correct ionization state 
+is maintained in the presence of strong X-rays, allowing large resonance line opacities. 
+At the highest inclinations, the 
+cooler, lower ionization material at the base of the wind
+starts to intersect the line of sight. This produces 
+multiple absorption lines lower ionization species such as \mg,
+\al\ and Fe~\textsc{ii}, as well as strong Lyman continuum absorption.
+The potential links to LoBALQSOs and FeLoBALQSOs are discussed in section 2.4.
+
+
+
 The BAL profiles are often saturated, and the location in velocity space
 of the strongest absorption in the profile varies with inclination.
 At lower inclinations, the strongest absorption occurs at the red edge,
@@ -908,12 +919,16 @@ The model matches the \civ\ and \mg\ line profiles fairly well,
 but the \la\ profile is a factor of $\sim3$ weaker than in the composite spectrum.
 This is implies that a larger recombination line formation region is required in order 
 to successfully reproduce the strong \la\ emission seen in 
-all quasars. At the highest inclinations, the 
-cooler, lower ionization material at the base of the wind
-starts to intersect the line of sight. This produces 
-multiple absorption lines lower ionization species such as \mg,
-\al and Fe~\textsc{ii}, as well as strong Lyman continuum absorption.
-The potential links to LoBALQSOs and FeLoBALQSOs are discussed in section 2.4.
+all quasars. We do not produce the semi-forbidden 
+intercombination lines seen in quasar spectra because we
+currently do not have a treatment for semi-forbidden lines.
+This is especially noteiceable with the strong [C~\textsc{iii}~1909\AA\, 
+line in the quasar composite spectra.
+The critical density of the [C~\textsc{iii}~1909\AA\, line 
+is $n_e\sim10^9.5~\rm{cm^{-3}}$, which is higher than much of the 
+outer portion of our wind. We therefore expect intercombination lines
+to become important coolants in the outer portion of the wind.
+
 % Figure 5 also shows the spectrum into the optical,
 % showing that the outflow produces signiciant optical emission lines
 % as well as having a noticeable effect on the continuum shape. This
@@ -1099,7 +1114,7 @@ intercept most of the disc continuum. This would make the outflow
 an effective feedback mechanism \citep[e.g.][]{borguet2012}, 
 and would imply that BALQSO outflows
 have a similar geometry to the ultra-fast outflows seen in nearby AGN 
-\citep[e.g.][]{reeves2003,poundsreeves2009,tombesi2010a}.
+\citep{reeves2003,poundsreeves2009,tombesi2010a}.
 We note that spectropolarimetry of BALQSOs shows that the light from BAL troughs is $\sim10\%$ 
 linearly polarised, but the continuum generally has negligible polarisation \citep{lamy2000}.
 This suggests that the continuum of BALQSOs cannot be significantly enhanced by
