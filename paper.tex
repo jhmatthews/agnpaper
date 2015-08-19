@@ -448,16 +448,14 @@ Macro-atoms have their ion and level populations derived from
 MC rate estimators as described by M15. Previously (LK02, H13, M15),
 we adopted a modified Saha approach to calculate the ionization fractions
 of simple-ions. We have now improved our code to explicitly solve the 
-rate equations in between ions in non-LTE. 
-Not only does this
-dispense with a number of small assumptions made in the modified Saha approach, 
-it is also more numerically stable, 
-and in principle allows the direct addition of extra physical 
-processes such as Auger ionization, which would have to be approximated 
-if using the previous technique.
+rate equations between ions in non-LTE. 
+This dispenses with a number of small assumptions made in the modified Saha approach, 
+is more numerically stable, 
+and, in principle, allows the direct addition of extra physical 
+processes such as Auger ionization.
 
-To avoid approximating the complex AGN SED as e.g. a dilute blackbody \citep[][M15]{ML93},
-we model the SED in a cell using the technique described by H13. In this scheme,
+%To avoid approximating the complex AGN SED as e.g. a dilute blackbody \citep[][M15]{ML93},
+We model the SED in a cell using the technique described by H13. In this scheme,
 the mean intensity in a series of bands is modeled as a normalised power law in 
 frequency $\nu$
 \begin{equation}
@@ -480,14 +478,14 @@ n_i \left(C_{i} n_e +
 \end{equation}
 where $\sigma_i$ is the photoionization cross-section and $C_{i}$
 represents the collisional ionization coefficient.
-The recombination rate {\em into} ion $i$ is simply given by 
+The recombination rate {\em into} ion $i$ is given by 
 \begin{equation}
-R_{i+1,i}(T_e) = (\alpha^i_{RR} + \alpha^i_{DR} + \alpha^i_{CR}) n_{i+1} n_e
+R_{i+1,i}(T_e) = (\alpha^i_{RR} + \alpha^i_{DR} + \alpha^i_{CR}) n_{i+1} n_e,
 \end{equation}
-Where each $\alpha^i$ here is the recombination rate coefficient into the ground state of ion $i$.
+where each $\alpha^i$ here is the recombination rate coefficient into the ground state of ion $i$.
 The subscripts denote radiative, dielectronic and 
-collisional (three-body) recombination respectively.
-We thus neglect recombination to and from excited states in the simple-ion calculation. 
+collisional (three-body) recombination, respectively.
+We neglect recombination to and from excited states in the simple-ion calculation. 
 For simple-ions, we use a dilute Boltzmann equation to calculate 
 the population of level $k$ in ionic stage $j$,
 \begin{equation}
@@ -577,19 +575,19 @@ our biconical wind model.
 
 %Describe the photon sources in the model.
 
-The accretion disc in our model is geometrically thin, but optically thick
-and thus adopt a standard multi-temperature blackbody
+The accretion disc in our model is geometrically thin, but optically thick.
+We thus adopt a standard multi-temperature blackbody
 using a \cite{shakurasunyaev1973} temperature profile. 
 
-The emergent SED is thus determined by the specified accretion rate ($\dot{m}$)
+The emergent SED is then determined by the specified accretion rate ($\dot{m}$)
 and central BH mass ($M_{BH}$).
-All photon sources in our model are assumed opaque, meaning
+All photon sources in our model are assumed to beopaque, meaning
 that photons which strike them are destroyed.
 The inner radius of the disc extends to the innermost 
 stable circular orbit (ISCO) of the BH. 
 We assume a Schwarzchild BH with an ISCO at $6~R_G$.
 The X-ray source in our model is treated as an isotropic sphere at the ISCO,
-which emits r-packets according to a power law in flux with index $\alpha_X$ such that
+which emits r-packets according to a power law in flux with index $\alpha_X$, of the form
 \begin{equation}
 F_X (\nu) = K \nu^{\alpha_X}.
 \end{equation}
@@ -627,7 +625,7 @@ constraint (see Lucy 2002, M15; also section 2.3).
 
 \subsection{Kinematics and Geometry}
 
-In this prescription, a biconical disc wind rises from the accretion 
+In our model, a biconical disc wind rises from the accretion 
 disc between launch radii $r_{min}$ and $r_{max}$.
 The opening angles of the wind are set to $\theta_{min}$ and $\theta_{max}$.
 The poloidal velocity along each individual streamline at a poloidal distance $l$ 
@@ -641,9 +639,9 @@ an exponent governing how quickly the wind accelerations and
 $R_v$ is the `acceleration length', defined as the distance at which
 the outflow reaches half of its terminal velocity, $v_{\infty}$.
 The terminal velocity is set to a fixed multiple of the escape
-velocity, $v_{esc}$ at the base of the streamline (radius $r_0$).
+velocity, $v_{esc}$, at the base of the streamline (radius $r_0$).
 The rotational velocity, $v_{\phi}$, is initially Keplerian ($v_k = [GM/r_0]^{1/2}$),
-and the wind conserves specific angular momentum such that 
+and the wind conserves specific angular momentum, such that 
 \begin{equation}
 v_{\phi} r = v_k r_0.
 \label{v_law}
@@ -658,14 +656,16 @@ with correspondingly different ionization and emission characteristics.
 
 \subsection{Clumping}
 
-To take account of clumping in our outflow we adopt a simple parameterization
-used in stellar wind modelling, known as {\em microclumping} \citep{hamann1998}. 
-The key assumption here is that typical clump sizes
-are much smaller than the typical photon mean free path, and thus the clumps are 
-both geometrically and optically thin. This approach is typically 
-known as microclumping and allows one to introduce a `filling factor', $f$, which is the 
-fraction of the volume of the plasma filled by clumps. We can then introduce the 
-density enhancement, $D$, which is simply defined as 
+To allow for clumping in our outflow we adopt a simple approximation
+used extensively in stellar wind modelling, known as 
+{\em microclumping} \citep{hamann1998}. The key assumption here is that 
+typical clump sizes are much smaller than the typical photon mean free path, 
+and thus the clumps are 
+both geometrically and optically thin. This approach 
+allows one to introduce a `filling factor', $f$, which is the 
+fraction of the volume of the plasma filled by clumps. The intra-clump
+medium is assumed to be a vacuum. We can then introduce the 
+density enhancement, $D$, which is defined as 
 \begin{equation}
 D = \frac{1}{f}.
 \end{equation}
@@ -714,7 +714,7 @@ was arrived at by conducting a limited grid search over a
 $r_{min}$, $\theta_{min}$, $f$, $\alpha$ and $R_V$.
 The full grid, including output spectral files and plots can be found at
 \url{jhmatthews.github.io/quasar-wind-grid/}.
-We evaluated these models qualitavely based on the following
+We evaluated these models qualitatively based on the following
 criteria:
 \begin{itemize}
 \item Does the model maintain the correct ionization state and produce strong BALs?
@@ -802,27 +802,27 @@ Figure~\ref{fig:wind} shows the physical properties of the wind.
 The wind rises slowly from the disc at first, with clumped densities
 of $n_H \sim 10^{11}~\rm{cm^{-3}}$ close to the disc plane.
 The flow then accelerates over a scale length of $R_V=10^{19}~\rm{cm}$
-up to a terminal velocity of around $3$ times the escape velocity 
+up to a terminal velocity equal to the escape velocity at the streamline base
 ($\sim10,000~\rm{km~s^{-1}}$). This gradual acceleration means that
 the wind exhibits a stratified ionization structure, with low ionization material
 in the base of the wind giving way to highly ionized plasma further out.
 By clumping the wind, we are able to produce the range of ionization states observed
-in wuasars and BALQSOs, while adopting a realistic $2-10$ keV X-ray luminosity
+in quasars and BALQSOs, while adopting a realistic $2-10$ keV X-ray luminosity
 of $L_{X}=10^{45}~\rm{ergs~s^{-1}}$. Without clumping, this wind would be over-ionized 
 to the extent that opacities in e.g., \civ\ would be entirely negligible (see H13).
 
-One commonly used measure of the ionization state is the ionization parameter, $U$, given by
+One commonly used measure of the ionization state is the ionization parameter, $U_H$, given by
 \begin{equation}
-U = \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}}}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu}.
+U_H = \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}}}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu}.
 \end{equation}
 \noindent where $\rm{n_H}$ is the local number density of H, and $\nu$ denotes photon 
 frequency. The ionization parameter represents the ratio of the number density of 
-ionizing photons to the local H density. It is however, a poor measure of the 
-ionization state of the resonance species such as \civ\ as it encodes no information
-about the shape of the SED. In this case the X-ray photons 
+H ionizing photons to the local H density. It is, however, a poor measure of the 
+ionization state of species such as \civ\ as it encodes no information
+about the shape of the SED. In our case, the X-ray photons 
 are dominant in the photoionization of the UV resonance line ions. 
 This explains why a factor of 100 increase in X-ray luminosity requires
-a clumping factor of 0.01, even though the value of U decreases by only a factor of $\sim10$ 
+a clumping factor of 0.01, even though the value of $U_H$ decreases by only a factor of $\sim10$ 
 compared to H13. This is also the reason for significant Lyman edge photoabsorption
 at the highest inclinations (see section 4.3).
 
@@ -832,7 +832,7 @@ $n_e^2$. This line emission typically emerges on the edge of the wind
 nearest the central source. The location of the line emitting regions
 is dependent on the ionization state, as well as the X-rays heating the plasma.
 The radii of these emitting regions is important,
-and can be compared to observations. As shown in ~\ref{fig:wind},
+and can be compared to observations. As shown in figure~\ref{fig:wind},
 the \civ\ line in our model is typically formed between 
 $100-1000~R_G$ ($\sim10^{17}-10^{18}~\rm{cm}$).
 This is in rough agreement with the reverberation mapping 
@@ -884,7 +884,7 @@ multiple absorption lines lower ionization species such as \mg,
 The potential links to LoBALQSOs and FeLoBALQSOs are discussed in section 2.4.
 
 
-The BAL profiles are often saturated, and the location in velocity space
+The high ionization BAL profiles are often saturated, and the location in velocity space
 of the strongest absorption in the profile varies with inclination.
 At lower inclinations, the strongest absorption occurs at the red edge,
 whereas at high inclinations (and for the strongest BALs)
@@ -906,7 +906,7 @@ the shape of the line.
 We find that the model can produce significant line emission
 at low inclinations, particular in \civ, 
 and the improved treatment of recombination results in a strong \la\
-line. In the context of unification, this is a promising results, 
+line. In the context of unification, this is a promising result, 
 and shows that a biconical wind can produce significant 
 emission at `quasar-like' angles.
 However, the red wing of the BAL profiles 
@@ -925,13 +925,7 @@ quasar spectra, we also show {\sl Sloan Digital Sky Survey} (SDSS) quasar compos
 \cite{reichard2003}, normalised to the flux at 2000\AA\ in each panel.
 The model matches the \civ\ and \mg\ line profiles fairly well, 
 but the \la\ profile is a factor of $\sim2$ weaker than in the composite spectrum.
-
-
-
-
-This is implies that a larger recombination line formation region is required in order 
-to successfully reproduce the strong \la\ emission seen in 
-all quasars. 
+This is one of the main weaknesses of our models. 
 
 We do not produce the semi-forbidden 
 intercombination lines seen in quasar spectra because we

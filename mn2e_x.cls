@@ -22,6 +22,11 @@
 \def\ds@twocolumn{\@twocolumntrue}
 \def\ds@onecolumn{\@twocolumnfalse}
 
+%% Apj etc definitions
+\def\apj{Apj}
+\def\aap{A\&A}
+\def\mnras{MNRAS}
+
 % letters option
 %
 \newif\if@letters
@@ -596,8 +601,10 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
    \ifdim \@tempskipa <\z@ \@tempskipa -\@tempskipa \@afterindentfalse\fi
    \if@nobreak
      \everypar{}\ifnum#2=2 \vskip 0pt plus1pt\fi % was 6pt
+   \if@levelonefalse
+     \addpenalty{\@secpenalty}\addvspace{0.2\@tempskipa}
    \else
-     \addpenalty{\@secpenalty}\addvspace{\@tempskipa}
+     \addpenalty{\@secpenalty}\addvspace{0.8\@tempskipa}
    \fi \@ifstar
      {\@ssect{#3}{#4}{#5}{#6}}{\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6}}}}
 
@@ -608,7 +615,7 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
 \def\section{%
  \if@firstsection \fixfootnotes\@firstsectionfalse \fi%
  \@startsection{section}{1}{\z@}
- {-24pt plus -12pt minus -1pt}{6pt}
+ {-14pt plus -12pt minus -1pt}{6pt}       %%{-24pt plus -12pt minus -1pt}{6pt}
  {\SFB@hangraggedright\reset@font\normalsize\bf}}
 \def\subsection{\@startsection{subsection}{2}{\z@}
  {-18pt plus -9pt minus -1pt}{6pt}
@@ -1036,7 +1043,7 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
   \hsize \textwidth
   \@parboxrestore
 }
-\def\finish@SFBbox{\par\vskip -\dbltextfloatsep
+\def\finish@SFBbox{\par\vskip - \dbltextfloatsep
   \egroup
   \global\count\@currbox\tw@
   \global\@dbltopnum\@ne
@@ -1090,9 +1097,11 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
 \def\ps@headings{\let\@mkboth\markboth
  \def\@oddhead{\Large\hfill{\it\@shorttitle}\hspace{1.5em}%
    \rm\@ddell\thepage}
- \def\@oddfoot{\small\copyright\ \@pubyear\ RAS, MNRAS {\bf \@volume}, \@pagerange\hfil}
+ %\def\@oddfoot{\small\copyright\ \@pubyear\ RAS, MNRAS {\bf \@volume}, \@pagerange\hfil}
  \def\@evenhead{\Large\@ddell\thepage\hspace{1.5em}\it\@shortauthor\hfill}
- \def\@evenfoot{\hfil\small\copyright\ \@pubyear\ RAS, MNRAS {\bf \@volume}, \@pagerange}
+ %\def\@evenfoot{\hfil\small\copyright\ \@pubyear\ RAS, MNRAS {\bf \@volume}, \@pagerange}
+ \def\@evenfoot{}
+ \def\@oddfoot{}
  \def\sectionmark##1{\markboth{##1}{}}
  \def\subsectionmark##1{\markright{##1}}}
 
@@ -1105,8 +1114,9 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
  \def\subsectionmark##1{}}
 
 \def\ps@titlepage{\let\@mkboth\@gobbletwo
- \def\@oddhead{\footnotesize\@journal\hfill}
- \def\@oddfoot{\small\copyright\ \@pubyear\ RAS\hfil}
+ \def\@oddhead{}
+ %\def\@oddfoot{\small\copyright\ \@pubyear\ RAS\hfil}
+ \def\@oddfoot{}
  \def\@evenhead{\footnotesize\@journal\hfill}
  \def\@evenfoot{\hfil\small\copyright\ \@pubyear\ RAS}
  \def\sectionmark##1{}
@@ -1174,6 +1184,9 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
  \section*{LIST OF TABLES\@mkboth{LIST OF TABLES}{LIST OF TABLES}}
  \@starttoc{lot} \if@restonecol\twocolumn\fi}
 \let\l@table\l@figure
+%\let\placefigure\@gobble 
+\newcommand\placefigure{\@place@float{FIGURE}}% 
+\let\placefigure\@gobble 
 
 %  ****************************************
 %  *             BIBLIOGRAPHY             *
@@ -1292,7 +1305,7 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
 
 \newcounter{figure}
 \def\thefigure{\@arabic\c@figure}
-\def\fps@figure{tbp}
+\def\fps@figure{htbp}
 \def\ftype@figure{2}
 \def\fstyle@figure{\reset@font\small\rm}
 \def\ext@figure{lof}
