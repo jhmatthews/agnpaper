@@ -4,10 +4,10 @@ FILE3=paper_mnras
 
 paper:
 	python mnras.py paper.tex paper_mnras.tex
-	# pdflatex ${FILE2}
-	# bibtex ${FILE2}
-	# pdflatex ${FILE2}
-	# pdflatex ${FILE2}
+	pdflatex ${FILE2}
+	bibtex ${FILE2}
+	pdflatex ${FILE2}
+	pdflatex ${FILE2}
 	#dvips -o ${FILE2}.ps ${FILE2}
 	#ps2pdf ${FILE2}.ps ${FILE2}.pdf 
 
