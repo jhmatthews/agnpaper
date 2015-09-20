@@ -90,15 +90,10 @@
 {
 % Modelling quasar outflows:
 % clumpy winds and broad emission lines
-Unifying quasars with clumpy wind models
+Testing Quasar Unification with Clumpy Wind Models
+%Unifying quasars with clumpy wind models
 }
 
-
-% [Matthews, J.]
-% \author[Matthews, J.]{James Matthews \\
-% {\sl  Supervisor: Prof. Christian Knigge} \\
-% {\sl School of Physics \& Astronomy, University of Southampton,
-%   Southampton, SO17 1BJ, UK}}
 
 %\author[Matthews et al.]
 \author[Matthews et al.]{
@@ -174,9 +169,15 @@ Nick~Higginbottom$^1$, Knox~S.~Long$^2$, Stuart~A.~Sim$^3$ and Sam~W.~Mangham$^1
 % Determining the true geometry of ADWs and uncovering the true disc spectral 
 % (and angular) energy distribution are key next stpng if we are to build up a 
 % holistic picture of the quasar population.
-Various unification schemes have been proposed to interpret the complex phenomenology of quasars and luminous active galactic nuclei (AGN) in terms of  a simple axisymmetric picture involving a central black hole, an accretion disc and an associated outflow.
-Here, we continue our tests of  this paradigm by comparing ``average'' AGN spectra to synthetic spectra of simple biconical disc wind models, using  with our Monte Carlo radiative transfer and photoionization code {\sc Python}.
-In particular, we investigate whether clumping of the outflow allows us to produce synthetic spectra in the rest-frame UV that have the characteristics of AGN, assuming total luminosities as high as 10$^{45}$ ergs s$^{-1}$. 
+Various unification schemes have been proposed to interpret the complex phenomenology 
+of quasars and luminous active galactic nuclei (AGN) in terms of  a simple axisymmetric 
+picture involving a central black hole, an accretion disc and an associated outflow.
+Here, we continue our tests of  this paradigm by comparing ``average'' AGN spectra to 
+synthetic spectra of simple biconical disc wind models, using our state-of-the-art 
+Monte Carlo radiative transfer and photoionization code.
+In particular, we investigate whether clumping of the outflow allows us to 
+produce synthetic spectra in the rest-frame UV that have the characteristics of AGN, 
+assuming total luminosities as high as 10$^{45}$ ergs s$^{-1}$. 
 We find that a simple treatment of clumping (`microclumping') 
 allows for a more realistic AGN luminosities,
 while maintaining the ionization state necessary for strong BAL features in the rest-frame UV. 
@@ -186,19 +187,14 @@ The dense, X-ray heated wind
 produces strong recombination and collisionally excited line emission in, 
 e.g., \civ\ and \la, to emerge at the low inclination, `Type 1 quasar-like' angles. 
 At the highest inclinations, the synthetic spectra possess prominent \mg\ and \al\ BALs, the absorption 
-features seen in LoBAL quasars. Despite these successes, we are unable to reproduce 
+features seen in LoBAL quasars. 
+Despite these successes, we are unable to reproduce 
 the remarkably uniform emission line properties 
-% remarkably similar of line-to-continuum ratios apparent 
-seen in BAL and non-BAL quasar composites. {\bf This sentence needs to be more precise, especially in light ot the statement earlier in the abstract about ``good agreement''}
+seen in BAL and non-BAL quasar composites. 
+{\bf This sentence needs to be more precise, especially in 
+light of the statement earlier in the abstract about ``good agreement''}
 This is due to a fundamental constraint arising
 from the anisotropy of emission from a classical thin disc. 
-We briefly explore the impact of general relativistic effects
-on the angular distribution of disc continuum emission, and find that 
-they are not sufficient to produce a self-consistent model.
-% relativistic beaming, gravitational redshift and 
-% light bending on the angular distribution of disc continuum emission. 
-% We find that these general relativistic effects are not yet sufficient to produce a
-% self-consistent model. 
 Overall, our work suggests that geometric unification
 involving an accretion disc wind is a promising scenario, but our results 
 pose a number of difficult challenges to such a model.
@@ -219,21 +215,16 @@ pose a number of difficult challenges to such a model.
 
 \section{Introduction}
 
-% Introduction focussing on key points
-% \begin{itemize}
-% \item standard wind + BALQSO introduction
-% \item focus on unification and that we are testing it
-% \item some discussion of scales, referencing e.g. reverb maps, variability, microlensing, Arav 
-% \item clumping background: stellar winds, clumping in AGN winds, variability
-% \end{itemize}
-
 The spectra of 
 quasars and luminous active galactic nuclei (AGN) 
 typically exhibit a series of strong emission lines
 with an underlying blue continuum - the so-called {\sl `big blue bump'} (BBB). 
 The BBB is often attributed to emssion from a 
 geometrically thin, optically thick accretion disc surrounding the central black hole, similar
-to that described by \cite{shakurasunyaev1973}.  The lines are usually attributed to scattering and absorption of material above the disk.  {\bf Note: the first half of this paragraph and the second do not follow from one another.  The first half is about spectra the second about outflows and the connection to spectra is not made until the next paragrph.  This needs fixing.}
+to that described by \cite{shakurasunyaev1973}.  The lines are usually attributed to scattering and absorption of material above the disk.  
+{\bf Note: the first half of this paragraph and the second do not follow from one another.  
+The first half is about spectra the second about outflows and the connection to spectra is not made until the next paragrph.  
+This needs fixing. JM: Knox, I like this structure...I start with inflow, then move to outflow.}
 In addition to the inflowing accreting material, 
 outflows are ubiquitous in AGN
 and quasars \citep{kellerman1989,ganguly2008}. These outflows can take the form of 
@@ -256,20 +247,21 @@ Within the ADW paradigm, a biconical wind rises from
 the accretion disc and the BALQSO fraction is associated with
 the covering factor of the outflow. 
 Polarisation studies expect the wind to be roughly equatorial
-\citep{goodrich1995, cohen1995}.
+\citep{goodrich1995, cohen1995}, although this geometry is contradicted
+by more recent studies of radio spectral indices (REFS DIPOMPEO; see section ?).
 ADWs offer a natural explanation for the
 diverse phenemonology of luminous AGN and QSOs \citep[e.g.][]{MCGV95, elvis2000}. 
 Depending on viewing angle, an observer 
 may see a BALQSO or normal `Type 1' quasar.
 Within this framework, the broad-line region (BLR) can 
 correspond either to the dense wind base or dense clumps embedded
-in the outflows. Indeed, \cite{elitzur2014} found that a disc-wind BLR scenario
+in the outflows. Indeed, \cite{elitzur2014} show that a disc-wind BLR scenario
 naturally explains the emission line evolution of AGN.
 A biconical wind model can also readily explain the various sub-classifications of BALQSOs: 
 HiBALQSOs, which only exhibit high ionization line absorption; LoBALQSOs, which also show
 absorption in lower ionization state species such as \mg\ and \al; and
 FeLoBALQSOs which show further absorption in Fe~\textsc{ii} and \textsc{iii}.
-In unified models, this is generally attributed to ionization stratification
+In unified geometric models, this is generally attributed to ionization stratification
 of the outflow \citep[e.g.][]{elvis2000}.
 
 % As well as acting as a source of photoionized plasma, a 
@@ -335,11 +327,8 @@ predicted way to lower the ionization state of a plasma, possibly in tandem
 with a shielding scenario. 
 
 
-
-
 % An inhomogenous outflow has been proposed as a model for the BLR (REFs)
 % Clumping is expected in outflows and BLRs.
-
 
 % The UV spectrum of {\em non-BAL} QSOs is typified by a series
 % of strong emission lines (e.g. \la, \civ, \nv) with an underlying blue continuum
@@ -504,7 +493,7 @@ R_{j,j+1}(J)=
 \displaystyle{
 n_i \left(C_{j} n_e + 
 \sum_{band~i=0}^{n}~
-{\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu^{-1}} d\nu}
+{\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu} d\nu}
 \right),}
 \end{equation}
 where $\sigma_j$ is the photoionization cross-section and $C_{j}$
@@ -707,11 +696,11 @@ Unfortuantely, the physical scale lengths and density contrasts
 associated with these parameters cannot be well-constrained from observations.
 
 
-{\bf This needs an introductory paragraph.  Should state our earlier modeling of AGN H13 was based on a smooth outflow.  It should reference the introduction where we say there are observational indications of clumping.  Should say that the difficulty associated with clumping is two fold - computationally implies many grid cells,  many potential parameters.  Ultimately, say that for simplicity we use microclumping.  Then say this has been used elsewhere, but with more recent references than what we have.  The point is we need to motivate micro clumping before we say what it means to the code  It's all mixed up as written. Aside: at some point this paper should mention H14, and hydro models more generally}
+% {\bf This needs an introductory paragraph.  Should state our earlier modeling of AGN H13 was based on a smooth outflow.  It should reference the introduction where we say there are observational indications of clumping.  Should say that the difficulty associated with clumping is two fold - computationally implies many grid cells,  many potential parameters.  Ultimately, say that for simplicity we use microclumping.  Then say this has been used elsewhere, but with more recent references than what we have.  The point is we need to motivate micro clumping before we say what it means to the code  It's all mixed up as written. Aside: at some point this paper should mention H14, and hydro models more generally}
 
 To allow for clumping in our outflow we adopt a simple approximation
 used extensively in stellar wind modelling, known as 
-{\em microclumping} \citep{hamann1998}. The key assumption here is that 
+{\em microclumping} \citep{hamann1998}(MORE REFS). The key assumption here is that 
 typical clump sizes are much smaller than the typical photon mean free path, 
 and thus the clumps are 
 both geometrically and optically thin. This approach 
@@ -770,14 +759,12 @@ This set of parameters
 was arrived at by conducting a limited grid search over a 
 5-dimensional parameter space involving the variables
 $r_{min}$, $\theta_{min}$, $f$, $\alpha$ and $R_V$.
-The full grid, including output spectral files and plots can be found at
-\url{jhmatthews.github.io/quasar-wind-grid/}.
-We evaluated these models qualitatively based on the following
+We evaluated these models based on the following
 criteria:
 \begin{itemize}
-\item Does the model maintain the right ionization state to produce strong BALs?
-\item Does significant line emission emerge at low inclinations?
-\item Do H recombination lines appear in the spectrum?
+\item Does the model maintain the right ionization state to produce strong BALs ($BI > ??$)?
+\item Does significant line emission emerge at low inclinations, with $EW\sim50\AA$ in \civ?
+\item Do H recombination lines appear in the spectrum, $EW\sim50\AA$ in \la?
 \item Do a certain range of angles produce LoBAL features?
 \item Does the model compare favourably to quasar composite spectra?
 \end{itemize}
@@ -785,7 +772,8 @@ In this section, we present one of the most promising models and discuss
 the various successes and failures.
 This allows us to gain insight into fundamental geometrical 
 and physical constraints and assess the potential for unification. 
-
+The full grid, including output synthetic spectra and plots can be found at
+\url{jhmatthews.github.io/quasar-wind-grid/}.
 
 \begin{figure*} %fullpage
 \centering
@@ -1018,31 +1006,16 @@ significantly affected by disc foreshortening and limb darkening.
 The angular distribution of the disc radiation is clearly
 crucially important in determining the emergent line ratios.
 
-\subsubsection{The Disc SED}
+\subsubsection{The Angular Distribution of Line And Continuum Emission}
 \label{discsed}
 
 {\bf: I am not convinced this in the right place in the paper, because here we explore an alternative hypythesis.  It might go better at the end.  But a good many of the following sections are not that well motivated.}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{figures/agnspec.png}
-\caption
-{
-$F_\lambda$ for three different wavelengths
-as a function of inclination from \agn\ models, 
-compared to a classical AD. The \agn\ models are computed 
-for Kerr and Scharzschild BHs with the same $M_{BH}$ and 
-$\dot{m}$ as our model. 
-}
-\label{fig:f2000}
-\end{figure}
 
 
 When comparing BALQSO and quasar composites, it is apparent
 that they possess remarkably similar line strengths and widths 
 \citep[e.g.][]{weymann1991,reichard2003}.  
 {\bf I think we mean EW here; otherwise I don't understand what we are talking about.  We could say ``line shapes and equivalent widths''.  I also think this requries more than one sentence of introduction.}
->>>>>>> 3c3265bb9688e4788107378165d92e06c2aa7abe
 This presents a challenge to our model, as well as the geometric 
 unification picture in general, because these quantities should vary with inclination angle.
 Limb darkening and foreshortening causes the disc continuum emission to be 
@@ -1072,8 +1045,11 @@ from optically thick,
 disc-like structures for {\em both} the continuum source and BLR. 
 If this is the case, it has a dramatic affect on the intrinsic
 BAL fraction inferred from flux-limited samples \citep{goodrich1997,krolikvoit1998}.
-We will explore these ideas further in a future study.
-We will explore these ideas further in a future study.  {\bf Wait!  All this says is that there has to be an alternative explanation.  It is not support for any specific explanation!. This last few sentences should be a separate paragraph.  They should start out: An alernative explanation proposed by risalite is that...}
+We will explore these ideas further in a future study.  
+{\bf Wait!  All this says is that there has to be an alternative explanation.
+It is not support for any specific explanation!. This last few sentences should
+be a separate paragraph.  They should start out: An alernative explanation proposed 
+by risalite is that...}
 
 % Figure 5 also shows the spectrum into the optical,
 % showing that the outflow produces signiciant optical emission lines
@@ -1449,25 +1425,6 @@ Figures were produced using {\tt matplotlib} \citep{matplotlib}.
 %\appendix
 % \appendix
 % \section{Notes}
-
-% Here are some notes on various parts of the text.
-% \smallskip
-
-
-% \begin{itemize}
-% 	\item 
-% 	\item Figure 3 should be improved to include some kind of real colormap of the model
-% 	\item At the moment I haven't included another plot for the optical spectrum, or discussed
-% 	it in the paper.
-% 	\item Figure 5 needs to show a sample at the higher luminosity end, and include the actual relationship as the dotted line instead of a by eye version as is currently 
-% 	\item
-% 	\item
-% 	\item
-% 	\item
-% 	\item
-% 	\item
-% 	\item
-% \end{itemize}
 
 
 \end{document}
