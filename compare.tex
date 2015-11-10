@@ -1,0 +1,1303 @@
+%%%% Various options for document class.
+%%\documentclass[usenatbib, a4paper, 11pt]{aastex}
+%%\documentclass[preprint, 11pt, a4paper]{aastex}
+%%\documentclass[twocolum]{revtex4}
+%%\documentclass{report}
+%\documentclass[useAMS,usenatbib]{mn2e_x}
+\documentclass[preprint, a4paper, 11pt]{aastex}
+%\usepackage{psfig,morefloats,url}
+%use preprint2 for 2 columns paper.
+
+%% declare any packages used
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{pdfpages}
+\usepackage{appendix}
+\usepackage{subfigure}
+\usepackage{url}
+%\usepackage{pngfig}
+%\usepackage[dvips]{color}
+%\usepackage{aabib}
+
+
+%\marginparwidth = 25pt
+\citestyle{aa}
+\addtolength{\topmargin}{-.5in}
+%\addtolength{\bottommargin}{-1in}
+%% This command added as margins are wrong in mn2e, it appears. 
+%% Not needed for other classes
+\usepackage{float}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%% define bibstyle and other definitions
+\bibliographystyle{aabib}
+%% renew commands
+%%\renewcommand{\labelitemi}{$.$}
+
+%% Codes
+\def\py{\textsc{Python}}
+\def\tar{\textsc{Tardis}}
+\def\cld{\textsc{Cloudy}}
+\def\agn{\textsc{Agnspec}}
+
+
+%% Lines and ions
+\def\civ{C~\textsc{iv}}
+\def\nv{N~\textsc{v}}
+\def\hei{He~\textsc{i}}
+\def\heii{He~\textsc{ii}}
+\def\mg{Mg~\textsc{ii}}
+\def\al{Al~\textsc{iii}}
+\def\heii{He~\textsc{ii}}
+\def\ovi{O~\textsc{vi}}
+\def\la{Ly~$\alpha$}
+\def\ha{H~$\alpha$}
+\def\hb{H~$\beta$}
+
+
+
+%% Journal definitions
+\def\araa{ARAA}
+\def\nat{Nature}
+\def\apjl{ApJ Letters}
+\def\aapr{AAPR}
+\def\ssr{SSR}
+\def\apj{ApJ}
+\def\apjs{ApJs}
+\def\pasp{PASP}
+\def\aap{A\&A}
+\def\mnras{MNRAS}
+\def\aj{AJ}
+\def\rmxaa{RMXAA}
+\def\aaps{A\&As}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%          TITLE AND AUTHORS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title
+{
+% Modelling quasar outflows:
+% clumpy winds and broad emission lines
+Unifying quasars with clumpy wind models
+}
+
+
+% [Matthews, J.]
+% \author[Matthews, J.]{James Matthews \\
+% {\sl  Supervisor: Prof. Christian Knigge} \\
+% {\sl School of Physics \& Astronomy, University of Southampton,
+%   Southampton, SO17 1BJ, UK}}
+
+%\author[Matthews et al.]
+\author{
+\parbox[t]{\textwidth}{
+J.~H.~Matthews$^1$\thanks{jm8g08@soton.ac.uk}, C.~Knigge$^1$,
+N.~Higginbottom$^1$, K.~S.~Long$^2$, S.~A.~Sim$^3$ and S.~W.~Mangham$^1$
+}
+\medskip  
+\\$^1$School of Physics and Astronomy, University of Southampton, Highfield, Southampton, SO17 1BJ, United Kingdom
+\\$^2$Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD, 21218
+\\$^3$School of Mathematics and Physics, Queens University Belfast, University Road, Belfast, BT7 1NN, Northern Ireland, UK
+}
+
+\date{\today}
+%\\
+%Supervisor: Prof. Christian Knigge\\
+%{\sl School of Physics \& Astronomy, University of Southampton,
+%  Southampton, SO17 1BJ, UK}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%          ABSTRACT
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{abstract} 
+% Broad absorption lines (BALs) in the ultraviolet 
+% are seen in $\sim20\%$ of quasi-stellar objects (QSOs). 
+% Blue-shifted broad absorption lines (BALs) are the most direct evidence of 
+% accretion disc `winds' in such systems; mass loaded outflows
+% emanating from the disc that may be driven by line forces or
+% magnetic processes. 
+% Various unification schemes for
+% quasars and luminous active galactic nuclei (AGN) have proposed
+% that the broad emission line region is roughly cospatial
+% with broad absorption line (BAL) gas and much of the phenomenology of luminous AGN
+% can be explained by a simple geometrical picture involving an accretion
+% disc and associated outflow. Here, we test this paradigm by 
+% utilising our state-of-the-art radiative transfer code to produce synthetic spectra
+% from simple biconical disc wind models. 
+% In particular, we expand on our previous 
+% work in which a benchmark model for BAL quasars was produced. 
+% We have conducted a limited parameter search with the aim of unifying quasar phenomenology,
+% and arrive at an improved model. The grid is now publicly available.
+% We find that a simple treatment of clumping (`microclumping') 
+% allows for a more realistic X-ray luminosity in the model by lowering the 
+% ionization parameter. We examine the X-ray properties of this new model
+% and find good agreement with existing X-ray samples of AGN and QSOs.
+% We find that the dense, X-ray heated wind 
+% produces strong H recombination and collisionally excited resonance 
+% line emission to emerge at the low inclination angles, 
+% which represent quasars within this unification scenario.
+% % We also treat Hydrogen using a `macro-atom' approach in order to 
+% % examine the effect of recombination on Hydrogen emission lines, and
+% % this results in significant line emission in Lyman~$\alpha$ and the Balmer series.
+% However, we are unable to reproduce the remarkably similar of line-to-continuum
+% ratios between BAL and non-BAL quasar composites.
+% This is due to a fundamental constraint arising
+% from the anisotropy of emission from a classical thin disc. 
+% We briefly explore the effect of relativistic beaming, gravitational redshift and 
+% light bending on the angular distribution of disc continuum emission. 
+% We find that these general relativistic effects do cause the disc to
+% emit slightly more isotropically, but this is not yet sufficient to produce a
+% self-consistent model. We discuss wind reprocessing as a potential solution.
+% Overall, our work suggests that geometric unification
+% involving an accretion disc wind is a promising scenario, but our results 
+% pose a number of difficult challenges to such a model.
+% Determining the true geometry of ADWs and uncovering the true disc spectral 
+% (and angular) energy distribution are key next stpng if we are to build up a 
+% holistic picture of the quasar population.
+Various unification schemes for quasars and luminous active galactic nuclei (AGN) 
+propose that much of their complex phenomenology can be explained by a simple 
+geometrical picture involving an accretion disc and associated outflow.
+Here, we test this paradigm by utilising our state-of-the-art radiative transfer 
+and photoionization code to produce synthetic spectra from simple biconical disc wind models. 
+In particular, we expand on our previous work by presenting a model that
+exhibits many of the spectral features expected from a quasar unification model.
+We find that a simple treatment of clumping (`microclumping') 
+allows for a more realistic X-ray luminosity in the model,
+while maintaining the ionization state necessary for strong BAL features. 
+We examine the X-ray properties of this new model
+and find good agreement with existing X-ray samples of AGN and quasars.
+We find that the dense, X-ray heated wind 
+produces strong recombination and collisionally excited line emission in, 
+e.g., \civ\ and \la, to emerge at the low inclination, `Type 1 quasar-like' angles. 
+The highest inclination models possess prominent \mg\ and \al\ BALs, the absorption 
+features seen in LoBAL quasars. Despite these successes, we are unable to reproduce 
+the remarkably uniform emission line properties 
+% remarkably similar of line-to-continuum ratios apparent 
+seen in BAL and non-BAL quasar composites.
+This is due to a fundamental constraint arising
+from the anisotropy of emission from a classical thin disc. 
+We briefly explore the impact of general relativistic effects
+on the angular distribution of disc continuum emission, and find that 
+they are not sufficient to produce a self-consistent model.
+% relativistic beaming, gravitational redshift and 
+% light bending on the angular distribution of disc continuum emission. 
+% We find that these general relativistic effects are not yet sufficient to produce a
+% self-consistent model. 
+Overall, our work suggests that geometric unification
+involving an accretion disc wind is a promising scenario, but our results 
+pose a number of difficult challenges to such a model.
+\end{abstract}
+
+\maketitle
+%\begin{keywords}
+%AGN: outflows
+%\end{keywords}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%          INTRODUCTION
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+% Introduction focussing on key points
+% \begin{itemize}
+% \item standard wind + BALQSO introduction
+% \item focus on unification and that we are testing it
+% \item some discussion of scales, referencing e.g. reverb maps, variability, microlensing, Arav 
+% \item clumping background: stellar winds, clumping in AGN winds, variability
+% \end{itemize}
+
+The spectra of 
+quasars and luminous active galactic nuclei (AGN) 
+typically exhibit a series of strong emission lines
+with an underlying blue continuum - the so-called {\sl `big blue bump'} (BBB). 
+The BBB is often attributed to emssion from a 
+geometrically thin, optically thick accretion disc surrounding the central black hole, similar
+to that described by \cite{shakurasunyaev1973}.
+In addition to the inflowing accreting material,
+outflows are ubiquitous in AGN
+and quasars \citep{kellerman1989,ganguly2008}. These outflows can take the form of 
+highly collimated radio jets \citep[e.g.][]{hazard1963,potash1980,perley1984,marscher2006}, 
+or mass-loaded `winds' emanating from the accretion disc 
+\citep{weymann1991,turnermiller2009}. 
+Outflows in AGN offer a 
+potential feedback mechanism through which the central source can 
+affect its environment \citep{king2003,king2005,fabian2012}
+-- feedback that is required in models of galaxy evolution \citep{springel2005}
+and may explain the `$M-\sigma$' relation \citep{silkrees1998,haring2004}.
+
+Approximately $20\%$ of quasars exhibit blueshifted ($\sim 0.1c$)
+broad absorption lines (BALs) in the ultraviolet,
+providing clear evidence for outflowing absorbing material
+\citep{weymann1991, reichard2003, knigge2008, turnermiller2009, allen2011}.
+The simplest explanation for the incidence of 
+BAL quasars (BALQSOs) is in terms of an accretion disc wind (ADW). 
+Within the ADW paradigm, a biconical wind rises from 
+the accretion disc and the BALQSO fraction is associated with
+the covering factor of the outflow. 
+The wind is expected to be roughly equatorial from polarisation results
+\citep{goodrich1995, cohen1995}.
+ADWs offer a natural explanation for the
+diverse phenemonology of luminous AGN and QSOs \citep[e.g.][]{MCGV95, elvis2000}. 
+Depending on viewing angle, an observer 
+may see a BALQSO or normal `Type 1' quasar.
+Within this framework, the broad-line region (BLR) can 
+correspond either to the dense wind base or dense clumps embedded
+in the outflows. Indeed, \cite{elitzur2014} found that a disc-wind BLR scenario
+naturally explains the emission line evolution of AGN.
+A biconical wind model can also readily explain the various sub-classifications of BALQSOs: 
+HiBALQSOs, which only exhibit higher ionization line absorption; LoBALQSOs which also show
+absorption in lower ionization state species such as \mg\ and \al; and
+FeLoBALQSOs which show further absorption in Fe~\textsc{ii} and \textsc{iii}.
+In unified models, this is generally attributed to ionization stratification
+of the outflow \citep[e.g.][]{elvis2000}.
+
+% As well as acting as a source of photoionized plasma, a 
+As well as imprinting clear line absorption and emission
+features, disc winds may also have a profound effect on the structure and 
+emergent {\em continuum} of the accretion disc itself.
+Mass-loss will alter the accretion rate and resultant 
+temperature of the accretion disc, possibly explaining some 
+of the features typically seen in luminous AGN \citep{knigge1999,laordavis2014}.
+There have been numerous difficulties when confronting 
+theoretical accretion disc models with observations 
+\citep[see e.g.][]{blaes1998}. However, AGN spectral energy distributions (SEDs) can now, 
+in general, be fitted well with accretion disc models
+when the effects of general relativity (GR), Comptonisation
+and mass-loss are included \citep{capellupo2015}. Mass-loss therefore appears to be 
+critical if an accretion disc model is to successfully fit AGN SEDs, 
+particular in the UV region of the spectrum.
+
+Despite the clear importance of ADWs in understanding AGN SEDs and accretion physics, 
+much of the underlying outflow physics remains highly uncertain. 
+Several possible driving mechanisms for ADWs have been proposed, including
+thermal pressure \citep{weymann1982, begelman1991}, magnetocentrifugal forces 
+\citep{blandfordpayne,pelletier_pudritz} and 
+radiation pressure on spectral lines \citep[`line-driving';][]{lucysolomon1970,shlosman1985,MCGV95}.
+Of these, line-driving is possibly the most attractive, as
+strong absorption lines are already seen in BALQSOs and the X-ray spectra of AGN 
+\citep{reeves2003,poundsreeves2009,tombesi2010a}.
+The presence of line-locked features \citep{bowler2014} 
+and the `ghost of \la' (Arav et al. 1996; Arav 1996; North 2006; but see 
+also Cottis et al. 2010) \nocite{arav1995, arav1996, north2006,cottis2010}
+in the spectra of some BALQSOs also gives clearer evidence that line-driving is
+at least partially contributing to the acceleration of the wind.
+
+The efficiency of line-driving is crucially dependent on the ionization state 
+of the outflowing plasma, meaning that it is difficult to prevent 
+the wind becoming over-ionized and `failing' in the presence of strong X-rays. 
+\cite{MCGV95} proposed a potential solution: 
+a region of `hitchhiking gas' that could shield the wind from the central X-ray source. 
+Hydrodynamic simulations of line-driven disc winds also found a shielding region
+was required to maintain the correct ionization state \citep{PSK2000,PK04}. 
+However, \cite{H14} showed that including multiple scattering means the ionizing radiation 
+field could still reach the previously shielded regions in those particular models.
+An additional or alternative solution is that the wind is clumped \citep[e.g.][]{hamann2013}
+possibly on multiple scale lengths. Local density enhancements could lower the 
+ionization parameter of the plasma while still maintaining the same mass-loss 
+rate and column density. 
+
+Evidence for dense substructures in AGN winds is widespread.
+BALQSOs show complex absorption line profiles \citep{ganguly2006, simonhamann2010}
+and exhibit variability in these profile shapes \citep{capellupo2011,capellupo2012,capellupo2014}.
+AGN generally show variability in X-ray absorption components \citep[e.g.][]{risaliti2002}
+and many models for the BLR consist of clumps embedded in an outflow 
+\citep{krolik1981, emmering1992, dekool1995, cassidyraine1996}.
+Clumping can be caused by magnetic confinement \cite{dekool1995},
+or the instabilities inherent to line-driven winds 
+\citep{lucysolomon1970,macgregor1979,carlberg1980,owockirybicki1984,owockirybicki1985}.
+Additionally, clumping is required to explain the electron scattering wings of emission lines formed
+in line-driven hot star winds \citep{hillier1991eswingsmodel}. Complex substructures 
+on a variety of scales are also produced in simulations of line-driven 
+outflows in AGN \citep{PSK2000,PK04,progakurosawa2010,proga2014}.
+Clumpy winds therefore offer an observationally motivated and theoretically 
+predicted way to lower the ionization state of a plasma, possibly in tandem
+with a shielding scenario. 
+
+
+
+
+% An inhomogenous outflow has been proposed as a model for the BLR (REFs)
+% Clumping is expected in outflows and BLRs.
+
+
+% The UV spectrum of {\em non-BAL} QSOs is typified by a series
+% of strong emission lines (e.g. \la, \civ, \nv) with an underlying blue continuum
+% - the so-called {\sl `big blue bump'} (BBB). The BBB is normally attributed to blackbody-like
+% emission from an accretion disc surrounding the central black hole (REF), similar
+% to that described by \cite{shakurasunyaev1973}. However,
+% a number of issues have arisen relating to this model. First, 
+% AGN/QSO spectra exhibit a `break' in the spectrum at around $1000$~\AA 
+% which scales only weakly with black hole mass. This potentially 
+% suggests a problem with a thin disc model (e.g. Antonucci). 
+% However, it is possible that this is the result of incorrect intergalactic medium
+% (IGM) corrections (REF) or corresponds to the temperature 
+% at which a line-driven wind carries mass away from the system (laor davis).
+% Second, results from microlensing (REFs) imply that the disc emission 
+% region is $\sim4$ times larger than one might expect from a Shakura-Sunyaev
+% model. Inhomogenous discs have been proposed as an alternative (REFs).
+% These observations appear to pose problems for the thin disc model of luminous,
+% sub-Eddington AGN. However, recent results from \cite{capellupo2015} find 
+% that if one includes a combination of mass-loss, general relativity (GR) and Comptonisation
+% then AGN SEDs can, in general, be fitted well with accretion disc models.
+% Uncovering the intrinsic disc SED and understanding the effect of the outflow on the accretion 
+% mechanism is clearly crucial if we are to properly understand the physical nature
+% of AGN.
+
+% The geometry and size of the BLR is also a matter of contention. 
+% The main constraints on the emission region size come from microlensing (REFs)
+% and reverberation mapping (REFs). While these observations have mostly been
+% carried out for Seyfert galaxies, there are also a few instances of these methods
+% being applied to quasars (REFs). A number of different proposals have been made 
+% for the origin of the BLR. Early AGN unification scenarios posited that the broad emission lines
+% where produced by clouds of plasma orbiting fairly close to the BH (refs).
+% Since then, multiple interpretations of a disc wind model have been proposed,
+% with varying radii and geometries (refs). 
+
+There has been some success using simple
+kinematic prescriptions for biconical disc winds to model 
+AGN and quasar outflows \citep[][hereafter H13]{simlong2008,sim2010,higginbottom2013}. 
+H13 successfully produced a benchmark model for BALQSOs. However, the model
+had two key drawbacks. First, an unrealistically low X-ray luminosity
+was required in order to prevent over-ionization of the outflow.
+Second, the model failed to produce the strong emission lines 
+required at low inclinations in a unified model.
+In this paper, we attempt to address these issues, and test the disc wind 
+unification model using Monte Carlo radiative transfer (MCRT) and photoionization 
+calculations. The paper is organised as follows.
+In section 2, we describe some of the important photoionization 
+and MCRT aspects of the code. In section 3, we outline the model, including 
+a description of our clumping implementation. In section 4, we present the results 
+from a clumped model. In section 5 we discuss our results, 
+focussing particular on the anisotropy of 
+disc emission and GR effects, and finally, in section 6, we summarise our findings.
+
+
+
+%  a simple model in which
+% quasars are unified by BH mass, Eddington ratio and viewing angle can successfully
+% reproduce UV, optical and X-ray properties of {\em both} 
+% BALQSO's and normal emission line quasars. 
+
+% Geometrical unification pictures have suggested that 
+% the BAL fraction can be interpreted as the covering factor
+% of an accretion disc wind (refs), and some also propose
+% that this disc wind may also be the source of the broad emission
+% lines (BELs) seen in QSOs (refs). 
+% Alternatively, there are a number of evolutionary models in which
+% QSOs spend approximately $20\%$ of their lifetime as BALQSOs in which the outflow
+% has a high covering factor (refs). 
+% It is also possible that BALQSOs lie in a distinct region
+% in terms of Eddington ratio (refs), but this is somewhat refuted 
+% by observations (refs). % to e.g. Allen and Eigenvector I papers Ledd of BALQSOs
+% Orientation, evolution, black hole mass and eddington ratio 
+% may all have an effect on the BAL fraction (refs),  % to e.g. Allen
+% and the importance of each must be understood to build up coherent picture.
+
+
+% The driving mechanism for accretion disc winds is uncertain. The winds responsible 
+% for BALs must at least have some line-driven component,
+% as very strong resonance lines exert a strong line force on the 
+% gas (refs). Line-driven winds are notoriously unstable 
+% \citep{lucysolomon1970,macgregor1979,owockirybicki1984,owockirybicki1985}.
+% meaning that one may expect an unstable and inhomogenous 
+% velocity and density structure (refs). Magnetically driven
+% winds may also produce clumpy winds or `clouds' of material which
+% are magnetically confined (refs here to Shlosman, Begelman and the like).
+% Describe mechanism.
+
+% Evidence for an inhomogenous density structure in an accretion disc wind 
+% and/or the broad emission line region comes from multiple sources. 
+% Microlensing observations of absorption troughs suggest that different lines of sight 
+% exhibit varying velocity components (refs), and BALQSO troughs 
+% are known to exhibit variability (refs).
+
+% trend of L_X with radio jets and Sy 1s
+% trend of BALs with radio loudness
+% see MCGV95
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% MCRT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ionization and Radiative Transfer}
+
+We use the MCRT code \py\ to carry out our radiative transfer and photoionization
+calculations in non-local thermodynamic equilibrium (non-LTE). 
+The code has been used to model accreting white dwarfs 
+(Long \& Knigge 2002, hereafter LK02; Noebauer et al. 2010; 
+Matthews et al. 2015, hereafter M15), young-stellar objects \citep{simmacro2005}
+and quasars (H13). \nocite{noebauer, M15, LK02}
+These studies contain extensive detail on the code, 
+so we only briefly describe the key elements of the global 
+ionization calculation and other important aspects.
+
+\subsection{Line transfer}
+
+To treat line transfer, we adopt the same hybrid scheme 
+described by M15, 
+in which the energy flows
+through the system are described in terms of indivisible
+energy quanta of radiant or kinetic energy 
+(`$r-$packets' and `$k-$packets' respectively; see also section 2.3).
+These energy packets interact with either two-level `simple ions'
+or full `macro-atoms'. The macro-atom implementation 
+is described in full by \cite{lucy2002, lucy2003}.
+Our scheme allows one to treat non-LTE line transfer in radiative equilibrium
+without approximation for elements which are identified as 
+full macro-atoms, while maintaining the fast `two-level' 
+treatment of resonance lines when elements are identified 
+as simple-ions (see M15). In this study,
+only H is treated as a macro-atom, because 
+we expect recombination to be important
+in determining its level populations and resultant line emission.
+
+\subsection{Ionization Scheme}
+
+Macro-atoms have their ion and level populations derived from
+MC rate estimators as described by M15. Previously (LK02, H13, M15),
+we adopted a modified Saha approach to calculate the ionization fractions
+of simple-ions. We have now improved our code to explicitly solve the 
+rate equations between ions in non-LTE. 
+This dispenses with a number of small assumptions made in the modified Saha approach, 
+is more numerically stable, 
+and, in principle, allows the direct addition of extra physical 
+processes such as Auger ionization.
+
+%To avoid approximating the complex AGN SED as e.g. a dilute blackbody \citep[][M15]{ML93},
+We model the SED in a cell using the technique described by H13. In this scheme,
+the mean intensity in a series of $n$ bands is modeled as a normalised power law in 
+frequency $\nu$
+\begin{equation}
+J_{\nu,i}=K_{pl}\nu^{\alpha_{pl}},
+\end{equation}
+for a band $i$, or an exponential 
+\begin{equation}
+J_{\nu,i}=K_{exp} e^{(-h\nu/k T_{exp})}.
+\end{equation}
+Here, $K_{exp}$, $K_{pl}$, $T_{exp}$ and $\alpha_{pl}$ are spectral fit parameters
+deduced from the band-limited radiation field estimators.
+The ionization rate out of ion $j$ can then be written as 
+\begin{equation}
+R_{j,j+1}(J)= 
+\displaystyle{
+n_i \left(C_{j} n_e + 
+\sum_{band~i=0}^{n}~
+{\int_{\nu_i}^{~\nu_i+1}{J_{\nu,i}\sigma_j(\nu)\nu^{-1}d\nu}}
+\right),}
+\end{equation}
+where $\sigma_j$ is the photoionization cross-section and $C_{j}$
+represents the collisional ionization coefficient.
+The recombination rate {\em into} ion $j$ is given by 
+\begin{equation}
+R_{j+1,j}(T_e) = (\alpha^j_{RR} + \alpha^j_{DR} + \alpha^j_{CR}) n_{j+1} n_e,
+\end{equation}
+where each $\alpha^j$ here is the recombination rate coefficient into the ground state of ion $j$.
+The subscripts denote radiative, dielectronic and 
+collisional (three-body) recombination, respectively.
+We neglect recombination to and from excited states in the simple-ion calculation. 
+For simple-ions, we use a dilute Boltzmann equation to calculate 
+the population of level $k$ in ionic stage $j$,
+\begin{equation}
+\frac{n_{jk}}{n_j} = \frac{W g_k}{z_j(T_R)} \exp(-E_k/kT_R).
+\end{equation}
+Here $z_j$ is the partition function of ionic stage $j$,
+$T_R$ is the effective radiation temperature,
+$E_k$ is the energy difference between level $k$ and the ground state,
+and $g_k$ is the statistical weight of level $k$. 
+
+% We improve on this method by abandoning the modified Saha approach
+% entirely, and instead computing the ionization state by 
+% explicitly solving the rate equations in between ions in non-LTE. 
+% Photoionization and recombination rates are calculated using MC estimators recorded
+% during the photon propagation. Not only does this dispense with a number of
+% small assumptions made in the modified Saha approach, it is also more numerically stable, 
+% and in principle allows the direct addition of extra physical processes such as Auger ionization, which would have to be approximated if using the previous technique.
+\subsection{Physical Processes}
+
+We include all free-free, bound-free and bound-bound heating
+and cooling processes in the model. For radiative transfer purposes
+we treat electron scattering in the Thomson limit, 
+but take full account of Compton heating and cooling when
+calculating the thermal balance of the plasma (see H13).
+Adiabatic cooling is included and represents the only
+departure from strict radiative equilibrium, but is insignificant 
+in most of the outflow.
+% It is dealt with self consistently by the spontaneous destruction
+% of $k$-packets with a probability
+
+% \begin{equation}
+% P_{\rm{adiabatic~destruction}} = \frac{C_{\rm{adiabatic}}}{C_{\rm{total}}},
+% \end{equation}
+% where $C_{\rm{adiabatic}}$ and ${C_{\rm{total}}}$ represent the 
+% adiabatic and total cooling rates in the cell.
+
+
+\subsection{Atomic Data}
+
+We use the same atomic data as described by LK02 and since updated by H13 and M15, 
+with the addition of direct ionization data from \cite{dere2007}. 
+Photoionization cross-sections are from \textsc{Topbase} \citep{cunto1993} and  \cite{vfky}.
+Dielectronic and radiative recombination rate coefficients are taken from 
+the \textsc{Chianti} database version 7.0 \citep{dere1997,landi2012}.
+We use ground state recombination rates from \cite{badnell2006} where available,
+and otherwise default to calculating recombination rates from the Milne
+relation. Free-free Gaunt factors are from \cite{sutherland1998}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% MODEL DESCRIPTION
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{A Clumpy Biconical Disk Wind Model for Quasars}
+
+Our kinematic prescription for a biconical disc wind model
+follows \cite{SV93}, and is described further by
+LK02, H13 and M15. A schematic is shown in figure~\ref{fig:cartoon},
+with key aspects marked. The general biconical
+geometry is similar to that invoked by \cite{MCGV95} and 
+\cite{elvis2000} in order to explain the phenomenonology
+of quasars and BALQSOs.
+
+
+\begin{figure} 
+\centering
+\includegraphics[width=0.45\textwidth]{figures/fig2_cartoon.png}
+\caption
+{
+A cartoon showing the geometry and some key parameters of
+our biconical wind model.
+}
+\label{fig:cartoon}
+\end{figure} 
+
+
+
+% \subsection{A Benchmark Model for BALQSOs}
+
+% \cite{higginbottom2013} presented a benchmark model for
+% (BAL)QSOs...introduce key parameters. 
+
+\subsection{Photon Sources}
+
+%Describe the photon sources in the model.
+
+The accretion disc in our model is geometrically thin, but optically thick.
+We thus treat the disc as an ensemble of blackbodies with a 
+\cite{shakurasunyaev1973} effective temperature profile. 
+The emergent SED is then determined by the specified accretion rate ($\dot{m}$)
+and central BH mass ($M_{BH}$).
+All photon sources in our model are assumed to beopaque, meaning
+that photons which strike them are destroyed.
+The inner radius of the disc extends to the innermost 
+stable circular orbit (ISCO) of the BH. 
+We assume a Schwarzchild BH with an ISCO at $6~r_G$, where 
+$r_G = GM_{BH}/c^2$ is the gravitational radius.
+For a $10^9~M_\odot$ black hole, this is equal to $8.8\times10^{14}~{\rm cm}$ 
+or $\sim10^{-4}~{\rm pc}$.  
+
+
+The X-ray source in our model is treated as an isotropic sphere at the ISCO,
+which emits r-packets according to a power law in flux with index $\alpha_X$, of the form
+\begin{equation}
+F_X (\nu) = K \nu^{\alpha_X}.
+\end{equation}
+The normalisation, $K_X$ of this power law is such that it 
+produces the specified 2-10~keV luminosity, $L_X$.
+In addition to the disc and X-ray source, 
+the wind is able to reprocess radiation. However, new 
+photon packets are not produced in the wind (as in LK02). 
+Instead, this reprocessing is dealt with by enforcing strict
+radiative equilibrium ({\em modulo} adiabatic cooling; see section~2.3)
+via an indivisible energy packet
+constraint (see Lucy 2002, M15).
+% \begin{equation}
+
+% \end{equation}
+
+% With a normalisation such that it produces the correct 2-10kev luminosity.
+
+% Photons striking the 
+
+
+
+
+
+% which successfully reproduced BAL features 
+% in synthetic spectra using \py. However, the model
+% had a few key drawbacks when considering its potential
+% for unification. First, it failed to produce significant
+% broad emission lines at non-BAL viewing angles; this is 
+% a key requirement for a unified QSO model. Second,
+% the model was significantly X-ray weak, as it was found
+% that an X-ray luminosity comparable to that of a QSO 
+% over-ionized the wind, resulting in no UV resonance 
+% line absorption features.
+
+\subsection{Kinematics and Geometry}
+
+In our model, a biconical disc wind rises from the accretion 
+disc between launch radii $r_{min}$ and $r_{max}$.
+The opening angles of the wind are set to $\theta_{min}$ and $\theta_{max}$.
+The poloidal velocity along each individual streamline at a poloidal distance $l$ 
+is then given by
+\begin{equation}
+v_l=v_0+\left[v_{\infty}(r_0)-v_0\right]\frac{\left(l/R_v\right)^{\alpha}}{\left(l/R_v\right)^{\alpha}+1},
+\label{v_law}
+\end{equation}
+where $v_0$ is the velocity at the base of the streamline, $\alpha$ is
+an exponent governing how quickly the wind accelerations and 
+$R_v$ is the `acceleration length', defined as the distance at which
+the outflow reaches half of its terminal velocity, $v_{\infty}$.
+The terminal velocity is set to a fixed multiple of the escape
+velocity, $v_{esc}$, at the base of the streamline (radius $r_0$).
+The rotational velocity, $v_{\phi}$, is initially Keplerian ($v_k = [GM/r_0]^{1/2}$),
+and the wind conserves specific angular momentum, such that 
+\begin{equation}
+v_{\phi} r = v_k r_0.
+\label{v_law}
+\end{equation}
+The velocity law is crucial in determining the output spectra,
+as it affects not only the projected velocities along the line of sight,
+but also the density and ionization state of the outflow.
+A wind which accelerates more slowly will have a denser wind base
+with correspondingly different ionization and emission characteristics.
+
+
+
+\subsection{Clumping}
+
+To allow for clumping in our outflow we adopt a simple approximation
+used extensively in stellar wind modelling, known as 
+{\em microclumping} \citep{hamann1998}. The key assumption here is that 
+typical clump sizes are much smaller than the typical photon mean free path, 
+and thus the clumps are 
+both geometrically and optically thin. This approach 
+allows one to introduce a `filling factor', $f$, which is the 
+fraction of the volume of the plasma filled by clumps. The intra-clump
+medium is assumed to be a vacuum. We can then introduce the 
+density enhancement, $D$, which is defined as 
+\begin{equation}
+D = \frac{1}{f}.
+\end{equation}
+We then multiply all densities in the model by $D$, and all emitting volumes
+by $f$. This has the effect of enhancing all emissivities and opacities
+that scale with the square of density (such as collisional excitation and recombination) 
+by a factor $D$. All processes that scale linearly with density 
+(such as electron scattering and bound-free opacity)
+will remain unchanged for a given ionization state. 
+% A factor $f$ is also
+% applied to the opacities such that opacities which scale only with $\rho$ are not
+% increased. 
+
+Clumping the wind has an important effect on the ionization state and has
+been proposed as a solution to the so-called `over-ionization problem' in 
+disc winds (REFs). This is the main motivation for incorporating microclumping
+into our model. This treatment is first-order; it does not adequately
+represent the complex substructures and stratifications in ionization
+state we expect in AGN outflows. Nevertheless, clumping is clearly
+important in these flows, and this parameterization allows a simple estimate
+for the effect clumping might have on the ionization state and emergent 
+line emission. It is also encouraging that microclumping has been used 
+successfully in fits to O-star wind spectra \citep{hillier1991eswingsmodel}.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% RESULTS
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Results and Discussion}
+
+Here we describe the results from our model, the parameters
+of which are shown in table~1.
+Parameters differing from the benchmark model of
+H13 are highlighted with an asterisk.
+This set of parameters
+was arrived at by conducting a limited grid search over a 
+5-dimensional parameter space involving the variables
+$r_{min}$, $\theta_{min}$, $f$, $\alpha$ and $R_V$.
+The full grid, including output spectral files and plots can be found at
+\url{jhmatthews.github.io/quasar-wind-grid/}.
+We evaluated these models qualitatively based on the following
+criteria:
+\begin{itemize}
+\item Does the model maintain the right ionization state to produce strong BALs?
+\item Does significant line emission emerge at low inclinations?
+\item Do H recombination lines appear in the spectrum?
+\item Do a certain range of angles produce LoBAL features?
+\item Does the model compare favourably to quasar composite spectra?
+\end{itemize}
+In this section, we present one of the most promising models and discuss
+the various successes and failures.
+This allows us to gain insight into fundamental geometrical 
+and physical constraints and assess the potential for unification. 
+
+
+\begin{figure*} %fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/link.png}
+\caption
+{
+Physical properties of the outflow, shown by the coloured contours.
+The solid black line marks a sphere at $1000~r_G$.
+The dotted lines show the $72^\circ$ and $78^\circ$ sightlines 
+to the centre of the system, and illustrate that different sightlines
+intersect material of different ionization states.
+}
+\label{fig:wind}
+\end{figure*} %fullpage
+
+
+\begin{table}
+\begin{tabular}{p{3cm}p{4cm}}
+\hline Free Parameters 	&	 Value \\ 
+\hline \hline 
+$M_{BH}$ 	 &	 $1\times 10^9~\rm{M_{\odot}}$ \\ 
+$\dot{M}_{acc}$ 	 &	 $5~M_{\odot}yr^{-1} \simeq 0.2~\dot{M}_{Edd}$\\ 
+$\alpha_X$ 	 &	 $-0.9$ \\ 
+$L_{X} $ 	 &	 $10^{45}~\rm{ergs~s^{-1}}$$^*$ \\ 
+$r_{disc}(min)=r_{X}$   &	 $6r_g=8.8\times10^{14}~{\rm cm}$ \\ 
+$r_{disc}(max)$   &	 $3400r_g = 5\times10^{17}~{\rm cm}$ \\ 
+$\dot{M}_{wind}$  &	 $5~M_{\odot}yr^{-1}$ \\ 
+$r_{min}$ 	&	 $300r_{g} = 4.4\times10^{16}~{\rm cm}$\\ 
+$r_{max}$ 	&	 $600r_{g} = 8.8\times10^{16}~{\rm cm}$ \\ 
+$\theta_{min}$ 	&	 $70.0^{\circ}$ \\ 
+$\theta_{max}$ 	&	 $82.0^{\circ}$ \\ 
+$\lambda$ 	&	 $0$ \\ 
+$v_{\infty}(r_0)$ 	&	 $v_{esc}(r_0)$ \\ 
+$R_v$  	        &	 $10^{19}$cm$^*$ \\ 
+$\alpha$ 	&	 $0.6^*$ \\
+$f$ 	&	 $0.01^*$  \\
+\hline 
+% Derived Parameters 	&	 Value \\ 
+% \hline \hline
+% $L_{\nu}(2500\mbox{\scriptsize{\AA}})$&	 $6.3\times10^{30}~\rm{ergs~s^{-1}~Hz^{-1}}$\\ 
+% $L_{\nu}(2keV)$   &	 $1.2\times10^{25}~\rm{ergs~s^{-1}~Hz^{-1}}$\\ 
+% $L_{bol}$ 	 &	 $2.4\times10^{46}~\rm{ergs~s^{-1}}$\\
+% $M_{bol}$ 	 &	 -27.4\\ 
+% $M_u$            &	 -26.2\\ 
+%  $\alpha_{OX} $ 	 &	 -2.2\\ 
+\end{tabular}
+\caption{Wind geometry parameters used in the model.}
+\label{wind_param}
+\end{table}
+
+
+
+\subsection{Physical Conditions and Ionization State}
+
+Figure~\ref{fig:wind} shows the physical properties of the wind.
+The wind rises slowly from the disc at first, with clumped densities
+of $n_H \sim 10^{11}~\rm{cm^{-3}}$ close to the disc plane.
+The flow then accelerates over a scale length of $R_V=10^{19}~\rm{cm}$
+up to a terminal velocity equal to the escape velocity at the streamline base
+($\sim10,000~\rm{km~s^{-1}}$). This gradual acceleration means that
+the wind exhibits a stratified ionization structure, with low ionization material
+in the base of the wind giving way to highly ionized plasma further out.
+By clumping the wind, we are able to produce the range of ionization states observed
+in quasars and BALQSOs, while adopting a realistic $2-10$ keV X-ray luminosity
+of $L_{X}=10^{45}~\rm{ergs~s^{-1}}$. Without clumping, this wind would be over-ionized 
+to the extent that opacities in e.g., \civ\ would be entirely negligible (see H13).
+
+One common way to quantify the ionization state of a plasma
+is through the ionization parameter, $U_H$, given by
+\begin{equation}
+U_H = \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}}}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu}.
+\end{equation}
+\noindent where $\rm{n_H}$ is the local number density of H, and $\nu$ denotes photon 
+frequency. Shown in figure~\ref{fig:wind},
+the ionization parameter is a useful measure of the global ionization state,
+as it represents the ratio of the number density of 
+H ionizing photons to the local H density.
+It is, however, a poor representation of the 
+ionization state of species such as \civ\ as it encodes no information
+about the shape of the SED. In our case, the X-ray photons 
+are dominant in the photoionization of the UV resonance line ions. 
+This explains why a factor of 100 increase in X-ray luminosity requires
+a clumping factor of 0.01, even though the value of $U_H$ decreases by only a factor of $\sim10$ 
+compared to H13. This is also the reason for significant Lyman edge photoabsorption
+at the highest inclinations (see section 4.3).
+
+Clumping also causes the total line luminosity to increase dramatically,
+as recombination and collisional excitation are both proportional to
+$n_e^2$. This line emission typically emerges on the edge of the wind
+nearest the central source. The location of the line emitting regions
+is dependent on the ionization state, as well as the X-rays heating the plasma.
+The radii of these emitting regions is important,
+and can be compared to observations. As shown in figure~\ref{fig:wind},
+the \civ\ line in our model is typically formed between 
+$100-1000~r_G$ ($\sim10^{17}-10^{18}~\rm{cm}$).
+This is in rough agreement with the reverberation mapping 
+results of Kaspi (2000) for the $2.6\times10^{9} M_\odot$ quasar S5 0836+71,
+and also compares favourably with microlensing measurements of the size of the
+\civ\ emission line region in the BALQSO H1413+117 \citep{odowd2015}.
+
+
+
+
+\subsection{Synthetic Spectra}
+
+\begin{figure*} %fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/uvspec.png}
+\caption
+{
+Synthetic spectra at five viewing angles in our model. The coloured lines
+show different quasar and BAL quasar composites, and the dotted line shows a disc
+only continuum to show the effect of the outflow on the continuum level.
+}
+\label{fig:uvspec}
+\end{figure*} %fullpage
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/windnew3.png}
+\caption
+{
+A cartoon describing the broad classes of sightline 
+in our model, illustrating how geometric effects lead to 
+the different emergent spectra. The colour gradient is approximate,
+but indicates the stratified ionization structure, 
+from highly ionized (yellow) to low ionization (purple) material.
+%[FIGURE NEEDS IMPROVING]
+}
+\label{fig:sightline}
+\end{figure}
+
+% \begin{figure*} %fullpage
+% \centering
+% \includegraphics[width=1.0\textwidth]{figures/opt.png}
+% \caption
+% {
+% Figure designed to show optical spectrum and comparison to composite.
+% }
+% \label{fig:uvspec}
+% \end{figure*} %fullpage
+
+
+
+Figure~\ref{fig:uvspec} shows the synthetic spectrum in the UV from our model. 
+We also show a comparison to composite quasar and BALQSO spectra.
+We show a cartoon illustrating how geometric effects determine
+the output spectra in figure~\ref{fig:sightline}.
+
+\subsubsection{Broad absorption lines}
+
+The UV spectrum is characterised by strong BAL 
+profiles at high inclinations ($> 70^\circ$). 
+This highlights the first success of our model: 
+clumping means the correct ionization state 
+is maintained in the presence of strong X-rays, 
+allowing large resonance line opacities. 
+At the highest inclinations, the 
+cooler, lower ionization material at the base of the wind
+starts to intersect the line of sight. This produces 
+multiple absorption lines in lower ionization species such as \mg,
+\al\ and Fe~\textsc{ii}. The potential links to LoBALQSOs and 
+FeLoBALQSOs are discussed in section 2.4.
+
+The high ionization BAL profiles are often saturated, and the location in velocity space
+of the strongest absorption in the profile varies with inclination.
+At lower inclinations, the strongest absorption occurs at the red edge,
+whereas at high inclinations (and for the strongest BALs)
+the trough has a sharp edge at the terminal velocity.
+This offers one potential explanation for the wide range of BALQSO absorption
+line shapes (see e.g. Trump et al. 2006; Knigge et al 2008).
+In addition, the line profile shape is strongly dependent 
+on the density, ionization and velocity 
+profiles intersected by the line of sight. Thus, small tweaks of the velocity
+law and angular distributions of streamlines can dramatically alter
+the shape of the line.
+
+Nonblack saturation is observed in the absorption troughs of BALQSOs \citep{arav1999a,arav1999b}.
+This can be caused either by partial covering of the continuum
+source or by scattered contributions to the BAL troughs, necessarily
+from an opacity source not cospatial with the BAL forming region.
+The scattered light explanation is supported by spectropolarimetry results
+\citep{lamy2000}. Our spectra do not show nonblack saturation.
+Instead, we find black, saturated troughs at angles $i > 73^\circ$, and the BALs
+are non-saturated at lower inclinations. The reasons for this are readily apparent. 
+First, the microclumping assumption does not allow for 
+porosity in the wind, meaning that it does not naturally produce
+a partial covering absorber. To do this, an alternative approach
+such as {\em macroclumping} would be required \citep[e.g.][]{surlan2012,hamann2008}.
+Second, our wind does not have a significant scattering 
+contribution along sightlines which do not pass through the BAL region,
+meaning that any scattered contribution is obscured by the saturated troughs.
+This suggests that either the scattering cross-section of the wind must
+be increased (with higher mass loss rates or covering factors), or 
+that an additional source of electron opacity is required, potentially
+in a polar direction above the disc.
+
+
+\subsubsection{Broad emission lines}
+
+We find that the model can produce significant line emission
+at low inclinations, particular in \civ, 
+and the improved treatment of recombination results in a strong \la\
+line. In the context of unification, this is a promising result, 
+and shows that a biconical wind can produce significant 
+emission at `quasar-like' angles. To assess the ability of the model to match real 
+quasar spectra, we also show {\sl Sloan Digital Sky Survey} (SDSS) quasar composites from
+\cite{reichard2003}, normalised to the flux at 2000\AA\ in each panel.
+We do not produce the semi-forbidden 
+intercombination lines seen in quasar spectra because we
+currently do not have a treatment for semi-forbidden lines.
+This is especially noticable with the strong C~\textsc{iii}]~1909\AA\, 
+line in the quasar composite spectra.
+The critical density of the C~\textsc{iii}]~1909\AA\, line 
+is $n_e\sim10^{9.5}~\rm{cm^{-3}}$, which is higher than much of the 
+outer portion of our wind. We therefore expect intercombination lines
+to become important coolants in the outer portion of the wind.
+
+The model produces strong emission lines in \civ, \nv\ and \la,
+as well as a weak \mg\ line. The shapes and widths of these lines
+match the composites fairly well. However, the line-to-continuum ratios 
+at low inclinations in our model are significantly weaker than the quasar 
+composites. Increasing the density of the outflow, by altering the mass 
+loss rate  or velocity law, can produce more line emission.
+However, the red wing of the BAL profiles is generally stronger than 
+seen in BALQSO spectra and composites. This illustrates a fundamental 
+problem with a geometric unification model such as this:
+that the line-to-continuum ratios at low inclinations are
+significantly affected by disc foreshortening and limb darkening.
+The angular distribution of the disc radiation is clearly
+crucially important in determining the emergent line ratios.
+
+\subsubsection{The Disc SED}
+\label{discsed}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/agnspec.png}
+\caption
+{
+$F_\lambda$ for three different wavelengths
+as a function of inclination from \agn\ models, 
+compared to a classical AD. The \agn\ models are computed 
+for Kerr and Scharzschild BHs with the same $M_{BH}$ and 
+$\dot{m}$ as our model. 
+}
+\label{fig:f2000}
+\end{figure}
+
+
+When comparing BALQSO and quasar composites, it is apparent
+that they possess remarkably similar line strengths and widths 
+\citep[e.g.][]{weymann1991,reichard2003}.
+This presents a challenge to our model, as well as the geometric 
+unification picture in general.
+Limb darkening and foreshortening causes the disc continuum emission to be 
+strongly anisotropic, yet the line emission in our models is much more isotropic. 
+This has the effect of enhancing the line-to-continuum ratios at high inclinations. 
+To construct a scenario where emission 
+line equivalent widths are comparable at all inclinations requires 
+significant fine-tuning when considering a classical thin disc. 
+An alternative, simpler solution is that the emergent continuum is roughly isotropic.
+
+General relativistic effects -- specifically, light bending
+and relativistic beaming -- can cause 
+the accretion disc SED to become more isotropic \citep[e.g.][]{zhang1997,munozdarias2013}.
+To generate GR disc spectra, we use the code \agn\ \citep{hubeny2000,davishubeny2006,davis2007}. 
+The output flux at three different wavelengths
+as a function of inclination for an \agn\ model with the same disc and BH parameters
+as our clumpy wind model is shown in figure~\ref{fig:f2000}.
+The effects of GR on an AGN disc are much less extreme 
+in the UV portion of the spectrum than the calculations
+by \cite{zhang1997} for the X-rays in X-ray binaries.
+As a result, the disc emission is still strongly anisotropic.
+GR alone therefore cannot explain the line ratio trends in quasars by making the disc
+emit more isotropically. This supports the findings of \cite{risaliti2011}, 
+who find that EW distributions in quasars are consistent with anisotropic emission 
+from optically thick, 
+disc-like structures for {\em both} the continuum source and BLR. 
+If this is the case, it has a dramatic affect on the intrinsic
+BAL fraction inferred from flux-limited samples \citep{goodrich1997,krolikvoit1998}.
+We will explore these ideas further in a future study.
+
+% Figure 5 also shows the spectrum into the optical,
+% showing that the outflow produces signiciant optical emission lines
+% as well as having a noticeable effect on the continuum shape. This
+% is particularly true around the Balmer jump at $3646\AA$ and is due to
+% a prominent wind-formed recombination continuum.
+
+
+\subsection{X-ray Properties and Broadband SEDs}
+
+\begin{figure*} %fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/lx.png}
+\caption
+{
+X-ray ($2$~keV) luminosity of the our clumped model (red squares) 
+and the H13 model (purple squares), plotted against monochromatic luminosity 
+at 2500\AA. The points are labeled according to inclination; angles
+$>70^\circ$ correspond to BALs in our scheme (see figure 4).
+Also plotted are the samples considered by Saez et al. 2012 on a similar plot; 
+The COMBI-7 AGN and the BQS samples Steffen et al. (2006) and the Saez et al. (2012) 
+sample of BALQSOs. The dotted line shows the best fit relation for non-BALQSOs 
+from Steffen et al. (2006).
+}
+\label{fig:xray}
+\end{figure*} %fullpage
+
+% \begin{figure} %fullpage
+% \centering
+% \includegraphics[width=1.0\textwidth]{figures/sed_all_balqsos.png}
+% \caption
+% {
+% Broadband SEDs compared to IR and X-ray SEDs for selected BALQSOs 
+% from Grupe \& Nousek (2015).
+% }
+% \label{fig:xray}
+% \end{figure} %fullpage
+
+
+
+Figure~\ref{fig:xray} shows the emergent
+monochromatic luminosity ($L_\nu$) at 2~keV and 
+%$\alpha_{OX}$ 
+plotted against $L_\nu$ at $2500$\AA\ for a number of different viewing angles in our model.
+% $\alpha_{OX}$ is a spectral index from near UV to X-rays defined by
+% \begin{equation}
+% \alpha_{OX}=0.3838\log\left(\frac{L_{\nu}(2~keV)}{L_{\nu}(2500~\mbox{\scriptsize{\AA}})}\right),
+% \end{equation}
+% which effectively represents a near-UV to X-ray flux ratio and a measure of X-ray 
+% weakness. 
+The monochromatic luminosities are calculated from the synthetic spectra and thus include
+the effects of wind reprocessing and attenuation. In addition to model outputs,
+we also show the BALQSO sample of Saez et al. (2012) and luminous AGN and quasar
+samples from Steffen et al. (2006). The best fit relation from Steffen et al. (2006) 
+is also shown. For low inclination, `quasar-like' viewing angles,
+we now show excellent agreement with AGN samples. The gradient from $20^\circ$ to
+$60^\circ$ in our models is caused by a combination of disc foreshortening/limb-darkening 
+(resulting in a lower $L_{2500}$ for higher inclinations) and the fact that the disk 
+is opaque, and thus the X-ray source subtends a smaller solid angle at high inclinations
+(resulting in a lower $L_{2keV}$ for higher inclinations). 
+
+
+
+The low inclination, `BALQSO-like' viewing angles show moderate agreement with the data,
+and are X-ray weak due to bound-free and electron scattering opacities in the wind.
+Typically, BALQSOs show strong X-ray absorption with columns 
+of $N_H\sim10^{23}~\rm{cm^{-2}}$ 
+\citep{green1996,mathur2000,green2001,grupemathur2003}.
+This is often cited as evidence that the BAL outflow is shielded from
+the X-ray source, especially as sources with strong X-ray absorption tend
+to exhibit deep BAL troughs and high outflow velocities 
+\citep{brandt2000,laorbrandt2002,gallagher2006}.
+Our results imply that the clumpy BAL outflow
+itself can be responsible for the strong X-ray absorption, 
+and supports Hamann et al.'s (2013) suggestion that 
+this explains the weaker X-ray absorption in mini-BALs 
+compared to BALQSOs.
+
+Our models slightly over-predict the emergent X-ray luminosity at BAL angles, 
+although we are limited by poor sample sizes. 
+% It is possible that this is due to our wind being overly optically thick to 
+% electron scattering at angles which look through the wind. 
+If BALQSOs were {\em intrinsically} 
+X-ray weak \citep[as suggested by, e.g.][]{morabito2013},
+our isotropic assumption foe the X-ray source would be incorrect. 
+A polar-biased X-ray source would result in a lower clumping factor being
+required in our model. Our specific wind
+prescription will also affect the opacities, densities and resultant
+ionization structure, which can change the absorption characteristics and resultant
+luminosities.
+Nevertheless, our input X-ray spectrum
+now reproduces the X-ray properties of a luminous quasar as an output,
+and at least some BAL angles match the observations.
+This satisifies the first-order requirement for the X-ray properties of 
+a unified quasar model.
+
+% We can also examine the emergent X-ray spectra from our model. 
+% Our code is not yet optimized for producing X-ray spectra, as we do not yet 
+% include all lines and levels of e.g. Fe or macro-atom treatments of 
+% higher order ions (cf. Sim et al. 2008, 2010). 
+% However, the bound-free opacity sources are complete, and comparisons of the shape
+% of the heavily absorbed spectra can be useful.
+% Figure 6 shows the broadband SED from the model, compared to a number of BALQSO spectra
+% from \cite{grupenousek2015} - note that lower mass and super-Eddington sources
+% are excluded. 
+
+% discuss the figure showing X-ray properties briefly. 
+% Present an X-ray spectrum? compare to observations e.g. Giustini?
+
+% {\bf Figures 5 and 6: $L_{2kev}$ v $L_{2500}$ plot and X-ray spectrum compared to Grupe and Nousek (broadband SED?)} 
+
+\subsection{LoBALs and ionization stratification}
+
+\begin{figure*} %fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/c4_angles.png}
+\caption
+{
+\civ , \mg , \al\ and Fe~\textsc{ii} line profiles for wind angles
+from $72-79^\circ$. The profiles are plotted relative to the local
+continuum with an offset applied for clarity. Lower ionization
+profiles appear at a subset of high inclinations, compared
+to the ubiquitous \civ\ profile.
+}
+\label{fig:lobal}
+\end{figure*} %fullpage
+
+
+At certain sightlines, our model now produces blue-shifted BALs in \al\ and \mg --
+the absorption lines seen in LoBALQSOs, and we even see absorption in Fe~\textsc{ii}
+at the highest inclinations. Line profiles in velocity space 
+for \civ, \al\ and \mg, are shown in figure~\ref{fig:lobal} for a range
+of BALQSO viewing angles. We find that ionization stratification
+of the wind causes lower ionization material has a smaller covering factor, 
+as demonstrated by figures~\ref{fig:wind} and \ref{fig:lobal}.
+This confirms the behaviour expected from a unification model such as Elvis (2000). 
+LoBALs are only present at viewing angles close to edge-on ($i>75^\circ$),
+as predicted by polarisation results \citep{brotherton1997}.
+There is also a correlation between the strength of LoBAL features
+and the amount of continuum attenuation at that sightline, particularly
+blueward of the Lyman edge as the low ionization base 
+intersects the line-of-sight. 
+Our model therefore predicts that LoBALQSOs and FeLoBALQSOs 
+have stronger Lyman edge absorption and 
+be more Compton-thick than HiBALQSOs and Type 1 quasars.
+An edge-on scenario also offers a potential explanation for the rarity of LoBAL and
+FeLoBAL quasars, due to a foreshortened and attenuated continuum, 
+although, as noted in section~\ref{discsed}, BAL fraction 
+inferences are fraught with complex selection effects.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SUMMARY
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Summary}
+
+We have carried out MCRT simulations using a simple
+prescription for a biconical disc wind, with
+the aim of expanding on the work of H13 and assessing 
+the viability of such a model for geometric unification of quasars.
+We find the following main points:
+
+\begin{enumerate}
+\item We have introduced a first-order treatment 
+of clumping in our model, and found that it can now maintain
+the required ionization state while agreeing well with the X-ray
+properties of AGN/QSOs.
+\smallskip
+\item We have shown that the degree of ionization stratification
+in the model is sufficient that LoBAL line profiles
+are seen at a subset of viewing angles, and Fe~\textsc{ii}
+absorption is seen at particularly high inclinations.
+\smallskip
+\item We find that clumping also causes a significant 
+increase in the strength of the  emission
+lines produced by the model. This is true both
+of collisionally excited resonance lines (such as \civ, \nv)
+and recombination lines (such as \la, \ha\ and the Balmer series).
+\smallskip
+\item The line EWs in our models increase with inclination.
+BAL and non-BAL quasar composites have comparable EWs, so our model
+fails to reproduce this behaviour.
+This is due to a fundamental constraint discussed further in section 5. If the BLR
+emits fairly isotropically then for a foreshortened, limb-darkened classical thin accretion disc
+it is simply not possible to achieve line ratios at low inclinations that are comparable to
+those at high inclinations. This is a robust conclusion which 
+is independent of the assumed BLR geometry and size.
+\smallskip
+\item We have examined the effect of GR on our disc SED, using the disc atmosphere
+and GR ray-tracing code \agn. While including GR effects
+does cause the disc SED to become slightly more isotropic,
+the effect is not large enough to produce uniform line to continuum ratios
+with viewing angle. We briefly discuss other solutions.
+\end{enumerate}
+Our work confirms a number of expected outcomes from a geometric unification 
+model, and suggests that a simple biconical geometry such as this can come close to 
+explaining much of the  phenomenology of quasars. Nevertheless, our conclusions pose 
+a clear challenge to the current disc wind unification picture.
+
+
+
+
+\section*{Acknowledgements}
+
+The work of JHM, SWM, NSH and CK is supported by the 
+Science and Technology Facilities Council (STFC), 
+via two studentships and a consolidated grant, respectively.
+We would like to thank Omer Blaes, Ivan Hubeny and Shane Davis for their
+assistance with \agn. We would also like to thank Daniel Proga, 
+Daniel Capellupo, Sam Connolly and Dirk Grupe for useful discussions.
+Simulations were conducted using \py\ version 79c, and made use of
+the IRIDIS High Performance Computing Facility at the University of Southampton.
+Figures were produced using {\tt matplotlib} \citep{matplotlib}.
+
+
+%% \texttt{mn2e.cls} \textsc{Latex} document class. 
+
+\bibliography{mybib.bib,stellar.bib,h14.bib,h13.bib,hamann.bib,krolik.bib}
+\clearpage
+\clearpage
+%\appendix
+% \appendix
+% \section{Notes}
+
+% Here are some notes on various parts of the text.
+% \smallskip
+
+
+% \begin{itemize}
+% 	\item 
+% 	\item Figure 3 should be improved to include some kind of real colormap of the model
+% 	\item At the moment I haven't included another plot for the optical spectrum, or discussed
+% 	it in the paper.
+% 	\item Figure 5 needs to show a sample at the higher luminosity end, and include the actual relationship as the dotted line instead of a by eye version as is currently 
+% 	\item
+% 	\item
+% 	\item
+% 	\item
+% 	\item
+% 	\item
+% 	\item
+% \end{itemize}
+
+
+\end{document}

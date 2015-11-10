@@ -1,6 +1,7 @@
 FILE=draft
 FILE2=paper
 FILE3=paper_mnras
+DIFF_FILE=diffs_mnras
 
 paper:
 	python mnras.py paper.tex paper_mnras.tex
@@ -56,6 +57,16 @@ draft:
 	#wc report.out
 
 
+diffs:
+	#latexdiff --flatten compare.tex paper.tex > diffs.tex
+	#python mnras.py diffs.tex ${DIFF_FILE}.tex
+
+	pdflatex ${DIFF_FILE}
+	bibtex ${DIFF_FILE}
+	pdflatex ${DIFF_FILE}
+	pdflatex ${DIFF_FILE}
+
+	open -a preview ${DIFF_FILE}.pdf 
 
 
 	
