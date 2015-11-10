@@ -438,15 +438,28 @@ disc emission and GR effects, and finally, in section 6, we summarise our findin
 
 \section{Ionization and Radiative Transfer}
 
-For this study, we use the MCRT code \py\  we have developed to carry out our radiative transfer and photoionization
-calculations in non-local thermodynamic equilibrium (non-LTE) in a variety of disk-wind systems. 
-We have used the code  to model accreting white dwarfs 
+For this study, we use the MCRT code \py\ we have developed to carry out our 
+radiative transfer and photoionization calculations in non-local thermodynamic 
+equilibrium (non-LTE) in a variety of disk-wind systems. 
+The code has been used to model accreting white dwarfs 
 (Long \& Knigge 2002, hereafter LK02; Noebauer et al. 2010; 
 Matthews et al. 2015, hereafter M15), young-stellar objects \citep{simmacro2005}
-and quasars (H13).\nocite{noebauer, M15, LK02}  LK02 provides the basic description of the original code; improvements, see especially H14 and M15, have been described in subsequent reports.  A full description of the code will be published elsewhere; here we focus on the changes made to improve the ionization calculation and to allow for clumping in the wind.
+and quasars (H13).\nocite{noebauer, M15, LK02}  
+The basic premise involves generating photons from an accretion disc
+and central object, and computing their radiative transfer through an outflow.
+This outflow is discretized into $n_x \times n_z$ cells in a 2.5D
+cylindrical geometry with azimuthal symmetry.
+First, the code gradually converges on a global temperature and ionization structure.
+Once these ``ionization cycles'' are complete, then a series of further iterations
+are completed to obtain a detailed synthetic spectrum.
+LK02 provides the basic description of the original code; improvements, 
+see especially H14 and M15, have been described in subsequent reports.  
+%A full description of the code will be published elsewhere; 
+Therefore we focus here on the changes made to improve the ionization calculation 
+and to allow for clumping in the wind.
 %These studies contain extensive detail on the code,  so we only briefly describe the key elements of the global ionization calculation and other important aspects.
 
-{\bf ksl - I a a bit torn over whether we add a few 3 sentences to describe the basic idea.  Some will be reading this for the first time.  Items that one would include are that we calculate the radiative transfer in a cylindrical coordinate system of dimension ?? x ??.  We have ionization and spectral cycles. In each cycle, ?? photon bundles are generated. We stop the ionization cycles after they converge, without any details.  I think this would be useful because we introduce terms like ``cell'' later on.', and without some kind of description they have no context}
+% {\bf ksl - I a a bit torn over whether we add a few 3 sentences to describe the basic idea.  Some will be reading this for the first time.  Items that one would include are that we calculate the radiative transfer in a cylindrical coordinate system of dimension ?? x ??.  We have ionization and spectral cycles. In each cycle, ?? photon bundles are generated. We stop the ionization cycles after they converge, without any details.  I think this would be useful because we introduce terms like ``cell'' later on.', and without some kind of description they have no context}
 
 \subsection{Line transfer}
 
