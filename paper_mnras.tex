@@ -12,6 +12,7 @@
 \usepackage{appendix}
 \usepackage{subfigure}
 \usepackage{url}
+\usepackage{amsmath}
 %\usepackage{pngfig}
 %\usepackage[dvips]{color}mak
 %\usepackage{aabib}
@@ -440,7 +441,7 @@ in comparison to observational data. Finally, we summarise our findings in secti
 
 For this study, we use the MCRT code \py\ we have developed to carry out our 
 radiative transfer and photoionization simulations in non-local thermodynamic
-equilibrium (non-LTE). The code can be used to model a variety of
+equilibrium (non-LTE). The code can be model a variety of
 disc-wind systems; it has been used with application to accreting white dwarfs 
 (Long \& Knigge 2002, hereafter LK02; Noebauer et al. 2010; 
 Matthews et al. 2015, hereafter M15), young-stellar objects 
@@ -465,23 +466,23 @@ and to allow for clumping in the wind.
 
 \subsection{Line transfer}
 
-Our approach to line transfer is based upon the macro-atom implementation developed by \cite{lucy2002, lucy2003}. In our case, for reasons of computational effieciency, we adopt the  hybrid macro-atom scheme 
-described by M15 
+Our approach to line transfer is based upon the macro-atom implementation developed by 
+\cite{lucy2002, lucy2003}, in which the energy flows through the system are described in 
+terms of indivisible energy quanta of radiant or kinetic energy 
+(`$r-$packets' and `$k-$packets' respectively; see also section~\ref{sec:photon_sources}). 
+In our case, for reasons of computational efficiency, we adopt the  hybrid macro-atom scheme 
+described by M15.
 %(an improvement over that used by H14 for our earlier quasar study), 
-in which the energy flows
-through the system are described in terms of indivisible
-energy quanta of radiant or kinetic energy 
-(`$r-$packets' and `$k-$packets' respectively; see also section 2.3).
-These energy packets interact with either two-level `simple ions'
-or full `macro-atoms'. 
-Our scheme allows one to treat non-LTE line transfer in radiative equilibrium
+In this scheme, the energy packets interact with either two-level `simple ions' 
+or full `macro-atoms'. This allows one to treat non-LTE line transfer in radiative equilibrium
 without approximation for elements that are identified as 
 full macro-atoms, while maintaining the fast `two-level' 
 treatment of resonance lines when elements are identified 
 as simple-ions (see M15). In this study,
 only H is treated as a macro-atom, because 
 we expect recombination to be important
-in determining their level populations and resultant line emission, and because we were especially interested in the contribution to AGN spectra of \LA.  In H13, all atoms were treated in a two-level approximation.
+in determining their level populations and resultant line emission, and because we were especially interested in the contribution to AGN spectra of \LA.  
+H13 treated all atoms in a two-level approximation.
 
 \subsection{Ionization Scheme}
 
@@ -511,7 +512,7 @@ The ionization rate out of ion $j$ can then be written as
 \begin{equation}
 R_{j,j+1}(J)= 
 \displaystyle{
-n_i \left(C_{j} n_e + 
+n_j \left(C_{j} n_e + 
 \sum_{band~i=0}^{n}~
 {\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu} d\nu}
 \right),}
@@ -603,14 +604,17 @@ our biconical wind model.
 \end{figure} 
 
 \subsection{Photon Sources}
+\label{sec:photon_sources}
 
-The accretion disc in our model is geometrically thin, but optically thick.
+We include two sources of r-packets in our model:
+An accretion disc and central X-ray source.
+The accretion disc is assumed to be geometrically thin, but optically thick.
 We thus treat the disc as an ensemble of blackbodies with a 
 \cite{shakurasunyaev1973} effective temperature profile. 
 The emergent SED is then determined by the specified accretion rate ($\dot{m}$)
 and central BH mass ($M_{BH}$).
-All photon sources in our model are assumed to be opaque, meaning
-that photons which strike them are destroyed.
+All photon sources in our model are opaque, meaning
+that r-packets which strike them are destroyed.
 The inner radius of the disc extends to the innermost 
 stable circular orbit (ISCO) of the BH. 
 We assume a Schwarzchild BH with an ISCO at $6~r_G$, where 
@@ -619,10 +623,10 @@ For a $10^9~M_\odot$ black hole, this is equal to $8.8\times10^{14}~{\rm cm}$
 or $\sim10^{-4}~{\rm pc}$.  
 
 
-The X-ray source in our model is treated as an isotropic sphere at the ISCO,
+The X-ray source is treated as an isotropic sphere at the ISCO,
 which emits r-packets according to a power law in flux with index $\alpha_X$, of the form
 \begin{equation}
-F_X (\nu) = K \nu^{\alpha_X}.
+F_X (\nu) = K_X \nu^{\alpha_X}.
 \end{equation}
 The normalisation, $K_X$ of this power law is such that it 
 produces the specified 2-10~keV luminosity, $L_X$.
@@ -663,7 +667,7 @@ but also the density and ionization state of the outflow.
 A wind that accelerates more slowly will have a denser wind base
 with correspondingly different ionization and emission characteristics.
 
-\subsection{Clumping}
+\subsection{A First Approximation for Clumping}
 
 Our previous modelling efforts assumed a smooth outflow, 
 in which the density at a given point was determined only by the 
@@ -676,45 +680,66 @@ computational difficulties associated with adequately
 resolving and realistically modelling a series of small scale, high density
 regions with a MCRT code. Second, the addition of multiple additional degrees of
 freedom in the model results in significantly wider parameter space.
-Unfortuantely, the physical scale lengths and density contrasts 
+Unfortunately, the physical scale lengths and density contrasts 
 associated with these parameters cannot be well-constrained from observations.
 
 To allow for clumping in our outflow we adopt a simple approximation
-used extensively in stellar wind modelling, known as 
-{\em microclumping} \citep{hamann1998}(MORE REFS). The key assumption here is that 
-typical clump sizes are much smaller than the typical photon mean free path, 
-and thus the clumps are 
+used successfully in stellar wind modelling, known as 
+{\em microclumping} \citep{hamann1998,hamann2008}(MORE REFS). 
+The key assumption is that typical clump sizes are much smaller than the 
+typical photon mean free path, and thus the clumps are 
 both geometrically and optically thin. This approach 
-allows one to introduce a `filling factor', $f$, which is the 
-fraction of the volume of the plasma filled by clumps. The intra-clump
-medium is assumed to be a vacuum. We can then introduce the 
-density enhancement, $D$, which is defined as 
+allows one to introduce a `volume filling factor', $f_V$. 
+The intra-clump medium is assumed to be a vacuum, so the 
+density of the clumps is then multiplied by the ``density enhancement'' 
+$D=1/f_V$. Opacities, $\kappa$, and emissivities, $\epsilon$, 
+can then be expressed as 
+
+% \begin{subequations}
+% \begin{align}
+%         \kappa &= f_V \kappa_C(D) \\
+%         \epsilon &= f_V \epsilon_C(D)
+% \end{align}
+% \end{subequations}
 \begin{equation}
-D = \frac{1}{f}.
+\kappa = f_V \kappa_C(D);~~\epsilon = f_V \epsilon_C(D).
 \end{equation}
-We then multiply all densities in the model by $D$, and all emitting volumes
-by $f$. This has the effect of enhancing all emissivities and opacities
-that scale with the square of density (such as collisional excitation and recombination) 
-by a factor $D$. All processes that scale linearly with density 
-(such as electron scattering and bound-free opacity)
-will remain unchanged for a given ionization state. 
+% \kappa = f_V \kappa_C(D) && \epsilon = f_V \epsilon_C(D).
+% \end{equation}
+Here the subscript $C$ denotes that the quantity is calculated using the 
+enhanced density in the clump. The resultant effect is that {\em linear} processes,
+such as electron scattering, are unchanged, as $f_V$ and $D$ will cancel out. 
+However, any quantity which scales with the {\em square} of density, 
+such as collisional excitation or recombination, will increase by a factor of $D$.
+
+% which is defined as 
+% \begin{equation}
+% D = \frac{1}{f} && 
+% \end{equation}
+% We then multiply all densities in the model by $D$, and all emitting volumes
+% by $f$. This has the effect of enhancing all emissivities and opacities
+% that scale with the square of density (such as collisional excitation and recombination) 
+% by a factor $D$. All processes that scale linearly with density 
+% (such as electron scattering and bound-free opacity)
+% will remain unchanged for a given ionization state. 
 
 Clumping the wind has an important effect on the ionization state and has
 been proposed as a solution to the so-called `over-ionization problem' in 
-disc winds (REFs). This is the main motivation for incorporating microclumping
+disc winds \citep{hamann2013}. This is the main motivation for incorporating microclumping
 into our model. This treatment is first-order; it does not adequately
 represent the complex substructures and stratifications in ionization
 state we expect in AGN outflows. Nevertheless, clumping is clearly
 important in these flows, and this parameterization allows a simple estimate
 for the effect clumping might have on the ionization state and emergent 
-line emission. It is also encouraging that microclumping has been used 
-successfully in fits to O-star wind spectra \citep{hillier1991eswingsmodel}.
+line emission. 
+% It is also encouraging that microclumping has been used 
+% successfully in fits to O-star wind spectra \citep{hillier1991eswingsmodel}.
 
 \subsection{The Simulation Grid: Arriving at a next-generation model}
 
 Using this prescription, we conducted a limited parameter
 search over a 5-dimensional parameter space involving the 
-variables $r_{min}$, $\theta_{min}$, $f$, $\alpha$ and $R_v$.
+variables $r_{min}$, $\theta_{min}$, $f_V$, $\alpha$ and $R_v$.
 The grid points are shown in table 1.
 The aim here was to first fix $M_{BH}$ and $\dot{m}$ to their H13 values,
 and increase $L_X$ to $10^{45}$~erg~s$^{-1}$ (a more realistic value for a 
@@ -727,7 +752,6 @@ We then evaluated these models based on the following criteria:
 \item Do a certain range of angles produce LoBAL features?
 \item Does the model compare favourably to quasar composite spectra?
 \end{itemize}
-We arrived at a model
 In this section, we present one of the most promising models and discuss
 the various successes and failures.
 This allows us to gain insight into fundamental geometrical 
@@ -743,7 +767,7 @@ $r_{min}$ 	&	 $6r_{g}$ & $60r_{g}$ & \multicolumn{2}{|l|}{$300r_{g}$} \\
 $\theta_{min}$ 	&	 $40^{\circ}$ & $55^{\circ}$ & \multicolumn{2}{|l|}{$70^{\circ}$} \\ 
 $R_v$  	        &	 $10^{18}$cm & \multicolumn{3}{|l|}{$10^{19}$cm} \\ 
 $\alpha$ 	&	 $0.5$ & $0.6$ & $0.75$ & $1.5$ \\
-$f$ 	&	 $0.01$ & $0.1$ & \multicolumn{2}{|l|}{$1$}  \\
+$f_V$ 	&	 $0.01$ & $0.1$ & \multicolumn{2}{|l|}{$1$}  \\
 \hline 
 \end{tabular}
 \caption{The grid points used in the parameter search.}
@@ -834,7 +858,7 @@ $\lambda$ 	&	 $0$ \\
 $v_{\infty}(r_0)$ 	&	 $v_{esc}(r_0)$ \\ 
 $R_v$  	        &	 $10^{19}$cm$^*$ \\ 
 $\alpha$ 	&	 $0.6^*$ \\
-$f$ 	&	 $0.01^*$  \\
+$f_V$ 	&	 $0.01^*$  \\
 $n_x$ 	&	 $100$  \\
 $n_z$ 	&	 $200$  \\
 \hline 
@@ -886,8 +910,9 @@ about the shape of the SED. In our case, the X-ray photons
 are dominant in the photoionization of the UV resonance line ions. 
 This explains why a factor of 100 increase in X-ray luminosity requires
 a clumping factor of 0.01, even though the value of $U_H$ decreases by only a factor of $\sim10$ 
-compared to H13. This is also the reason for significant Lyman edge photoabsorption
-at the highest inclinations (see section 4.3).
+compared to H13. 
+%This is also the reason for significant Lyman edge photoabsorption
+%at the highest inclinations (see section 4.3).
 
 Clumping also causes the total line luminosity to increase dramatically,
 as recombination and collisional excitation are both proportional to
