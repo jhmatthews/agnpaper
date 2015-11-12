@@ -2,7 +2,7 @@
 %%%% Various options for document class.
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL compare.tex   Tue Nov 10 16:44:34 2015
-%DIF ADD paper.tex     Tue Nov 10 16:44:38 2015
+%DIF ADD paper.tex     Thu Nov 12 10:15:19 2015
 %\usepackage{psfig,morefloats,url}
 %use preprint2 for 2 columns paper.
 
@@ -15,8 +15,11 @@
 \usepackage{appendix}
 \usepackage{subfigure}
 \usepackage{url}
+%DIF 20a20
+\usepackage{amsmath} %DIF > 
+%DIF -------
 %\usepackage{pngfig}
-%DIF 21c21
+%DIF 21c22
 %DIF < %\usepackage[dvips]{color}
 %DIF -------
 %\usepackage[dvips]{color}mak %DIF > 
@@ -130,13 +133,19 @@
 %DIF <    Southampton, SO17 1BJ, UK}}
 \DIFdelbegin %DIFDELCMD < 
 
-%\author[Matthews et al.]
+%DIFDELCMD < %%%
+\DIFdelend %\author[Matthews et al.]
 \author[Matthews et al.]{
+\parbox[t]{\textwidth}{
+J.~H.~Matthews$^1$\thanks{jm8g08@soton.ac.uk}, C.~Knigge$^1$,
+N.~Higginbottom$^1$, K.~S.~Long$^2$, S.~A.~Sim$^3$ and S.~W.~Mangham$^1$
+}
+}\DIFdelend \DIFaddbegin \DIFadd{
 \parbox[t]{\textwidth}{
 James~H.~Matthews$^1$\thanks{jm8g08@soton.ac.uk}, Christian~Knigge$^1$,
 Nick~Higginbottom$^1$, Knox~S.~Long$^2$, Stuart~A.~Sim$^3$ and Sam~W.~Mangham$^1$
 }
-\medskip  
+}\DIFaddend \medskip  
 \\$^1$School of Physics and Astronomy, University of Southampton, Highfield, Southampton, SO17 1BJ, United Kingdom
 \\$^2$Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD, 21218
 \\$^3$School of Mathematics and Physics, Queens University Belfast, University Road, Belfast, BT7 1NN, Northern Ireland, UK
@@ -213,15 +222,14 @@ of }\DIFaddend quasars and luminous active galactic nuclei (AGN) \DIFdelbegin \D
 picture involving a central black hole, }\DIFaddend an accretion disc and \DIFaddbegin \DIFadd{an }\DIFaddend associated outflow.
 Here, we \DIFdelbegin \DIFdel{test }\DIFdelend \DIFaddbegin \DIFadd{continue our tests of  }\DIFaddend this paradigm by \DIFdelbegin \DIFdel{utilising our state-of-the-art radiative transfer 
 and photoionization code to 
-produce synthetic spectra from }\DIFdelend \DIFaddbegin \DIFadd{comparing ``average'' AGN spectra to 
+produce synthetic spectra from }\DIFdelend \DIFaddbegin \DIFadd{comparing ``average'' quasar spectra to 
 synthetic spectra of }\DIFaddend simple biconical disc wind models\DIFaddbegin \DIFadd{, using our state-of-the-art 
 Monte Carlo radiative transfer and photoionization code}\DIFaddend .
 In particular, we \DIFdelbegin \DIFdel{expand on our previous work by presenting a model that
 exhibits many of the spectral features expected from a quasar unification model}\DIFdelend \DIFaddbegin \DIFadd{investigate whether clumping of the outflow allows us to 
-produce synthetic spectra in the rest-frame UV that have the characteristics of AGN, 
-assuming total luminosities as high as 10$^{45}$ ergs s$^{-1}$}\DIFaddend . 
+produce synthetic spectra in the rest-frame UV that have the characteristics of quasars}\DIFaddend . 
 We find that a simple treatment of clumping (`microclumping') 
-allows for a more realistic \DIFdelbegin \DIFdel{X-ray luminosity in the model}\DIFdelend \DIFaddbegin \DIFadd{AGN luminosities}\DIFaddend , while maintaining the ionization 
+allows for a more realistic X-ray \DIFdelbegin \DIFdel{luminosity in the model}\DIFdelend \DIFaddbegin \DIFadd{luminosities}\DIFaddend , while maintaining the ionization 
 state necessary for strong BAL features \DIFaddbegin \DIFadd{in the rest-frame UV}\DIFaddend . 
 We examine the X-ray properties of \DIFdelbegin \DIFdel{this new model
 }\DIFdelend \DIFaddbegin \DIFadd{these simple clumped models
@@ -590,7 +598,7 @@ in comparison to observational data. Finally}\DIFaddend , we summarise our findi
 
 \DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{For this study, we }\DIFaddend use the MCRT code \py\ \DIFaddbegin \DIFadd{we have developed }\DIFaddend to carry out our 
 radiative transfer and photoionization \DIFdelbegin \DIFdel{calculations }\DIFdelend \DIFaddbegin \DIFadd{simulations }\DIFaddend in non-local thermodynamic
-equilibrium (non-LTE). The code \DIFaddbegin \DIFadd{can be used to model a variety of
+equilibrium (non-LTE). The code \DIFaddbegin \DIFadd{can be model a variety of
 disc-wind systems; it }\DIFaddend has been used \DIFdelbegin \DIFdel{to model }\DIFdelend \DIFaddbegin \DIFadd{with application to }\DIFaddend accreting white dwarfs 
 (Long \& Knigge 2002, hereafter LK02; Noebauer et al. 2010; 
 Matthews et al. 2015, hereafter M15), young-stellar objects 
@@ -624,25 +632,26 @@ and \DIFdelbegin \DIFdel{other important aspects.
 
 \DIFaddend \subsection{Line transfer}
 
-\DIFdelbegin \DIFdel{To treat line transfer , }\DIFdelend \DIFaddbegin \DIFadd{Our approach to line transfer is based upon the macro-atom implementation developed by \mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{To treat line transfer , we adopt the same hybrid scheme 
+described by 
+M15}\DIFdelend \DIFaddbegin \DIFadd{Our approach to line transfer is based upon the macro-atom implementation developed by 
+\mbox{%DIFAUXCMD
 \cite{lucy2002, lucy2003}
 }%DIFAUXCMD
-. In our case, for reasons of computational effieciency, }\DIFaddend we adopt the  \DIFdelbegin \DIFdel{same hybrid }\DIFdelend \DIFaddbegin \DIFadd{hybrid macro-atom }\DIFaddend scheme 
-described by M15 
-\DIFdelbegin \DIFdel{, 
-}\DIFdelend %DIF > (an improvement over that used by H14 for our earlier quasar study), 
-in which the energy flows
-through the system are described in terms of indivisible
-energy quanta of radiant or kinetic energy 
-(`$r-$packets' and `$k-$packets' respectively; see also section 2.3).
-These energy packets interact with either two-level `simple ions'
-or full `macro-atoms'. 
-\DIFdelbegin \DIFdel{The macro-atom implementation 
+}\DIFaddend , in which the energy flows through the system are described in 
+terms of indivisible energy quanta of radiant or kinetic energy 
+(`$r-$packets' and `$k-$packets' respectively; see also section\DIFdelbegin \DIFdel{2.3). 
+These }\DIFdelend \DIFaddbegin \DIFadd{~\ref{sec:photon_sources}). 
+In our case, for reasons of computational efficiency, we adopt the  hybrid macro-atom scheme 
+described by M15.
+%DIF > (an improvement over that used by H14 for our earlier quasar study), 
+In this scheme, the }\DIFaddend energy packets interact with either two-level `simple ions' 
+or full `macro-atoms'. \DIFdelbegin \DIFdel{The macro-atom implementation 
 is described in full by \mbox{%DIFAUXCMD
 \cite{lucy2002, lucy2003}
 }%DIFAUXCMD
 .
-}\DIFdelend Our scheme allows one to treat non-LTE line transfer in radiative equilibrium
+Our scheme }\DIFdelend \DIFaddbegin \DIFadd{This }\DIFaddend allows one to treat non-LTE line transfer in radiative equilibrium
 without approximation for elements \DIFdelbegin \DIFdel{which }\DIFdelend \DIFaddbegin \DIFadd{that }\DIFaddend are identified as 
 full macro-atoms, while maintaining the fast `two-level' 
 treatment of resonance lines when elements are identified 
@@ -650,7 +659,8 @@ as simple-ions (see M15). In this study,
 only H is treated as a macro-atom, because 
 we expect recombination to be important
 in determining \DIFdelbegin \DIFdel{its }\DIFdelend \DIFaddbegin \DIFadd{their }\DIFaddend level populations and resultant line emission\DIFdelbegin \DIFdel{.
-}\DIFdelend \DIFaddbegin \DIFadd{, and because we were especially interested in the contribution to AGN spectra of }\LA\DIFadd{.  In H13, all atoms were treated in a two-level approximation.
+}\DIFdelend \DIFaddbegin \DIFadd{, and because we were especially interested in the contribution to AGN spectra of }\LA\DIFadd{.  
+H13 treated all atoms in a two-level approximation.
 }\DIFaddend 
 
 \subsection{Ionization Scheme}
@@ -697,7 +707,7 @@ R_{j,j+1}(J)=
 %DIFDELCMD < \right),}
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \displaystyle{
-n_i \left(C_{j} n_e + 
+n_j \left(C_{j} n_e + 
 \sum_{band~i=0}^{n}~
 {\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu} d\nu}
 \right),}
@@ -758,9 +768,11 @@ in most of the outflow.
 \subsection{Atomic Data}
 
 We use the same atomic data as described by LK02 and since updated by H13 and M15, 
-with the addition of direct ionization data from \cite{dere2007}. 
-Photoionization cross-sections are from \textsc{Topbase} \citep{cunto1993} and  \cite{vfky}.
-Dielectronic and radiative recombination rate coefficients are taken from 
+with the addition of direct \DIFdelbegin \DIFdel{ionization }\DIFdelend \DIFaddbegin \DIFadd{(collisional) ionization and recombination
+}\DIFaddend data from \cite{dere2007}. 
+Photoionization cross-sections are from \textsc{Topbase} \citep{cunto1993} and \cite{vfky}.
+\DIFdelbegin \DIFdel{Dielectronic and radiative }\DIFdelend %DIF > Dielectronic and 
+\DIFaddbegin \DIFadd{Radiative }\DIFaddend recombination rate coefficients are taken from 
 the \textsc{Chianti} database version 7.0 \citep{dere1997,landi2012}.
 We use ground state recombination rates from \cite{badnell2006} where available,
 and otherwise default to calculating recombination rates from the Milne
@@ -813,18 +825,22 @@ our biconical wind model.
 
 %DIFDELCMD < %%%
 \DIFdelend \subsection{Photon Sources}
+\DIFaddbegin \label{sec:photon_sources}
+\DIFaddend 
 
 %DIF < Describe the photon sources in the model.
 \DIFdelbegin %DIFDELCMD < 
 
 %DIFDELCMD < %%%
-\DIFdelend The accretion disc in our model is geometrically thin, but optically thick.
+\DIFdel{The accretion disc }\DIFdelend \DIFaddbegin \DIFadd{We include two sources of r-packets }\DIFaddend in our model\DIFdelbegin \DIFdel{is }\DIFdelend \DIFaddbegin \DIFadd{:
+An accretion disc and central X-ray source.
+The accretion disc is assumed to be }\DIFaddend geometrically thin, but optically thick.
 We thus treat the disc as an ensemble of blackbodies with a 
 \cite{shakurasunyaev1973} effective temperature profile. 
 The emergent SED is then determined by the specified accretion rate ($\dot{m}$)
 and central BH mass ($M_{BH}$).
-All photon sources in our model are assumed to \DIFdelbegin \DIFdel{beopaque}\DIFdelend \DIFaddbegin \DIFadd{be opaque}\DIFaddend , meaning
-that photons which strike them are destroyed.
+All photon sources in our model are \DIFdelbegin \DIFdel{assumed to beopaque}\DIFdelend \DIFaddbegin \DIFadd{opaque}\DIFaddend , meaning
+that \DIFdelbegin \DIFdel{photons }\DIFdelend \DIFaddbegin \DIFadd{r-packets }\DIFaddend which strike them are destroyed.
 The inner radius of the disc extends to the innermost 
 stable circular orbit (ISCO) of the BH. 
 We assume a Schwarzchild BH with an ISCO at $6~r_G$, where 
@@ -833,10 +849,10 @@ For a $10^9~M_\odot$ black hole, this is equal to $8.8\times10^{14}~{\rm cm}$
 or $\sim10^{-4}~{\rm pc}$.  
 
 
-The X-ray source in our model is treated as an isotropic sphere at the ISCO,
+The X-ray source \DIFdelbegin \DIFdel{in our model }\DIFdelend is treated as an isotropic sphere at the ISCO,
 which emits r-packets according to a power law in flux with index $\alpha_X$, of the form
 \begin{equation}
-F_X (\nu) = K \nu^{\alpha_X}.
+F_X (\nu) = K\DIFaddbegin \DIFadd{_X }\DIFaddend \nu^{\alpha_X}.
 \end{equation}
 The normalisation, $K_X$ of this power law is such that it 
 produces the specified 2-10~keV luminosity, $L_X$.
@@ -903,7 +919,7 @@ but also the density and ionization state of the outflow.
 A wind \DIFdelbegin \DIFdel{which }\DIFdelend \DIFaddbegin \DIFadd{that }\DIFaddend accelerates more slowly will have a denser wind base
 with correspondingly different ionization and emission characteristics.
 
-\subsection{Clumping}
+\subsection{\DIFaddbegin \DIFadd{A First Approximation for }\DIFaddend Clumping}
 
 \DIFaddbegin \DIFadd{Our previous modelling efforts assumed a smooth outflow, 
 in which the density at a given point was determined only by the 
@@ -916,43 +932,93 @@ computational difficulties associated with adequately
 resolving and realistically modelling a series of small scale, high density
 regions with a MCRT code. Second, the addition of multiple additional degrees of
 freedom in the model results in significantly wider parameter space.
-Unfortuantely, the physical scale lengths and density contrasts 
+Unfortunately, the physical scale lengths and density contrasts 
 associated with these parameters cannot be well-constrained from observations.
 }
 
 \DIFaddend To allow for clumping in our outflow we adopt a simple approximation
-used extensively in stellar wind modelling, known as 
-{\em microclumping} \citep{hamann1998}\DIFaddbegin \DIFadd{(MORE REFS)}\DIFaddend . The key assumption here is that 
-typical clump sizes are much smaller than the typical photon mean free path, 
-and thus the clumps are 
+used \DIFdelbegin \DIFdel{extensively }\DIFdelend \DIFaddbegin \DIFadd{successfully }\DIFaddend in stellar wind modelling, known as 
+{\em microclumping} \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{hamann1998}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{hamann1998,hamann2008}
+}%DIFAUXCMD
+(MORE REFS)}\DIFaddend . 
+The key assumption \DIFdelbegin \DIFdel{here }\DIFdelend is that typical clump sizes are much smaller than the 
+typical photon mean free path, and thus the clumps are 
 both geometrically and optically thin. This approach 
-allows one to introduce a `filling factor', $f$, which is the 
-fraction of the volume of the plasma filled by clumps. The intra-clump
-medium is assumed to be a vacuum. We can then introduce the 
-density enhancement, $D$, which is defined as 
-\begin{equation}
+allows one to introduce a `\DIFaddbegin \DIFadd{volume }\DIFaddend filling factor', \DIFdelbegin \DIFdel{$f$, which is the 
+fraction of the volume of the plasma filled by clumps}\DIFdelend \DIFaddbegin \DIFadd{$f_V$}\DIFaddend . 
+The intra-clump medium is assumed to be a vacuum\DIFdelbegin \DIFdel{. We can then introduce the density enhancement, $D$, which is defined as 
+}\begin{displaymath}\DIFdel{
 D = \frac{1}{f}.
-\end{equation}
-We then multiply all densities in the model by $D$, and all emitting volumes
+}\end{displaymath}
+%DIFAUXCMD
+\DIFdel{We then multiply all densities in the model by }\DIFdelend \DIFaddbegin \DIFadd{, so the 
+density of the clumps is then multiplied by the ``density enhancement'' 
+$D=1/f_V$. Opacities, $\kappa$, and emissivities, $\epsilon$, 
+can then be expressed as 
+}
+
+%DIF >  \begin{subequations}
+%DIF >  \begin{align}
+%DIF >          \kappa &= f_V \kappa_C(D) \\
+%DIF >          \epsilon &= f_V \epsilon_C(D)
+%DIF >  \end{align}
+%DIF >  \end{subequations}
+\begin{equation}\DIFadd{
+\kappa = f_V \kappa_C(D);~~\epsilon = f_V \epsilon_C(D).
+}\end{equation}
+%DIF >  \kappa = f_V \kappa_C(D) && \epsilon = f_V \epsilon_C(D).
+%DIF >  \end{equation}
+\DIFadd{Here the subscript $C$ denotes that the quantity is calculated using the 
+enhanced density in the clump. The resultant effect is that }{\em \DIFadd{linear}} \DIFadd{processes,
+such as electron scattering, are unchanged, as $f_V$ and }\DIFaddend $D$ \DIFdelbegin \DIFdel{, and all emitting volumes
 by $f$. This has the effect of enhancing all emissivities and opacities
-that scale with the square of density (such as collisional excitation and recombination) 
-by a factor $D$. All processes that scale linearly with density 
+that scale with the square of density (}\DIFdelend \DIFaddbegin \DIFadd{will cancel out. 
+However, any quantity which scales with the }{\em \DIFadd{square}} \DIFadd{of density, 
+}\DIFaddend such as collisional excitation \DIFdelbegin \DIFdel{and recombination) 
+}\DIFdelend \DIFaddbegin \DIFadd{or recombination, will increase }\DIFaddend by a factor \DIFaddbegin \DIFadd{of }\DIFaddend $D$.
+\DIFdelbegin \DIFdel{All processes that scale linearly with density 
 (such as electron scattering and bound-free opacity)
 will remain unchanged for a given ionization state. 
 %DIF <  A factor $f$ is also
 %DIF <  applied to the opacities such that opacities which scale only with $\rho$ are not
 %DIF <  increased. 
+}\DIFdelend 
 
-Clumping the wind has an important effect on the ionization state and has
+%DIF >  which is defined as 
+%DIF >  \begin{equation}
+%DIF >  D = \frac{1}{f} && 
+%DIF >  \end{equation}
+%DIF >  We then multiply all densities in the model by $D$, and all emitting volumes
+%DIF >  by $f$. This has the effect of enhancing all emissivities and opacities
+%DIF >  that scale with the square of density (such as collisional excitation and recombination) 
+%DIF >  by a factor $D$. All processes that scale linearly with density 
+%DIF >  (such as electron scattering and bound-free opacity)
+%DIF >  will remain unchanged for a given ionization state. 
+\DIFaddbegin 
+
+\DIFaddend Clumping the wind has an important effect on the ionization state and has
 been proposed as a solution to the so-called `over-ionization problem' in 
-disc winds (REFs). This is the main motivation for incorporating microclumping
+disc winds \DIFdelbegin \DIFdel{(REFs)}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{hamann2013}
+}%DIFAUXCMD
+}\DIFaddend . This is the main motivation for incorporating microclumping
 into our model. This treatment is first-order; it does not adequately
 represent the complex substructures and stratifications in ionization
 state we expect in AGN outflows. Nevertheless, clumping is clearly
 important in these flows, and this parameterization allows a simple estimate
 for the effect clumping might have on the ionization state and emergent 
-line emission. It is also encouraging that microclumping has been used 
-successfully in fits to O-star wind spectra \citep{hillier1991eswingsmodel}.
+line emission. 
+\DIFdelbegin \DIFdel{It is also encouraging that microclumping has been used 
+successfully in fits to O-star wind spectra \mbox{%DIFAUXCMD
+\citep{hillier1991eswingsmodel}
+}%DIFAUXCMD
+.
+}\DIFdelend %DIF >  It is also encouraging that microclumping has been used 
+%DIF >  successfully in fits to O-star wind spectra \citep{hillier1991eswingsmodel}.
 
 %DIF < %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DIFaddbegin \subsection{\DIFadd{The Simulation Grid: Arriving at a next-generation model}}
@@ -979,7 +1045,7 @@ H13 are highlighted with an asterisk.
 This set of parameters
 was arrived at by conducting a limited grid }\DIFdelend \DIFaddbegin \DIFadd{Using this prescription, we conducted a limited parameter
 }\DIFaddend search over a 5-dimensional parameter space involving the 
-variables $r_{min}$, $\theta_{min}$, $f$, $\alpha$ and \DIFdelbegin \DIFdel{$R_V$.
+variables $r_{min}$, $\theta_{min}$, \DIFdelbegin \DIFdel{$f$}\DIFdelend \DIFaddbegin \DIFadd{$f_V$}\DIFaddend , $\alpha$ and \DIFdelbegin \DIFdel{$R_V$.
 The full grid , including output spectral files and plots can be found at
 }%DIFDELCMD < \url{jhmatthews.github.io/quasar-wind-grid/}%%%
 \DIFdel{. 
@@ -990,30 +1056,47 @@ and increase $L_X$ to $10^{45}$~erg~s$^{-1}$ (a more realistic value for a
 quasar of $10^9M_\odot$ and an eddington fraction of $0.2$; see section~\ref{sec:xray}). 
 We then }\DIFaddend evaluated these models \DIFdelbegin \DIFdel{qualitatively }\DIFdelend based on the following criteria:
 \begin{itemize}
-\item Does the model \DIFdelbegin \DIFdel{maintain the right ionization state to }\DIFdelend \DIFaddbegin \DIFadd{avoid over-ionization and thus }\DIFaddend produce strong BALs \DIFaddbegin \DIFadd{with $BI > ??$}\DIFaddend ?
-\item Does significant line emission emerge at low inclinations\DIFaddbegin \DIFadd{, with $EW\sim50\AA$ in }\civ\DIFaddend ?
+\item Does the model \DIFdelbegin \DIFdel{maintain the right ionization state to produce strong BALs}\DIFdelend \DIFaddbegin \DIFadd{avoid over-ionization and thus produce UV absorption lines 
+with $BI > 0$ at $\sim20\%$ of viewing angles}\DIFaddend ?
+\item Does significant line emission emerge at low inclinations\DIFaddbegin \DIFadd{, with $EW\sim40\AA$ in }\civ\DIFaddend ?
 \item Do H recombination lines appear in the spectrum\DIFaddbegin \DIFadd{, $EW\sim50\AA$ in }\la\DIFaddend ?
-\item Do a certain range of angles produce LoBAL features?
+\item Do a \DIFdelbegin \DIFdel{certain range of }\DIFdelend \DIFaddbegin \DIFadd{small subset of BAL }\DIFaddend angles produce LoBAL features?
 \item Does the model compare favourably to quasar composite spectra?
 \end{itemize}
-\DIFaddbegin \DIFadd{We arrived at a model
-}\DIFaddend In this section, we present one of the most promising models and discuss
-the various successes and failures.
+In this section, we present one of the most promising models and discuss
+the various successes and failures \DIFaddbegin \DIFadd{with respect to the above criteria}\DIFaddend .
 This allows us to gain insight into fundamental geometrical 
 and physical constraints and assess the potential for unification. 
-\DIFaddbegin \DIFadd{The full grid, including output synthetic spectra and plots can be found at
-}\url{jhmatthews.github.io/quasar-wind-grid/}\DIFadd{.
-}\DIFaddend 
+\DIFdelbegin %DIFDELCMD < 
 
-\DIFaddbegin \begin{table}
-\begin{tabular}{p{2cm}p{1cm}p{1cm}p{1cm}p{1cm}}
+%DIFDELCMD < \begin{figure*} %%%
+%DIF < fullpage
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=1.0\textwidth]{figures/link.png}
+%DIFDELCMD < \caption
+%DIFDELCMD < {
+%DIFDELCMD < %%%
+\DIFdel{Physical properties of the outflow,
+shown by the coloured contours. The solid black line marks a sphere at $1000~r_G$. The dotted lines show the $72^\circ$ and $78^\circ$ sightlines 
+to the centre of the system, 
+and illustrate that different sightlines
+intersect material of different ionization states }\DIFdelend \DIFaddbegin \DIFadd{The full grid, including output synthetic spectra and plots can be found at
+}\url{jhmatthews.github.io/quasar-wind-grid/}\DIFaddend .
+\DIFdelbegin %DIFDELCMD < }
+%DIFDELCMD < \label{fig:wind}
+%DIFDELCMD < \end{figure*} %%%
+%DIF < fullpage
+\DIFdelend 
+
+\begin{table}
+\DIFaddbeginFL \begin{tabular}{p{2cm}p{1cm}p{1cm}p{1cm}p{1cm}}
 \DIFaddFL{Parameter }& \multicolumn{4}{|l|}{Grid Point Values}  \\
 \hline \hline 
 \DIFaddFL{$r_{min}$ 	}&	 \DIFaddFL{$6r_{g}$ }& \DIFaddFL{$60r_{g}$ }& \multicolumn{2}{|l|}{$300r_{g}$} \\ 
 \DIFaddFL{$\theta_{min}$ 	}&	 \DIFaddFL{$40^{\circ}$ }& \DIFaddFL{$55^{\circ}$ }& \multicolumn{2}{|l|}{$70^{\circ}$} \\ 
 \DIFaddFL{$R_v$  	        }&	 \DIFaddFL{$10^{18}$cm }& \multicolumn{3}{|l|}{$10^{19}$cm} \\ 
 \DIFaddFL{$\alpha$ 	}&	 \DIFaddFL{$0.5$ }& \DIFaddFL{$0.6$ }& \DIFaddFL{$0.75$ }& \DIFaddFL{$1.5$ }\\
-\DIFaddFL{$f$ 	}&	 \DIFaddFL{$0.01$ }& \DIFaddFL{$0.1$ }& \multicolumn{2}{|l|}{$1$}  \\
+\DIFaddFL{$f_V$ 	}&	 \DIFaddFL{$0.01$ }& \DIFaddFL{$0.1$ }& \multicolumn{2}{|l|}{$1$}  \\
 \hline 
 \end{tabular}
 \caption{\DIFaddFL{The grid points used in the parameter search.}}
@@ -1067,29 +1150,10 @@ of the emission lines.
 %DIF >  The full grid, including output synthetic spectra and plots can be found at
 %DIF >  \url{jhmatthews.github.io/quasar-wind-grid/}.
 
-\DIFaddend \begin{figure*} %fullpage
-\centering
-\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1.0\textwidth]{figures/link.png}
-%DIFDELCMD < %%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1.0\textwidth]{figures/link8.png}
-\DIFaddendFL \caption
-{
-\DIFdelbeginFL \DIFdelFL{Physical }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Contour plots showing the logarithm of some important 
-physical }\DIFaddendFL properties of the outflow\DIFdelbeginFL \DIFdelFL{, shown by the coloured contours}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{. Symbols are defined in the text}\DIFaddendFL .
-The solid black line marks a sphere at $1000~r_G$.
-The dotted lines show the $72^\circ$ and $78^\circ$ sightlines 
-to the centre of the system, and illustrate that different sightlines
-intersect material of different ionization states.
-\DIFaddbeginFL \DIFaddFL{The line luminosities represent the luminosity of photons
-escaping the Sobolev region for each line. These photons do not
-necessarily escape to infinity.
-}\DIFaddendFL }
-\label{fig:wind}
-\end{figure*} %fullpage
 
 
 \begin{table}
-\begin{tabular}{p{3cm}p{4cm}}
+\DIFaddendFL \begin{tabular}{p{3cm}p{4cm}}
 \hline \DIFdelbeginFL \DIFdelFL{Free }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Next-generation Model }\DIFaddendFL Parameters 	&	 Value \\ 
 \hline \hline 
 $M_{BH}$ 	 &	 $1\times 10^9~\rm{M_{\odot}}$ \\ 
@@ -1107,7 +1171,7 @@ $\lambda$ 	&	 $0$ \\
 $v_{\infty}(r_0)$ 	&	 $v_{esc}(r_0)$ \\ 
 $R_v$  	        &	 $10^{19}$cm$^*$ \\ 
 $\alpha$ 	&	 $0.6^*$ \\
-$f$ 	&	 $0.01^*$  \\
+\DIFdelbeginFL \DIFdelFL{$f$ 	}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$f_V$ 	}\DIFaddendFL &	 $0.01^*$  \\
 \DIFaddbeginFL \DIFaddFL{$n_x$ 	}&	 \DIFaddFL{$100$  }\\
 \DIFaddFL{$n_z$ 	}&	 \DIFaddFL{$200$  }\\
 \DIFaddendFL \hline 
@@ -1128,7 +1192,26 @@ $f$ 	&	 $0.01^*$  \\
 
 \subsection{Physical Conditions and Ionization State}
 
-Figure~\ref{fig:wind} shows the physical properties of the wind.
+
+\DIFaddbegin \begin{figure*} %DIF > fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/link8.png}
+\caption
+{
+\DIFaddFL{Contour plots showing the logarithm of some important 
+physical properties of the outflow. Symbols are defined in the text.
+The solid black line marks a sphere at $1000~r_G$.
+The dotted lines show the $72^\circ$ and $78^\circ$ sightlines 
+to the centre of the system, and illustrate that different sightlines
+intersect material of different ionization states.
+The line luminosities represent the luminosity of photons
+escaping the Sobolev region for each line. These photons do not
+necessarily escape to infinity.
+}}
+\label{fig:wind}
+\end{figure*} %DIF > fullpage
+
+\DIFaddend Figure~\ref{fig:wind} shows the physical properties of the wind.
 The wind rises slowly from the disc at first, with clumped densities
 of $n_H \sim 10^{11}~\rm{cm^{-3}}$ close to the disc plane.
 The flow then accelerates over a scale length of $R_V=10^{19}~\rm{cm}$
@@ -1159,8 +1242,11 @@ about the shape of the SED. In our case, the X-ray photons
 are dominant in the photoionization of the UV resonance line ions. 
 This explains why a factor of 100 increase in X-ray luminosity requires
 a clumping factor of 0.01, even though the value of $U_H$ decreases by only a factor of $\sim10$ 
-compared to H13. This is also the reason for significant Lyman edge photoabsorption
+compared to H13. 
+\DIFdelbegin \DIFdel{This is also the reason for significant Lyman edge photoabsorption
 at the highest inclinations (see section 4.3).
+}\DIFdelend %DIF > This is also the reason for significant Lyman edge photoabsorption
+%DIF > at the highest inclinations (see section 4.3).
 
 Clumping also causes the total line luminosity to increase dramatically,
 as recombination and collisional excitation are both proportional to
@@ -1182,12 +1268,15 @@ results of Kaspi (2000) for the $2.6\times10^{9} M_\odot$ quasar S5 0836+71,
 and also compares favourably with microlensing measurements of the size of the
 \civ\ emission line region in the BALQSO H1413+117 \citep{odowd2015}.
 
+
 \subsection{Synthetic Spectra\DIFaddbegin \DIFadd{: Comparison to Observations}\DIFaddend }
 
 \begin{figure*} %fullpage
 \centering
-\includegraphics[width=1.0\textwidth]{figures/uvspec.png}
-\caption
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1.0\textwidth]{figures/uvspec.png}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1.0\textwidth]{figures/uvspec_estfix.png}
+\DIFaddendFL \caption
 {
 Synthetic spectra at five viewing angles in our model. The coloured lines
 show different quasar and BAL quasar composites, and the dotted line shows a disc
@@ -1211,20 +1300,27 @@ from highly ionized (yellow) to low ionization (purple) material.
 \label{fig:sightline}
 \end{figure} 
 
-% \begin{figure*} %fullpage
-% \centering
+%DIF <  \begin{figure*} %fullpage
+%DIF <  \centering
 %DIF <  \includegraphics[width=1.0\textwidth]{figures/opt.png}
-%DIF >  \includegraphics[width=1.0\textwidth]{figures/0946.png}
-% \caption
-% {
+%DIF <  \caption
+%DIF <  {
 %DIF <  Figure designed to show optical spectrum and comparison to composite.
-%DIF >  Synthetic spectra at $72^\circ$ compared to an HST STIS spectrum
-%DIF >  of PG0946+301 (Arav et al. 2000). The spectrum is scaled to the flux at 1300\AA\
-%DIF >  for direct comparison. 
-% }
+%DIF <  }
 %DIF <  \label{fig:uvspec}
-%DIF >  \label{fig:stis}
-% \end{figure*} %fullpage
+%DIF <  \end{figure*} %fullpage
+\DIFaddbegin \begin{figure*} %DIF > fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/0946.png}
+\caption
+{
+\DIFaddFL{Synthetic spectra at $72^\circ$ compared to an HST STIS spectrum
+of PG0946+301 (Arav et al. 2000). The spectrum is scaled to the flux at 1300\AA}\
+\DIFaddFL{for direct comparison. 
+}}
+\label{fig:stis}
+\end{figure*} %DIF > fullpage
+\DIFaddend 
 
 Figure~\ref{fig:uvspec} shows the synthetic spectrum in the UV from our model. 
 \DIFdelbegin \DIFdel{We also show a comparison to composite }\DIFdelend \DIFaddbegin \DIFadd{To assess the ability of the model to match real 
@@ -1250,6 +1346,14 @@ starts to intersect the line of sight. This produces
 multiple absorption lines in \DIFdelbegin \DIFdel{lower ionization }\DIFdelend species such as \mg,
 \al\ and Fe~\textsc{ii}. The potential links to LoBALQSOs and 
 FeLoBALQSOs are discussed in section 2.4.
+\DIFaddbegin \DIFadd{Clearly, the absorption lines in the 
+synthetic spectra at BALQSO-like angles do not match the composites; this
+is }{\em \DIFadd{not}} \DIFadd{due to a failure of our model, but rather because a geometric mean
+BALQSO composite spectrum tends to wash out the broad absorption features due to the wide
+range of absorption characteristics. To demonstrate this, we show a comparison 
+to a }{\sl \DIFadd{Hubble Space Telescope}} \DIFadd{STIS spectrum of the high BALnicity BALQSO PG0946+301 
+(Arav et al. 2000) in figure \ref{fig:stis}. 
+}\DIFaddend 
 
 The high ionization BAL profiles are often saturated, and the location in velocity space
 of the strongest absorption in the profile varies with inclination.
@@ -1346,7 +1450,7 @@ loss rate  or velocity law, can produce more line emission.
 However, the red wing of the BAL profiles is generally stronger than 
 seen in BALQSO spectra and composites. This illustrates a fundamental 
 problem with a geometric unification model such as this:
-that the line-to-continuum ratios at low inclinations are
+that the line-to-continuum ratios at \DIFdelbegin \DIFdel{low }\DIFdelend \DIFaddbegin \DIFadd{hight }\DIFaddend inclinations are
 significantly affected by disc foreshortening and limb darkening.
 The angular distribution of the disc radiation is clearly
 crucially important in determining the emergent line ratios.
@@ -1395,21 +1499,21 @@ that they possess remarkably similar line strengths and widths
 \mbox{%DIFAUXCMD
 \citep[e.g.][]{weymann1991,reichard2003}
 }%DIFAUXCMD
-. }\DIFdelend \DIFaddbegin \DIFadd{BALQSOs and quasars generally possess very similar emission line properties 
+. 
+}\DIFdelend \DIFaddbegin \DIFadd{BALQSOs and quasars generally possess very similar emission line properties 
 \mbox{%DIFAUXCMD
 \citep[e.g.][]{weymann1991,reichard2003}
 }%DIFAUXCMD
-. To demonstrate this, we show equivalent width
-mean values and standard devaitions from REF in table 3. Clearly, the variation
-with inclination in our models is far greater than than the variation 
-between, and standard deviation within, quasar and BALQSO samples.  
+. 
+Clearly, the variation with inclination in our models is far greater than 
+than the variation between, and standard deviation within, quasar and BALQSO samples.  
 }\DIFaddend This presents a challenge to our model, as well as the geometric unification picture in general.
 \DIFdelbegin \DIFdel{Limb darkening and foreshortening causes the disc continuum emission to be 
 strongly anisotropic, yet the line emission in our models is much more isotropic . 
 This has the effect of enhancing the line-to-continuum ratios at high inclinations. 
 To construct a scenario where emission 
 line equivalent widths are comparable at all inclinations requires 
-significant fine-tuning when considering a }\DIFdelend \DIFaddbegin \DIFadd{One obvious potential solution to this problem is to hypothesize a more isotropic distribution 
+significant fine-tuning when considering a }\DIFdelend \DIFaddbegin \DIFadd{One obvious potential solution is to hypothesize a more isotropic distribution 
 for the emergent condition than predicted by a }\DIFaddend classical thin disc. 
 \DIFdelbegin \DIFdel{An alternative, simpler solution is that the emergent continuum is roughly isotropic.
 }%DIFDELCMD < 
@@ -1434,7 +1538,9 @@ by \mbox{%DIFAUXCMD
 }%DIFAUXCMD
 for the X-rays in X-ray binaries.
 As a result, 
-}\DIFdelend \DIFaddbegin \DIFadd{However, we have verified using AGNSPEC (REFs to Hubeny)
+}\DIFdelend \DIFaddbegin \DIFadd{However, we have verified using AGNSPEC \mbox{%DIFAUXCMD
+\citep{hubeny2000,hubeny2001,hubenyhubeny1997}
+}%DIFAUXCMD
 that this effect is small in }\DIFaddend the \DIFdelbegin \DIFdel{disc emission is still strongly anisotropic.
 GR alone therefore cannot explain the line ratio trends in quasars by making the disc
 emit more isotropically.
@@ -1863,10 +1969,6 @@ inferences are fraught with complex selection effects.
 %DIF >  }
 %DIF >  \label{fig:alpha_ox}
 %DIF >  \end{figure}
-
-
-{\bf \DIFadd{Note: One of the things I definitely wondered about is whether our "model" would produce the fraction of BALs seen in the sky}}
-
 
 %DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

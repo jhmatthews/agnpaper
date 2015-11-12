@@ -56,6 +56,9 @@ draft:
 	@echo "WORDCOUNT"
 	#wc report.out
 
+ldiff:
+	latexdiff --flatten compare.tex paper.tex > diffs.tex
+	python mnras.py diffs.tex ${DIFF_FILE}.tex
 
 diffs:
 	#latexdiff --flatten compare.tex paper.tex > diffs.tex

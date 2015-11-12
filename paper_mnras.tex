@@ -177,14 +177,13 @@ Nick~Higginbottom$^1$, Knox~S.~Long$^2$, Stuart~A.~Sim$^3$ and Sam~W.~Mangham$^1
 Various unification schemes have been proposed to interpret the complex phenomenology 
 of quasars and luminous active galactic nuclei (AGN) in terms of  a simple axisymmetric 
 picture involving a central black hole, an accretion disc and an associated outflow.
-Here, we continue our tests of  this paradigm by comparing ``average'' AGN spectra to 
+Here, we continue our tests of  this paradigm by comparing ``average'' quasar spectra to 
 synthetic spectra of simple biconical disc wind models, using our state-of-the-art 
 Monte Carlo radiative transfer and photoionization code.
 In particular, we investigate whether clumping of the outflow allows us to 
-produce synthetic spectra in the rest-frame UV that have the characteristics of AGN, 
-assuming total luminosities as high as 10$^{45}$ ergs s$^{-1}$. 
+produce synthetic spectra in the rest-frame UV that have the characteristics of quasars. 
 We find that a simple treatment of clumping (`microclumping') 
-allows for a more realistic AGN luminosities, while maintaining the ionization 
+allows for a more realistic X-ray luminosities, while maintaining the ionization 
 state necessary for strong BAL features in the rest-frame UV. 
 We examine the X-ray properties of these simple clumped models
 and find good agreement with existing X-ray samples of AGN and quasars.
@@ -748,10 +747,11 @@ and increase $L_X$ to $10^{45}$~erg~s$^{-1}$ (a more realistic value for a
 quasar of $10^9M_\odot$ and an eddington fraction of $0.2$; see section~\ref{sec:xray}). 
 We then evaluated these models based on the following criteria:
 \begin{itemize}
-\item Does the model avoid over-ionization and thus produce strong BALs with $BI > ??$?
-\item Does significant line emission emerge at low inclinations, with $EW\sim50\AA$ in \civ?
+\item Does the model avoid over-ionization and thus produce UV absorption lines 
+with $BI > 0$ at $\sim20\%$ of viewing angles?
+\item Does significant line emission emerge at low inclinations, with $EW\sim40\AA$ in \civ?
 \item Do H recombination lines appear in the spectrum, $EW\sim50\AA$ in \la?
-\item Do a certain range of angles produce LoBAL features?
+\item Do a small subset of BAL angles produce LoBAL features?
 \item Does the model compare favourably to quasar composite spectra?
 \end{itemize}
 In this section, we present one of the most promising models and discuss
@@ -822,23 +822,6 @@ of the emission lines.
 % The full grid, including output synthetic spectra and plots can be found at
 % \url{jhmatthews.github.io/quasar-wind-grid/}.
 
-\begin{figure*} %fullpage
-\centering
-\includegraphics[width=1.0\textwidth]{figures/link8.png}
-\caption
-{
-Contour plots showing the logarithm of some important 
-physical properties of the outflow. Symbols are defined in the text.
-The solid black line marks a sphere at $1000~r_G$.
-The dotted lines show the $72^\circ$ and $78^\circ$ sightlines 
-to the centre of the system, and illustrate that different sightlines
-intersect material of different ionization states.
-The line luminosities represent the luminosity of photons
-escaping the Sobolev region for each line. These photons do not
-necessarily escape to infinity.
-}
-\label{fig:wind}
-\end{figure*} %fullpage
 
 
 \begin{table}
@@ -880,6 +863,25 @@ $n_z$ 	&	 $200$  \\
 
 
 \subsection{Physical Conditions and Ionization State}
+
+
+\begin{figure*} %fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/link8.png}
+\caption
+{
+Contour plots showing the logarithm of some important 
+physical properties of the outflow. Symbols are defined in the text.
+The solid black line marks a sphere at $1000~r_G$.
+The dotted lines show the $72^\circ$ and $78^\circ$ sightlines 
+to the centre of the system, and illustrate that different sightlines
+intersect material of different ionization states.
+The line luminosities represent the luminosity of photons
+escaping the Sobolev region for each line. These photons do not
+necessarily escape to infinity.
+}
+\label{fig:wind}
+\end{figure*} %fullpage
 
 Figure~\ref{fig:wind} shows the physical properties of the wind.
 The wind rises slowly from the disc at first, with clumped densities
@@ -936,6 +938,7 @@ results of Kaspi (2000) for the $2.6\times10^{9} M_\odot$ quasar S5 0836+71,
 and also compares favourably with microlensing measurements of the size of the
 \civ\ emission line region in the BALQSO H1413+117 \citep{odowd2015}.
 
+
 \subsection{Synthetic Spectra: Comparison to Observations}
 
 \begin{figure*} %fullpage
@@ -965,17 +968,17 @@ from highly ionized (yellow) to low ionization (purple) material.
 \label{fig:sightline}
 \end{figure} 
 
-% \begin{figure*} %fullpage
-% \centering
-% \includegraphics[width=1.0\textwidth]{figures/0946.png}
-% \caption
-% {
-% Synthetic spectra at $72^\circ$ compared to an HST STIS spectrum
-% of PG0946+301 (Arav et al. 2000). The spectrum is scaled to the flux at 1300\AA\
-% for direct comparison. 
-% }
-% \label{fig:stis}
-% \end{figure*} %fullpage
+\begin{figure*} %fullpage
+\centering
+\includegraphics[width=1.0\textwidth]{figures/0946_estfix.png}
+\caption
+{
+Synthetic spectra at $72^\circ$ compared to an HST STIS spectrum
+of PG0946+301 (Arav et al. 2000). The spectrum is scaled to the flux at 1300\AA\
+for direct comparison. 
+}
+\label{fig:stis}
+\end{figure*} %fullpage
 
 Figure~\ref{fig:uvspec} shows the synthetic spectrum in the UV from our model. 
 To assess the ability of the model to match real 
@@ -998,6 +1001,13 @@ starts to intersect the line of sight. This produces
 multiple absorption lines in species such as \mg,
 \al\ and Fe~\textsc{ii}. The potential links to LoBALQSOs and 
 FeLoBALQSOs are discussed in section 2.4.
+Clearly, the absorption lines in the 
+synthetic spectra at BALQSO-like angles do not match the composites; this
+is {\em not} due to a failure of our model, but rather because a geometric mean
+BALQSO composite spectrum tends to wash out the broad absorption features due to the wide
+range of absorption characteristics. To demonstrate this, we show a comparison 
+to a {\sl Hubble Space Telescope} STIS spectrum of the high BALnicity BALQSO PG0946+301 
+(Arav et al. 2000) in figure \ref{fig:stis}. 
 
 The high ionization BAL profiles are often saturated, and the location in velocity space
 of the strongest absorption in the profile varies with inclination.
@@ -1082,7 +1092,7 @@ The angular distribution of the disc radiation is clearly
 crucially important in determining the emergent line ratios.
 
 \subsubsection{The Angular Distribution of Line And Continuum Emission}
-\label{angular}
+\label{{sec:angular}}
 
 In order to quantitatively assess how emission lines change with 
 inclination when blue-shifted absorption 
@@ -1498,10 +1508,6 @@ inferences are fraught with complex selection effects.
 % \label{fig:alpha_ox}
 % \end{figure}
 
-
-{\bf Note: One of the things I definitely wondered about is whether our "model" would produce the fraction of BALs seen in the sky}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % SUMMARY
@@ -1536,7 +1542,7 @@ and recombination lines (such as \la, \ha\ and the Balmer series).
 \item The line EWs in our models increase with inclination.
 BAL and non-BAL quasar composites have comparable EWs, so our model
 fails to reproduce this behaviour.
-This is due to a fundamental constraint discussed further in section 5. If the BLR
+This is due to a fundamental constraint discussed further in section~\ref{sec:angular}. If the BLR
 emits fairly isotropically then for a foreshortened, limb-darkened classical thin accretion disc
 it is simply not possible to achieve line ratios at low inclinations that are comparable to
 those at high inclinations. This is a robust conclusion which 
