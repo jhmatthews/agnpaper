@@ -178,16 +178,13 @@ Various unification schemes have been proposed to interpret the complex phenomen
 of quasars and luminous active galactic nuclei (AGN) in terms of  a simple axisymmetric 
 picture involving a central black hole, an accretion disc and an associated outflow.
 Here, we continue our tests of  this paradigm by comparing ``average'' quasar spectra to 
-synthetic spectra of simple biconical disc wind models, using our state-of-the-art 
-Monte Carlo radiative transfer and photoionization code.
-In particular, we investigate whether clumping of the outflow allows us to 
-produce synthetic spectra in the rest-frame UV that have the characteristics of quasars. 
-We find that a simple treatment of clumping (`microclumping') 
-allows for a more realistic X-ray luminosities, while maintaining the ionization 
-state necessary for strong BAL features in the rest-frame UV. 
+synthetic spectra of simple biconical disc wind models, produced with our state-of-the-art 
+Monte Carlo radiative transfer and photoionization code PYTHON.  Previously, we have shown that we could produce synthetic spectra resembling those of observed AGN for plausible wind models, but only if the X-ray luminosity was limited to about  10$^{42}$ ergs s$^{-1}$.  Here , we investigate the  degree to which  clumping of the outflow allows us to 
+produce synthetic spectra in the rest-frame UV that have the characteristics of quasars with X-ray luminosities as large as 10$^{45}$ ergs s$^{-1}$. 
+We conclude, perhaps not surprisingly,  that clumping does maintain the ionization state of the wind necessary for strong BAL features in the rest-frame UV at more realistic X-ray luminosities.
 We examine the X-ray properties of these simple clumped models
 and find good agreement with existing X-ray samples of AGN and quasars.
-The dense, X-ray heated wind produces strong recombination and collisionally 
+In addition, the dense, X-ray heated wind produces strong recombination and collisionally 
 excited line emission in, e.g., \civ\ and \la, to emerge at the low inclination, 
 `Type 1 quasar-like' angles. 
 At the highest inclinations, the synthetic spectra possess prominent \mg\ and \al\ BALs, the absorption features seen in LoBAL quasars. 
@@ -329,7 +326,9 @@ Additionally, clumping is required to explain the electron scattering wings of e
 in line-driven hot star winds \citep{hillier1991eswingsmodel}. Complex substructures 
 are also produced in simulations of line-driven 
 outflows in AGN, although on very different scales to line-driven instabilities 
-\citep{PSK2000,PK04,progakurosawa2010,proga2014}.
+\citep{PSK2000,PK04,progakurosawa2010,proga2014}.  {\bf KSL: I do not believe the AGN simulations have the resolution to produce clumping on the scale of hot star winds.
+JM: that's why I mention scales, although I can specifically mention resolution if we
+want.}
 Nevertheless, clumpy winds offer an observationally motivated and theoretically 
 predicted way to lower the ionization state of a plasma, possibly in tandem
 with a shielding scenario. 
@@ -440,30 +439,24 @@ in comparison to observational data. Finally, we summarise our findings in secti
 
 For this study, we use the MCRT code \py\ we have developed to carry out our 
 radiative transfer and photoionization simulations in non-local thermodynamic
-equilibrium (non-LTE). The code can be model a variety of
+equilibrium (non-LTE). The code can be used to model a variety of
 disc-wind systems; it has been used with application to accreting white dwarfs 
 (Long \& Knigge 2002, hereafter LK02; Noebauer et al. 2010; 
 Matthews et al. 2015, hereafter M15), young-stellar objects 
 \citep{simmacro2005} and quasars/AGN (H13, H14).\nocite{noebauer, M15, LK02}  
 
-The basic premise involves generating photons from an accretion disc
-and central object, and computing their radiative transfer through an outflow.
-This outflow is discretized into $n_x \times n_z$ cells in a 2.5D
-cylindrical geometry with azimuthal symmetry.
-First, the code gradually converges on the global temperature and ionization structure.
-Once these ``ionization cycles'' are complete, then a series of further iterations
-allow one to obtain a detailed synthetic spectrum.
-LK02 provides the basic description of the original code; improvements, 
-see especially \cite{simmacro2005}, H13 and M15, have been 
-described in subsequent reports.  
+The code operates as follows:   This outflow is discretized into $n_x \times n_z$ cells in a 2.5D
+cylindrical geometry with azimuthal symmetry. From some initial conditions in each cell, the code first calculates the ionization structure of the wind in a series of iterations.  Each iteration in an ``ionization cycle'' consists of generating photons, actually photon packets, from an accretion disc
+and central object, and calculating how these photon bundles scatter through the wind (eventually escaping the outflow or hitting the disk). Then updating the ionization structure based on the properties of the radiation field in each cell, and the process is repeated.   Once the ionization structure has converged, the ionization structure is held fixed, and  synthetic spectra are generated at specific inclination angles in a series of "spectral cycles". LK02 provide a more detailed  description of the original code; various improvements have been made since then and are described by 
+ \cite{simmacro2005}, H13 and M15.  
 %A full description of the code will be published elsewhere; 
-We focus here on the specific changes made to improve the ionization calculation 
+We focus here on the specific changes made for this study intended to improve the ionization calculation of H and He
 and to allow for clumping in the wind.
 %These studies contain extensive detail on the code,  so we only briefly describe the key elements of the global ionization calculation and other important aspects.
 
 % {\bf ksl - I a a bit torn over whether we add a few 3 sentences to describe the basic idea.  Some will be reading this for the first time.  Items that one would include are that we calculate the radiative transfer in a cylindrical coordinate system of dimension ?? x ??.  We have ionization and spectral cycles. In each cycle, ?? photon bundles are generated. We stop the ionization cycles after they converge, without any details.  I think this would be useful because we introduce terms like ``cell'' later on.', and without some kind of description they have no context}
 
-\subsection{Line transfer}
+\subsection{Line transfer treatment}
 
 Our approach to line transfer is based upon the macro-atom implementation developed by 
 \cite{lucy2002, lucy2003}, in which the energy flows through the system are described in 
@@ -473,21 +466,26 @@ In our case, for reasons of computational efficiency, we adopt the  hybrid macro
 described by M15.
 %(an improvement over that used by H14 for our earlier quasar study), 
 In this scheme, the energy packets interact with either two-level `simple ions' 
-or full `macro-atoms'. This allows one to treat non-LTE line transfer in radiative equilibrium
+or full `macro-atoms'. This allows one to treat non-LTE line transfer in radiative equilibrium {\bf KSL: what does "in radiative equilibrium" here mean? 
+JM: not sure what the question is, really- radiative equilibrium is a
+key assumption in the macro-atom framework.}
 without approximation for elements that are identified as 
 full macro-atoms, while maintaining the fast `two-level' 
 treatment of resonance lines when elements are identified 
 as simple-ions (see M15). In this study,
-only H is treated as a macro-atom, because 
+only H and He are treated as a macro-atom, because 
 we expect recombination to be important
-in determining their level populations and resultant line emission, and because we were especially interested in the contribution to AGN spectra of \LA.  
-H13 treated all atoms in a two-level approximation.
+in determining their level populations and resultant line emission, 
+and because we are especially interested in the contribution to 
+AGN spectra of \LA.  
+H13 treated all atoms in a two-level approximation.  {\bf KSL:
+I thought we were also doing He. JM: yep, corrected.}
 
-\subsection{Ionization Scheme}
+\subsection{Ionization treatment (anything but scheme)}
 
 Macro-atoms have their ion and level populations derived from
-MC rate estimators as described by Lucy (2002,2003). Previously (LK02, H13, M15),
-we used a modified Saha approach to calculate the ionization fractions
+MC rate estimators as described by Lucy (2002,2003). 
+Previously (LK02, H13, M15), we used a modified Saha approach to calculate the ionization fractions
 of simple-ions. As part of  this effort, we have now improved {\sc PYTHON} to explicitly solve the 
 rate equations between ions in non-LTE. This dispenses with a number of small assumptions 
 made in the modified Saha approach, is more numerically stable, and, in principle, allows 
@@ -498,6 +496,12 @@ In order to calculate the photoionization rate,
 we model the SED in a grid cell using the technique described by H13. In this scheme,
 the mean intensity, $J_{\nu}$ in a series of $n$ bands is modeled as either a power law or exponential
 in frequency $\nu$, with the fit parameters deduced from band-limited radiation field estimators.
+This allows the calculation of a photoionization rate estimator. Ion abundances are
+then calculated by solving the rate equations between ions. We include collisional ionization
+and photoionization balanced with radiative, dielectronic and collisional (three-body) recombination.
+As in M15, we use a dilute Boltzmann approximation to calculate 
+the population of levels for simple-ions. We stress that this approximation 
+is not required for ions treated as macro-atoms. 
 % \begin{equation}
 % J_{\nu,i}=K_{pl}\nu^{\alpha_{pl}},
 % \end{equation}
@@ -507,48 +511,50 @@ in frequency $\nu$, with the fit parameters deduced from band-limited radiation 
 % \end{equation}
 % Here, $K_{exp}$, $K_{pl}$, $T_{exp}$ and $\alpha_{pl}$ are spectral fit parameters
 % deduced from the band-limited radiation field estimators.
-The ionization rate out of ion $j$ can then be written as 
-\begin{equation}
-R_{j,j+1}(J)= 
-\displaystyle{
-n_j \left(C_{j} n_e + 
-\sum_{band~i=0}^{n}~
-{\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu} d\nu}
-\right),}
-\end{equation}
-where $\sigma_j$ is the photoionization cross-section, $n_e$
-is the electron density and $C_{j}$
-represents the collisional ionization coefficient.
-The recombination rate {\em into} ion $j$ is given by 
-\begin{equation}
-R_{j+1,j}(T_e) = (\alpha^j_{RR} + \alpha^j_{CR}) n_{j+1} n_e,
-\end{equation}
-where each $\alpha^j$ here is the recombination rate coefficient into the ground state of ion $j$.
-The subscripts denote radiative and 
-collisional (three-body) recombination, respectively. 
-$T_e$ is the electron temperature.
-%% We neglect recombination to and from excited states in the simple-ion calculation. 
-For simple-ions, we use a dilute Boltzmann equation to calculate 
-the population of level $k$ in ionic stage $j$,
-\begin{equation}
-\frac{n_{jk}}{n_j} = \frac{W g_k}{z_j(T_R)} \exp(-E_k/kT_R).
-\end{equation}
-Here $z_j$ is the partition function of ionic stage $j$,
-$T_R$ is the effective radiation temperature,
-$E_k$ is the energy difference between level $k$ and the ground state,
-and $g_k$ is the statistical weight of level $k$. 
-We stress that this approximation is not required for ions
-treated as macro-atoms.
+% The ionization rate out of ion $j$ can then be written as 
+% \begin{equation}
+% R_{j,j+1}(J)= 
+% \displaystyle{
+% n_j \left(C_{j} n_e + 
+% \sum_{band~i=0}^{n}~
+% {\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu} d\nu}
+% \right),}
+% \end{equation}
+% where $\sigma_j$ is the photoionization cross-section, $n_e$
+% is the electron density and $C_{j}$
+% represents the collisional ionization coefficient.
+% The recombination rate {\em into} ion $j$ is given by 
+% \begin{equation}
+% R_{j+1,j}(T_e) = (\alpha^j_{RR} + \alpha^j_{CR}) n_{j+1} n_e,
+% \end{equation}
+% where each $\alpha^j$ here is the recombination rate coefficient into the ground state of ion $j$.
+% The subscripts denote radiative and 
+% collisional (three-body) recombination, respectively. 
+% $T_e$ is the electron temperature.
+% %% We neglect recombination to and from excited states in the simple-ion calculation. 
+% For simple-ions, we use a dilute Boltzmann approximation to calculate 
+% the population of level $k$ in ionic stage $j$,
+% \begin{equation}
+% \frac{n_{jk}}{n_j} = \frac{W g_k}{z_j(T_R)} \exp(-E_k/kT_R).
+% \end{equation}
+% Here $z_j$ is the partition function of ionic stage $j$,
+% $T_R$ is the effective radiation temperature,
+% $E_k$ is the energy difference between level $k$ and the ground state,
+% and $g_k$ is the statistical weight of level $k$. 
+% We stress that this approximation is not required for ions
+% treated as macro-atoms. 
+{\bf KSL: 
+It seems a bit odd that you explain what we do with simple ions our old approach, but don't say what is done for macro-atoms,.  You only say it is not the other.
+JM: WE've shortened the seciton on simple-ions as agreed..}
 
 \subsection{Physical Processes}
 
-We include all free-free, bound-free and bound-bound heating
+We include  free-free, bound-free and bound-bound heating
 and cooling processes in the model. For radiative transfer purposes
 we treat electron scattering in the Thomson limit, 
 but take full account of Compton heating and cooling when
 calculating the thermal balance of the plasma (see H13).
-Adiabatic cooling is included and represents the only
-departure from strict radiative equilibrium, but is insignificant 
+Adiabatic cooling is included, but is insignificant 
 in most of the outflow.
 % It is dealt with self consistently by the spontaneous destruction
 % of $k$-packets with a probability
@@ -562,7 +568,7 @@ in most of the outflow.
 
 \subsection{Atomic Data}
 
-We use the same atomic data as described by LK02 and since updated by H13 and M15, 
+We use the same atomic data  described by LK02 as updated by H13 and M15, 
 with the addition of direct (collisional) ionization and recombination
 data from \cite{dere2007}. 
 Photoionization cross-sections are from \textsc{Topbase} \citep{cunto1993} and \cite{vfky}.
@@ -637,7 +643,7 @@ photon packets are not produced in the wind (as in LK02).
 Instead, this reprocessing is dealt with by enforcing strict
 radiative equilibrium ({\em modulo} adiabatic cooling; see section~2.3)
 via an indivisible energy packet
-constraint (see Lucy 2002, M15).
+constraint (see Lucy 2002, M15).  {\bf I confess, I do not understand what is being said here.  I would like to understand it better, and I would like it explained better.  How do we avoid, generating for example recombination photons from non-macro atoms.}
 
 \subsection{Kinematics and Geometry}
 
@@ -670,7 +676,7 @@ with correspondingly different ionization and emission characteristics.
 
 \subsection{A First Approximation for Clumping}
 
-Our previous modelling efforts assumed a smooth outflow, 
+Our previous modelling efforts, we have assumed a smooth outflow, 
 in which the density at a given point was determined only by the 
 kinematic parameters and mass loss rate. However, as already discussed,
 AGN winds exhibit significant substructure -- the outflow is expected to be
@@ -682,12 +688,12 @@ resolving and realistically modelling a series of small scale, high density
 regions with a MCRT code. Second, the addition of multiple additional degrees of
 freedom in the model results in significantly wider parameter space.
 Unfortunately, the physical scale lengths and density contrasts 
-associated with these parameters cannot be well-constrained from observations.
+associated with these parameters are not well-constrained from observations.  {\bf Reverse the order of these difficulties.  The most important is that it is not clear what kind of clumping an AGN wind has; the computational problem is a secondary one.}
 
-To allow for clumping in our outflow we adopt a simple approximation
+Given the lack of knowledge about the actual type of clumping, we have adopt a simple approximation
 used successfully in stellar wind modelling, known as 
-{\em microclumping} \citep{hamann1998,hamann2008}(MORE REFS). 
-The key assumption is that typical clump sizes are much smaller than the 
+{\em microclumping} \citep{hamann1998,hamann2008}(MORE REFS), which minimizes the computational difficulties. 
+The underlying assumption in microclumping is that clump sizes are much smaller than the 
 typical photon mean free path, and thus the clumps are 
 both geometrically and optically thin. This approach 
 allows one to introduce a `volume filling factor', $f_V$. 
@@ -729,9 +735,8 @@ been proposed as a solution to the so-called `over-ionization problem' in
 disc winds \citep{hamann2013}. This is the main motivation for incorporating microclumping
 into our model. This treatment is first-order; it does not adequately
 represent the complex substructures and stratifications in ionization
-state we expect in AGN outflows. Nevertheless, clumping is clearly
-important in these flows, and this parameterization allows a simple estimate
-for the effect clumping might have on the ionization state and emergent 
+state we expect in AGN outflows. Nevertheless,  this parameterization allows simple estimates
+of the effect clumping might have on the ionization state and emergent 
 line emission. 
 % It is also encouraging that microclumping has been used 
 % successfully in fits to O-star wind spectra \citep{hillier1991eswingsmodel}.
@@ -749,10 +754,10 @@ We then evaluated these models based on the following criteria:
 \begin{itemize}
 \item Does the model avoid over-ionization and thus produce UV absorption lines 
 with $BI > 0$ at $\sim20\%$ of viewing angles?
-\item Does significant line emission emerge at low inclinations, with $EW\sim40\AA$ in \civ?
-\item Do H recombination lines appear in the spectrum, $EW\sim50\AA$ in \la?
-\item Do a small subset of BAL angles produce LoBAL features?
-\item Does the model compare favourably to quasar composite spectra?
+\item Do the synthetic spectra show  line emission emerge at low inclinations, with $EW\sim40\AA$ in \civ?
+\item Do H recombination lines appear in the spectra, $EW\sim50\AA$ in \la?
+\item Do the spectra  produce LoBAL features at a  small subset of BAL angles?
+\item Does the model spectra resemble quasar composite spectra?
 \end{itemize}
 In this section, we present one of the most promising models and discuss
 the various successes and failures with respect to the above criteria.
@@ -760,6 +765,8 @@ This allows us to gain insight into fundamental geometrical
 and physical constraints and assess the potential for unification. 
 The full grid, including output synthetic spectra and plots can be found at
 \url{jhmatthews.github.io/quasar-wind-grid/}.
+
+{\bf I still think we need to avoid using model to be a generic term to describe the outflow and the spectra.  If you mean the spectra use "model spectra" or "synthetic spectra'.  Note - the whole question of the model grid and the selection of one specific instantiation is not dealt with well.}
 
 \begin{table}
 \begin{tabular}{p{2cm}p{1cm}p{1cm}p{1cm}p{1cm}}
@@ -884,16 +891,16 @@ necessarily escape to infinity.
 \end{figure*} %fullpage
 
 Figure~\ref{fig:wind} shows the physical properties of the wind.
-The wind rises slowly from the disc at first, with clumped densities
+The wind rises slowly from the disc at first, with clumped densities  {\bf clumped densities is jargon, use perhaps density of the clumps in the wind}
 of $n_H \sim 10^{11}~\rm{cm^{-3}}$ close to the disc plane.
 The flow then accelerates over a scale length of $R_V=10^{19}~\rm{cm}$
 up to a terminal velocity equal to the escape velocity at the streamline base
-($\sim10,000~\rm{km~s^{-1}}$). This gradual acceleration means that
-the wind exhibits a stratified ionization structure, with low ionization material
+($\sim10,000~\rm{km~s^{-1}}$). This gradual acceleration results in
+a wind that exhibits a stratified ionization structure, with low ionization material
 in the base of the wind giving way to highly ionized plasma further out.
 This is illustrated in figure~\ref{fig:wind} 
 by the panels showing the ion fraction $F=n_j/n_{tot}$ of some important ions.
-By clumping the wind, we are able to produce the range of ionization states observed
+With a clumpted wind, we are able to produce the range of ionization states observed
 in quasars and BALQSOs, while adopting a realistic $2-10$ keV X-ray luminosity
 of $L_{X}=10^{45}~\rm{ergs~s^{-1}}$. Without clumping, this wind would be over-ionized 
 to the extent that opacities in e.g., \civ\ would be entirely negligible (see H13).
@@ -992,9 +999,9 @@ the output spectra in figure~\ref{fig:sightline}.
 The UV spectrum is characterised by strong BAL 
 profiles at high inclinations ($> 70^\circ$). 
 This highlights the first success of our model: 
-clumping means the correct ionization state 
-is maintained in the presence of strong X-rays, 
-allowing large resonance line opacities. 
+clumping allows the correct ionization state 
+to be maintained in the presence of strong X-rays, 
+resulting in large resonance line opacities. 
 At the highest inclinations, the 
 cooler, low ionization material at the base of the wind
 starts to intersect the line of sight. This produces 
@@ -1011,7 +1018,7 @@ to a {\sl Hubble Space Telescope} STIS spectrum of the high BALnicity BALQSO PG0
 
 The high ionization BAL profiles are often saturated, and the location in velocity space
 of the strongest absorption in the profile varies with inclination.
-At the lowest inclination BAL sightlines, the strongest absorption occurs at the red edge,
+At the lowest inclination BAL sight lines, the strongest absorption occurs at the red edge,
 whereas at higher inclinations (and for the strongest BALs)
 the trough has a sharp edge at the terminal velocity.
 This offers one potential explanation for the wide range of BALQSO absorption
@@ -1022,17 +1029,17 @@ profiles intersected by the line of sight. Thus, small tweaks of the velocity
 law and angular distributions of streamlines can dramatically alter
 the shape of the line.
 
-Nonblack saturation is observed in the absorption troughs of BALQSOs \citep{arav1999a,arav1999b}.
-This can be caused either by partial covering of the continuum
+Non-black saturation is observed in the absorption troughs of BALQSOs \citep{arav1999a,arav1999b}.
+This is usually explained either as  partial covering of the continuum
 source or by scattered contributions to the BAL troughs, necessarily
-from an opacity source not cospatial with the BAL forming region.
+from an opacity source not co-spatial with the BAL forming region.
 The scattered light explanation is supported by spectropolarimetry results
 \citep{lamy2000}. Our spectra do not show nonblack saturation.
 Instead, we find black, saturated troughs at angles $i > 73^\circ$, and the BALs
-are non-saturated at lower inclinations. The reasons for this are readily apparent. 
+are non-saturated at lower inclinations. The reasons for this are inherent in the construction of our model. 
 First, the microclumping assumption does not allow for 
 porosity in the wind, meaning that it does not naturally produce
-a partial covering absorber. To do this, an alternative approach
+a partial covering absorber. To allow this, an alternative approach
 such as {\em macroclumping} would be required \citep[e.g.][]{surlan2012,hamann2008}.
 Second, our wind does not have a significant scattering 
 contribution along sightlines which do not pass through the BAL region,
@@ -1040,7 +1047,10 @@ meaning that any scattered component to the BAL troughs is absorbed by line opac
 This suggests that either the scattering cross-section of the wind must
 be increased (with higher mass loss rates or covering factors), or 
 that an additional source of electron opacity is required, potentially
-in a polar direction above the disc.
+in a polar direction above the disc.  
+{\bf KSL: it sounds like what you are suggesting is a low density inner flow, our domain 2 stuff actually permits ... or indeed one might be able to produce this within SV is you adopted a different mass loss with radius assumption. JM: I am being deliberately 
+vague about what I am suggesting. I am saying there are three physical
+possibilities: either wind itself causes this scattering contribution, which doesn't happen in our model, or you have partial covering, or you have some additional scatterer.}
 
 
 \subsubsection{Broad emission lines (`quasar-like' angles)}
@@ -1086,10 +1096,11 @@ loss rate  or velocity law, can produce more line emission.
 However, the red wing of the BAL profiles is generally stronger than 
 seen in BALQSO spectra and composites. This illustrates a fundamental 
 problem with a geometric unification model such as this:
-that the line-to-continuum ratios at hight inclinations are
+that the line-to-continuum ratios at high inclinations are
 significantly affected by disc foreshortening and limb darkening.
 The angular distribution of the disc radiation is clearly
-crucially important in determining the emergent line ratios.
+crucially important in determining the emergent line ratios.  
+{\bf KSL: This is a bit oddly explained. Our problem is at low inclination.  Note that I am a bit concerned with Fig 3; the model spectra and the observations look very different.}
 
 \subsubsection{The Angular Distribution of Line And Continuum Emission}
 \label{{sec:angular}}
@@ -1148,6 +1159,8 @@ that type 1 quasars and BALQSOs are generally viewed from a fairly narrow range 
 We suggest that future modelling should include predictions of polarisation signatures
 from a detailed radiative transfer simulation, allowing direct comparison with spectropolarimetry
 of BALQSOs. 
+
+{\bf I have to say I find this hard to understand.  Are you trying to say that in CVs which we are know are thin disks with winds, the EW of the red-wing of emission lines increases with inclination angle ... which I think may be true, and so one would expect that in a unification model for AGN  it should do the same?  And the fact that it does not, suggests that something else is going on in AGN.  I also still think that you should move this discussion later in the paper and not bury it here.}
 
 
 % The final possibility is that BALQSOs are not viewed equatorially. 

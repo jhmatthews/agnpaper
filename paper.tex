@@ -331,7 +331,9 @@ Additionally, clumping is required to explain the electron scattering wings of e
 in line-driven hot star winds \citep{hillier1991eswingsmodel}. Complex substructures 
 are also produced in simulations of line-driven 
 outflows in AGN, although on very different scales to line-driven instabilities 
-\citep{PSK2000,PK04,progakurosawa2010,proga2014}.  {\bf I do not believe the AGN simulations have the resolution to produce clumping on the scale of hot star winds}
+\citep{PSK2000,PK04,progakurosawa2010,proga2014}.  {\bf KSL: I do not believe the AGN simulations have the resolution to produce clumping on the scale of hot star winds.
+JM: that's why I mention scales, although I can specifically mention resolution if we
+want.}
 Nevertheless, clumpy winds offer an observationally motivated and theoretically 
 predicted way to lower the ionization state of a plasma, possibly in tandem
 with a shielding scenario. 
@@ -450,7 +452,7 @@ Matthews et al. 2015, hereafter M15), young-stellar objects
 
 The code operates as follows:   This outflow is discretized into $n_x \times n_z$ cells in a 2.5D
 cylindrical geometry with azimuthal symmetry. From some initial conditions in each cell, the code first calculates the ionization structure of the wind in a series of iterations.  Each iteration in an ``ionization cycle'' consists of generating photons, actually photon packets, from an accretion disc
-and central object, and calculating how these photon bundles scatter through the wind (eventually escaping the outflow or hitting the disk). Then updating the ionization structure based on the properties of the radiation field in each cell, and the process is repeated.   Once the ionization structure has converged, the ionization structure is held fixed, and  synthetic spectra are generated at specific inclination angles in a series of "spectral cycles". LK02 provide a more detailed  description of the original code; various improvements have been made since then and are descbied by 
+and central object, and calculating how these photon bundles scatter through the wind (eventually escaping the outflow or hitting the disk). Then updating the ionization structure based on the properties of the radiation field in each cell, and the process is repeated.   Once the ionization structure has converged, the ionization structure is held fixed, and  synthetic spectra are generated at specific inclination angles in a series of "spectral cycles". LK02 provide a more detailed  description of the original code; various improvements have been made since then and are described by 
  \cite{simmacro2005}, H13 and M15.  
 %A full description of the code will be published elsewhere; 
 We focus here on the specific changes made for this study intended to improve the ionization calculation of H and He
@@ -469,21 +471,26 @@ In our case, for reasons of computational efficiency, we adopt the  hybrid macro
 described by M15.
 %(an improvement over that used by H14 for our earlier quasar study), 
 In this scheme, the energy packets interact with either two-level `simple ions' 
-or full `macro-atoms'. This allows one to treat non-LTE line transfer in radiative equilibrium {\bf what does "in radiative equilibrium" here mean}
+or full `macro-atoms'. This allows one to treat non-LTE line transfer in radiative equilibrium {\bf KSL: what does "in radiative equilibrium" here mean? 
+JM: not sure what the question is, really- radiative equilibrium is a
+key assumption in the macro-atom framework.}
 without approximation for elements that are identified as 
 full macro-atoms, while maintaining the fast `two-level' 
 treatment of resonance lines when elements are identified 
 as simple-ions (see M15). In this study,
-only H {\bf and He} are treated as a macro-atom, because 
+only H and He are treated as a macro-atom, because 
 we expect recombination to be important
-in determining their level populations and resultant line emission, and because we were especially interested in the contribution to AGN spectra of \LA.  
-H13 treated all atoms in a two-level approximation.  {\bf I thought we were also doing He}
+in determining their level populations and resultant line emission, 
+and because we are especially interested in the contribution to 
+AGN spectra of \LA.  
+H13 treated all atoms in a two-level approximation.  {\bf KSL:
+I thought we were also doing He. JM: yep, corrected.}
 
 \subsection{Ionization treatment (anything but scheme)}
 
 Macro-atoms have their ion and level populations derived from
-MC rate estimators as described by Lucy (2002,2003). Previously (LK02, H13, M15),
-we used a modified Saha approach to calculate the ionization fractions
+MC rate estimators as described by Lucy (2002,2003). 
+Previously (LK02, H13, M15), we used a modified Saha approach to calculate the ionization fractions
 of simple-ions. As part of  this effort, we have now improved {\sc PYTHON} to explicitly solve the 
 rate equations between ions in non-LTE. This dispenses with a number of small assumptions 
 made in the modified Saha approach, is more numerically stable, and, in principle, allows 
@@ -494,6 +501,12 @@ In order to calculate the photoionization rate,
 we model the SED in a grid cell using the technique described by H13. In this scheme,
 the mean intensity, $J_{\nu}$ in a series of $n$ bands is modeled as either a power law or exponential
 in frequency $\nu$, with the fit parameters deduced from band-limited radiation field estimators.
+This allows the calculation of a photoionization rate estimator. Ion abundances are
+then calculated by solving the rate equations between ions. We include collisional ionization
+and photoionization balanced with radiative, dielectronic and collisional (three-body) recombination.
+As in M15, we use a dilute Boltzmann approximation to calculate 
+the population of levels for simple-ions. We stress that this approximation 
+is not required for ions treated as macro-atoms. 
 % \begin{equation}
 % J_{\nu,i}=K_{pl}\nu^{\alpha_{pl}},
 % \end{equation}
@@ -503,38 +516,41 @@ in frequency $\nu$, with the fit parameters deduced from band-limited radiation 
 % \end{equation}
 % Here, $K_{exp}$, $K_{pl}$, $T_{exp}$ and $\alpha_{pl}$ are spectral fit parameters
 % deduced from the band-limited radiation field estimators.
-The ionization rate out of ion $j$ can then be written as 
-\begin{equation}
-R_{j,j+1}(J)= 
-\displaystyle{
-n_j \left(C_{j} n_e + 
-\sum_{band~i=0}^{n}~
-{\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu} d\nu}
-\right),}
-\end{equation}
-where $\sigma_j$ is the photoionization cross-section, $n_e$
-is the electron density and $C_{j}$
-represents the collisional ionization coefficient.
-The recombination rate {\em into} ion $j$ is given by 
-\begin{equation}
-R_{j+1,j}(T_e) = (\alpha^j_{RR} + \alpha^j_{CR}) n_{j+1} n_e,
-\end{equation}
-where each $\alpha^j$ here is the recombination rate coefficient into the ground state of ion $j$.
-The subscripts denote radiative and 
-collisional (three-body) recombination, respectively. 
-$T_e$ is the electron temperature.
-%% We neglect recombination to and from excited states in the simple-ion calculation. 
-For simple-ions, we use a dilute Boltzmann approximation to calculate 
-the population of level $k$ in ionic stage $j$,
-\begin{equation}
-\frac{n_{jk}}{n_j} = \frac{W g_k}{z_j(T_R)} \exp(-E_k/kT_R).
-\end{equation}
-Here $z_j$ is the partition function of ionic stage $j$,
-$T_R$ is the effective radiation temperature,
-$E_k$ is the energy difference between level $k$ and the ground state,
-and $g_k$ is the statistical weight of level $k$. 
-We stress that this approximation is not required for ions
-treated as macro-atoms. {\bf It seems a bit odd that you explain what we do with simple ions our old approach, but don't say what is done for macro-atoms,.  You only say it is not the other.}
+% The ionization rate out of ion $j$ can then be written as 
+% \begin{equation}
+% R_{j,j+1}(J)= 
+% \displaystyle{
+% n_j \left(C_{j} n_e + 
+% \sum_{band~i=0}^{n}~
+% {\int_{\nu_i}^{~\nu_i+1} \frac{4 \pi J_{\nu,i}\sigma_j(\nu)}  {h \nu} d\nu}
+% \right),}
+% \end{equation}
+% where $\sigma_j$ is the photoionization cross-section, $n_e$
+% is the electron density and $C_{j}$
+% represents the collisional ionization coefficient.
+% The recombination rate {\em into} ion $j$ is given by 
+% \begin{equation}
+% R_{j+1,j}(T_e) = (\alpha^j_{RR} + \alpha^j_{CR}) n_{j+1} n_e,
+% \end{equation}
+% where each $\alpha^j$ here is the recombination rate coefficient into the ground state of ion $j$.
+% The subscripts denote radiative and 
+% collisional (three-body) recombination, respectively. 
+% $T_e$ is the electron temperature.
+% %% We neglect recombination to and from excited states in the simple-ion calculation. 
+% For simple-ions, we use a dilute Boltzmann approximation to calculate 
+% the population of level $k$ in ionic stage $j$,
+% \begin{equation}
+% \frac{n_{jk}}{n_j} = \frac{W g_k}{z_j(T_R)} \exp(-E_k/kT_R).
+% \end{equation}
+% Here $z_j$ is the partition function of ionic stage $j$,
+% $T_R$ is the effective radiation temperature,
+% $E_k$ is the energy difference between level $k$ and the ground state,
+% and $g_k$ is the statistical weight of level $k$. 
+% We stress that this approximation is not required for ions
+% treated as macro-atoms. 
+{\bf KSL: 
+It seems a bit odd that you explain what we do with simple ions our old approach, but don't say what is done for macro-atoms,.  You only say it is not the other.
+JM: WE've shortened the seciton on simple-ions as agreed..}
 
 \subsection{Physical Processes}
 
@@ -1036,7 +1052,10 @@ meaning that any scattered component to the BAL troughs is absorbed by line opac
 This suggests that either the scattering cross-section of the wind must
 be increased (with higher mass loss rates or covering factors), or 
 that an additional source of electron opacity is required, potentially
-in a polar direction above the disc.  {\bf it sounds like what you are suggesting is a low density inner flow, our domain 2 stuff actually permits ... or indeed one might be able to produce this within SV is you adopted a different mass loss with radius assumption}
+in a polar direction above the disc.  
+{\bf KSL: it sounds like what you are suggesting is a low density inner flow, our domain 2 stuff actually permits or indeed one might be able to produce this within SV is you adopted a different mass loss with radius assumption. JM: I am being deliberately 
+vague about what I am suggesting. I am saying there are three physical
+possibilities: either wind itself causes this scattering contribution, which doesn't happen in our model, or you have partial covering, or you have some additional scatterer.}
 
 
 \subsubsection{Broad emission lines (`quasar-like' angles)}
@@ -1085,7 +1104,8 @@ problem with a geometric unification model such as this:
 that the line-to-continuum ratios at high inclinations are
 significantly affected by disc foreshortening and limb darkening.
 The angular distribution of the disc radiation is clearly
-crucially important in determining the emergent line ratios.  {\bf This is a bit oddly explained. Our problem is at low inclination.  Note that I am a bit concerned with Fig 3; the model spectra and the observations look very different.}
+crucially important in determining the emergent line ratios.  
+{\bf KSL: This is a bit oddly explained. Our problem is at low inclination.  Note that I am a bit concerned with Fig 3; the model spectra and the observations look very different.}
 
 \subsubsection{The Angular Distribution of Line And Continuum Emission}
 \label{{sec:angular}}
