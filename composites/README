@@ -1,0 +1,23 @@
+
+Composite spectra as a function of BALQSO type from Reichard et
+al. 2003, "A Catalog of Broad Absorption Line Quasars from the Sloan
+Digital Sky Survey Early Data Release", AJ, 125, 1711 and Reichard et
+al. 2003, "Continuum and Emission-Line Properties of Broad Absorption
+Line Quasars", AJ, in press.
+
+Each spectrum has the wavelength, flux density, uncertainty and number
+of objects that contribute to that bin.
+
+High-ionization, low-ionization, high- and low-ionization, and FeII
+low-ionization BALQSO composites:
+
+sdssedrqsobal.hibal.spec
+sdssedrqsobal.lobal.spec
+sdssedrqsobal.hilobal.spec
+sdssedrqsobal.felobal.spec
+
+non-BALQSO composite with number of objects normalized by absolute
+magnitude and redshift to match the above samples:
+
+sdssedrqsobal.nonbal.spec
+
