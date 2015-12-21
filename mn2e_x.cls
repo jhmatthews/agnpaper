@@ -491,7 +491,7 @@ $\reset@font\displaystyle##$\hfil\cr>\cr\approx\cr}}}
 
 % FOOTNOTES:
 \setlength\footnotesep{6pt}
-\setlength\skip{\footins 19.5pt plus 12pt minus 1pt}
+\setlength\skip{\footins 14.5pt plus 12pt minus 1pt}
 
 % FLOATS:
 \setlength\floatsep{ 12pt plus 5.5pt minus 1pt}
