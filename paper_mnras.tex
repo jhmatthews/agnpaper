@@ -123,12 +123,12 @@ Knox~S.~Long$^2$, Stuart~A.~Sim$^3$, Nick~Higginbottom$^1$ and Sam~W.~Mangham$^1
 \maketitle
 \begin{abstract} 
 Various unification schemes interpret the complex phenomenology of quasars and luminous active galactic nuclei (AGN) in terms of a simple picture involving a central black hole, an accretion disc and an associated outflow. Here, we continue our tests of this paradigm by comparing quasar spectra to synthetic spectra of biconical disc wind models, produced with our state-of-the-art Monte Carlo radiative transfer code. Previously, we have shown that we could produce synthetic spectra resembling those of observed broad absorption line (BAL) quasars, but only if the X-ray luminosity was limited to about 
-10$^{43}$~erg~s$^{-1}$. Here, we show that clumping the outflow maintains the ionization state necessary for BAL features in the rest-frame UV at more realistic X-ray luminosities. Our fiducial model shows good agreement with X-ray properties of AGN and the dense, X-ray heated wind produces strong line emission in, e.g., \la\ and \civline at low inclinations. At high inclinations, the synthetic spectra possess prominent LoBAL features. Despite these successes, we cannot reproduce all the emission lines seen in quasar spectra with the correct equivalent width ratios, and we find an angular dependence of emission line equivalent width despite the remarkable similarities in the observed spectral properties of BAL and non-BAL quasars. Overall, our work suggests that a biconical wind can reproduce much of the qualitative behaviour expected from a unified model, but we cannot yet provide quantitative matches with quasar properties at all viewing angles. Whether disc winds can successfully unify quasars is therefore still an open question.
+10$^{43}$~erg~s$^{-1}$. Here, we show that clumping the outflow can maintain the ionization state necessary for BAL features in the rest-frame UV at more realistic X-ray luminosities. Our fiducial model shows good agreement with X-ray properties of AGN and the dense, X-ray heated wind produces strong line emission in, e.g., \la\ and \civline at low inclinations. At high inclinations, the synthetic spectra possess prominent LoBAL features. Despite these successes, we cannot reproduce all the emission lines seen in quasar spectra with the correct equivalent-width ratios, and and we find an angular dependence of emission-line equivalent width despite the remarkable similarities in the observed emission line properties of BAL and non-BAL quasars. Overall, our work suggests that a biconical wind can reproduce much of the qualitative behaviour expected from a unified model, but we cannot yet provide quantitative matches with quasar properties at all viewing angles. Whether disc winds can successfully unify quasars is therefore still an open question.
 \end{abstract}
 
 \begin{keywords}
-galaxies: active; accretion, accretion discs; (galaxies:) quasars: emission lines;
-(galaxies:) quasars: absorption lines; methods: numerical; radiative transfer.
+galaxies: active -- accretion, accretion discs -- (galaxies:) quasars: emission lines --
+(galaxies:) quasars: absorption lines -- methods: numerical -- radiative transfer.
 \end{keywords}
 
 
@@ -367,7 +367,7 @@ relation. Free-free Gaunt factors are from \cite{sutherland1998}.
 
 Our kinematic prescription for a biconical disc wind model
 follows \cite{SV93}, and is described further by
-LK02, H13 and M15. A schematic is shown in figure~\ref{fig:cartoon},
+LK02, H13 and M15. A schematic is shown in Fig.~\ref{fig:cartoon},
 with key aspects marked. The general biconical
 geometry is similar to that invoked by \cite{MCGV95} and 
 \cite{elvis2000} to explain the phenomenonology
@@ -509,7 +509,7 @@ line emission.
 Using this prescription, we conducted a limited parameter
 search over a 5-dimensional parameter space involving the 
 variables $r_{min}$, $\theta_{min}$, $f_V$, $\alpha$ and $R_v$.
-The grid points are shown in table 1.
+The grid points are shown in Table 1.
 The aim here was to first fix $M_{BH}$ and $\dot{m}$ to their H13 values,
 and increase $L_X$ to $10^{45}$~erg~s$^{-1}$ (a more realistic value for a 
 quasar of $10^9M_\odot$ and an Eddington fraction of $0.2$; see section~\ref{sec:xray}).
@@ -520,16 +520,16 @@ following properties of quasars and BALQSOs:
 
 \begin{itemize}
 \item UV absorption lines 
-with $BI > 0$ at $\sim20\%$ of viewing angles (e.g. Knigge et al. 2010)
-\item Line emission emerging at low inclinations, with $EW\sim40$\AA in \civline\ \citep[e.g. ][]{shen2011}
-\item H recombination lines with $EW\sim50$\AA\ in \la\ \citep[e.g. ][]{shen2011}
+with $BI > 0$ at $\sim20\%$ of viewing angles (e.g. Knigge et al. 2010);
+\item Line emission emerging at low inclinations, with $EW\sim40$\AA in \civline\ \citep[e.g. ][]{shen2011};
+\item H recombination lines with $EW\sim50$\AA\ in \la\ \citep[e.g. ][]{shen2011};
 \item  \mg\ and \al\ (LoBAL) absorption features with $BI > 0$ at a subset of 
-BAL viewing angles
+BAL viewing angles;
 \item Verisimilitude with quasar composite spectra.
 \end{itemize}
 Here $BI$ is the `Balnicity Index' (Weymann et al. 1991), given by
 \begin{equation}
-BI = \int^{25000}_{3000} \left( 1 - \frac{f(v)}{0.9} \right) dv.
+BI = \int^{25000~{\rm km~s}^{-1}}_{3000~{\rm km~s}^{-1}} \left( 1 - \frac{f(v)}{0.9} \right) dv.
 \end{equation}
 The constant $C=0$ everywhere, unless the normalized flux
 has satisfied $f(v)<0.9$ continuously for at least $2000$~km~s$^{−1}$, 
@@ -573,7 +573,7 @@ further in section~\ref{sec:param_sens}}
 \section{Results and Discussion From A Fiducial Model}
 Here we describe the results from a fiducial model,
 and discuss these results in the context of the criteria 
-presented in section 3.4. The parameters of this model are shown in table~2.
+presented in section 3.4. The parameters of this model are shown in Table~2.
 Parameters differing from the benchmark model of H13 are 
 highlighted with an asterisk. In this section, we examine the physical 
 conditions of the flow, and present the synthetic spectra, before comparing
@@ -647,7 +647,7 @@ necessarily escape to infinity.
 \end{figure*}
 
 \noindent
-Figure~\ref{fig:wind} shows the physical properties of the wind.
+Fig.~\ref{fig:wind} shows the physical properties of the wind.
 The wind rises slowly from the disc at first, with densities within clumps
 of $n_H \sim 10^{11}~\rm{cm^{-3}}$ close to the disc plane, 
 where $n_H$ is the local number density of H.
@@ -656,7 +656,7 @@ up to a terminal velocity equal to the escape velocity at the streamline base
 ($\sim10,000~\rm{km~s^{-1}}$). This gradual acceleration results in
 a wind that exhibits a stratified ionization structure, with low ionization material
 in the base of the wind giving way to highly ionized plasma further out.
-This is illustrated in figure~\ref{fig:wind} 
+This is illustrated in Fig.~\ref{fig:wind} 
 by the panels showing the ion fraction $F=n_j/n_{tot}$ of some important ions.
 With a clumped wind, we are able to produce the range of ionization states observed
 in quasars and BALQSOs, while adopting a realistic $2-10$ keV X-ray luminosity
@@ -666,10 +666,10 @@ to the extent that opacities in e.g., \civ\ would be entirely negligible (see H1
 One common way to quantify the ionization state of a plasma
 is through the ionization parameter, $U_H$, given by
 \begin{equation}
-U_H = \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}}}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu}.
+U_H = \frac{4\pi}{n_H c}\int_{13.6{\rm{eV}} / h}^{\infty}\frac{{J_{\nu}d\nu}}{h\nu}.
 \end{equation}
 \noindent where $\nu$ denotes photon 
-frequency. Shown in figure~\ref{fig:wind},
+frequency. Shown in Fig.~\ref{fig:wind},
 the ionization parameter is a useful measure of the global ionization state,
 as it represents the ratio of the number density of 
 H ionizing photons to the local H density.
@@ -696,7 +696,7 @@ escaping the Sobolev region for each line.
 % This is equivalent to $\beta_{ul} n_u A_{ul}$, where the three quantities
 % represent the Sobolev escape probability, upper level number density and 
 % Einstein A coefficient for the line. 
-As shown in figure~\ref{fig:wind},
+As shown in Fig.~\ref{fig:wind},
 the \civline\ line in the fiducial model is typically formed between 
 $100-1000~r_G$ ($\sim10^{17}-10^{18}~\rm{cm}$).
 This is in rough agreement with the reverberation mapping 
@@ -756,7 +756,7 @@ $2000$\AA, then an offset of 2 is applied per spectrum for clarity -- the dotted
 \end{figure*}
 
 \noindent
-Figure~\ref{fig:uvspec} shows the synthetic spectrum in the UV from the fiducial model. 
+Fig.~\ref{fig:uvspec} shows the synthetic spectrum in the UV from the fiducial model. 
 To assess the ability of the synthetic spectra to match real 
 quasar spectra, we also show {\sl Sloan Digital Sky Survey} (SDSS) quasar
 composites from \cite{reichard2003}, normalised to the flux at 2000\AA\
@@ -769,7 +769,7 @@ STIS spectrum of the high BALnicity BALQSO PG0946+301 (Arav et al. 2000),
 and an SDSS spectrum of the LoBAL quasar SDSS J162901.63+453406.0,
 for the angles of $73^\circ$ and $76^\circ$, respectively. 
 We show a cartoon illustrating how geometric effects determine
-the output spectra in figure~\ref{fig:sightline}.  
+the output spectra in Fig.~\ref{fig:sightline}.  
 
 \subsubsection{Broad absorption lines (`BALQSO-like' angles)}
 
@@ -858,7 +858,7 @@ $\log (\nu L_{\nu})_{3000}$  & $46.18$ & $45.79 \pm 0.30$ \\
 Some derived spectral properties of the fiducial model, at $20^\circ$,
 compared to observations. The observed values are taken from the Shen et al. (2011)
 SDSS DR7 Quasar catalog, and correspond to mean values with standard deviations in log space
-from a subsample with $8.5>\log(M_{BH})<9.5$ and $1.5<\log (L_{bol}/L_{edd}) < 0$,
+from a subsample with $8.5>\log(M_{BH})<9.5$ and $1.5<\log (L_{bol}/L_{Edd}) < 0$,
 where the BH mass is a \civ\ virial estimate. 
 Units are logarithms of values in erg~s$^{-1}$.
 %unless stated.otherwise.
@@ -875,7 +875,7 @@ In the context of unification, this is a promising result,
 and shows that a biconical wind can produce significant 
 emission at `quasar-like' angles. To demonstrate this further,
 we show line luminosities and monochromatic continuum luminosities
-from the synthetic spectra in table~\ref{line_lums}. These are compared to
+from the synthetic spectra in Table~\ref{line_lums}. These are compared to
 mean values from a subsample of the SDSS DR7 quasar catalog (Shen et al. 2011) 
 with BH mass and Eddington fraction estimates similar to the fiducial model values 
 (see caption). The spectra do not contain the strong 
@@ -883,7 +883,7 @@ C~\textsc{iii}]~1909\AA\ line seen in the quasar composite spectra,
 but this is due to a limitation of our current treatment of C; semi-forbidden
 (intercombination) lines are not included in our modelling.
 
-In figure~\ref{fig:sed}, we show an $F_{\nu}$ spectrum with broader waveband coverage
+In Fig.~\ref{fig:sed}, we show an $F_{\nu}$ spectrum with broader waveband coverage
 that includes the optical, showing that our synthetic spectra 
 also exhibit \ha\ and \hb\ emission. 
 In this panel, we include a low inclination and 
@@ -934,7 +934,7 @@ While modest changes to geometry may permit this, the initial grid search
 did not find a parameter space in which the \la\ or \mg\ EWs
 were significantly higher (see section~\ref{sec:param_sens}). 
 Second, we find that EWs increase with inclination 
-(see figures~\ref{fig:uvspec} and \ref{fig:sed}; also figure~\ref{fig:lobal}), 
+(see Fig.~\ref{fig:uvspec} and Fig.~\ref{fig:sed}; also Fig.~\ref{fig:lobal}), 
 to the extent that, even though significantly denser
 models can match the line EWs fairly well at low inclinations, they will then
 possess overly strong red wings to the BAL P-Cygni profiles at high inclinations.
@@ -976,7 +976,7 @@ it is also important to assess whether the X-ray properties of this
 fiducial model agree well with quasar and BALQSO samples for the relevant
 inclinations.
 
-Figure~\ref{fig:xray} shows the emergent
+Fig.~\ref{fig:xray} shows the emergent
 monochromatic luminosity ($L_\nu$) at 2~keV and 
 plotted against $L_\nu$ at $2500$\AA\ for a number of different viewing angles in our model.
 The monochromatic luminosities are calculated from the synthetic spectra and thus include
@@ -1026,7 +1026,7 @@ to the ubiquitous \civ\ profile.
 At high inclinations, the synthetic spectra exhibit blue-shifted BALs in \al\ and \mg --
 the absorption lines seen in LoBALQSOs, and we even see absorption in Fe~\textsc{ii}
 at the highest inclinations. Line profiles in velocity space 
-for \civ, \al\ and \mg, are shown in figure~\ref{fig:lobal} for a range
+for \civ, \al\ and \mg, are shown in Fig.~\ref{fig:lobal} for a range
 of BALQSO viewing angles. We find that ionization stratification
 of the wind causes lower ionization material to have a smaller covering factor, 
 as demonstrated by figures~\ref{fig:wind} and \ref{fig:lobal}.
@@ -1072,7 +1072,7 @@ with a red star.
 
 Having selected an individual fiducial model from the simulation grid, it is important
 to briefly explore how specialised this model is, and how small parameter
-changes can affect the synthetic spectra. Figure~\ref{fig:grid}
+changes can affect the synthetic spectra. Fig.~\ref{fig:grid}
 shows the EW at a low inclination, and $BI$ at a high inclination for the simulation
 grid. A few conclusions can be drawn from this plot straight away. 
 First, we find that almost all the models with $f_V=0.1$ are over-ionized, and 
@@ -1121,7 +1121,7 @@ properties of luminous AGN and quasars.
 \smallskip
 \item A clumpy outflow model naturally 
 reproduces the range of ionization states
-expected in quasars, due to it's stratified density
+expected in quasars, due to its stratified density
 and temperature structure. 
 LoBAL line profiles are seen at a subset of viewing angles, and Fe~\textsc{ii}
 absorption is seen at particularly high inclinations. 
@@ -1134,7 +1134,7 @@ is only really significant at high inclination where to continuum is suppressed.
 \item The higher X-ray luminosity causes a significant 
 increase in the strength of the collisionally excited emission
 lines produced by the model. 
-However, the equivalent width ratios of the emission lines do not match
+However, the equivalent-width ratios of the emission lines do not match
 observations, suggesting that a greater volume of dense ($n_e\sim10^{10}$~cm$^{-3}$)
 material may be required.
 \smallskip
