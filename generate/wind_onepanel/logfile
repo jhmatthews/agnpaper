@@ -1,0 +1,54 @@
+Reading Windfile nextgen_a05.wind_save created with python version 79c with python version 79c
+Get_atomicdata: Reading from masterfile data/h10_standard78
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Error: Get_atomic_data: Simple line data ignored for Macro-ion: 0
+Data of  14 elements, 178 ions,  3717 levels,  5485 lines, and    89 topbase records
+Macro    14 elements,   2 ions,    11 levels,    45 lines, and    10 topbase records
+Simple   14 elements, 176 ions,  3706 levels,  5440 lines, and    79 topbase records
+We have read in   0 Inner shell photoionization cross sections
+                  0 have matching electron yield data
+                  0 have matching fluorescent yield data
+We have read in 149 Dielectronic recombination coefficients
+We have read in   0 Cardona partition functions coefficients
+We have read in 164 Badnell totl Radiative rate coefficients
+We have read in 135 Badnell GS   Radiative rate coefficients over the temp range 6.760000e+03 to 1.000000e+07
+We have read in  41 Scaled electron temperature frequency averaged gaunt factors
+The minimum frequency for photoionization is 3.29e+13
+The minimum frequency for inner shell ionization is 1.00e+50
+get_atomic_data: Evaluation:  There are     14 elements     while     50 are currently allowed
+get_atomic_data: Evaluation:  There are    178 ions         while    500 are currently allowed
+get_atomic_data: Evaluation:  There are   3717 levels       while  12000 are currently allowed
+get_atomic_data: Evaluation:  There are   5485 lines        while 200000 are currently allowed
+get_atomic_data: Evaluation:  There are     11 macro levels while    200 are currently allowed
+get_atomic_data: Evaluation:  The maximum value bb jumps is 9 while 100 are currently allowed
+get_atomic_data: Evaluation:  The maximum value bf jumps is 9 while 100 are currently allowed
+Allocated      17088 bytes for each of  2171 elements variable length plasma arrays totaling       37.1 Mb 
+Allocated        192 bytes for each of  2171 elements of macro totaling        0.4 Mb 
+calloc_estimators: level 0 has n_bbu_jump 9  n_bbd_jump 0 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 1 has n_bbu_jump 8  n_bbd_jump 1 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 2 has n_bbu_jump 7  n_bbd_jump 2 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 3 has n_bbu_jump 6  n_bbd_jump 3 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 4 has n_bbu_jump 5  n_bbd_jump 4 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 5 has n_bbu_jump 4  n_bbd_jump 5 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 6 has n_bbu_jump 3  n_bbd_jump 6 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 7 has n_bbu_jump 2  n_bbd_jump 7 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 8 has n_bbu_jump 1  n_bbd_jump 8 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 9 has n_bbu_jump 0  n_bbd_jump 9 n_bfu_jump 1 n_bfd_jump 0
+calloc_estimators: level 10 has n_bbu_jump 0  n_bbd_jump 0 n_bfu_jump 0 n_bfd_jump 10
+calloc_estimators: size_Jbar_est 45 size_gamma_est 1

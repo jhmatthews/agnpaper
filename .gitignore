@@ -6,3 +6,7 @@
 # generate/
 # *.bbl
 *.blg
+*data
+*.wind_save
+sdss
+*mast

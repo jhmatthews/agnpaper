@@ -1,0 +1,17 @@
+Make_files(0=no,1=original,2=regrid_to_linear)                   1
+Choice                                           1
+Save ions as densities (0) or fractions? (1)                   1
+Choice                                           M
+Detailed cell info (0), levels (1) emissivities (2) P_escapes (3) Detailed Pops (4) taus (5) estimators (6)                   2
+Level emissivity to view (0 - kpkts, -1 - back):                   2
+Level emissivity to view (0 - kpkts, -1 - back):                  -1
+Choice                                           i
+Ion_info_type(0=fraction,1=density,2=scatters,3=abs                   0
+element(0=return)                               13
+ion                                              3
+element(0=return)                               12
+ion                                              2
+element(0=return)                                0
+Choice                                           c
+line_transfer(0=pure.abs,1=pure.scat,2=sing.scat,3=escape.prob)                   3
+Choice                                           q

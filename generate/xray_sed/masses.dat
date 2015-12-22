@@ -1,0 +1,11 @@
+#  log MBH    log  L/L_edd
+SDSSJ 073733+392037     		9.98          +0.12    	sdss0737_sed_rest.dat
+IRAS 07598+6508              	8.58           -0.68    iras07598_sed_rest.dat
+PG 0946+301                      9.28          -0.89  	pg0946_sed_rest.dat
+PG 1001+054                      7.43          +0.00  	pg1001_sed_rest.dat
+PG 1004+130                      9.27          -1.13  	pg1004_sed_rest.dat
+PG 1115+080                      9.31          +0.96  	pg1115_sed_rest.dat
+# Mkn 231               		8.78          –1.96 
+IRAS 14026+4341               	8.62          -0.61    	iras14026_sed_rest.dat
+SDSS 1437-0147                 	9.43          +0.51   	sdss1437_sed_rest.dat
+PG 1700+518                      8.53          -0.25  	pg1700_sed_rest.dat
