@@ -1,7 +1,5 @@
 \documentclass[useAMS,usenatbib]{mn2e_x}
 %%%% Various options for document class.
-%\usepackage{psfig,morefloats,url}
-%use preprint2 for 2 columns paper.
 
 %% declare any packages used
 \usepackage{graphicx}
@@ -91,11 +89,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title
-[Radiative Transfer in Clumpy Winds]{
-% Modelling quasar outflows:
-% clumpy winds and broad emission lines
+[Radiative Transfer in Clumpy Winds]
+{
 Testing Quasar Unification: Radiative Transfer in Clumpy Winds
-%Unifying quasars with clumpy wind models
 }
 
 
@@ -120,6 +116,7 @@ Knox~S.~Long$^2$, Stuart~A.~Sim$^3$, Nick~Higginbottom$^1$ and Sam~W.~Mangham$^1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\maketitle
 \begin{abstract} 
 Various unification schemes interpret the complex phenomenology of quasars and luminous active galactic nuclei (AGN) in terms of a simple picture involving a central black hole, an accretion disc and an associated outflow. Here, we continue our tests of this paradigm by comparing quasar spectra to synthetic spectra of biconical disc wind models, produced with our state-of-the-art Monte Carlo radiative transfer code. Previously, we have shown that we could produce synthetic spectra resembling those of observed broad absorption line (BAL) quasars, but only if the X-ray luminosity was limited to
 10$^{43}$~erg~s$^{-1}$. Here, we show that clumping the outflow can maintain the ionization state necessary for BAL features in the rest-frame UV at more realistic X-ray luminosities. Our fiducial model shows good agreement with X-ray properties of AGN and the dense, X-ray heated wind produces strong line emission in, e.g., \la\ and \civline at low inclinations. At high inclinations, the synthetic spectra possess prominent LoBAL features. Despite these successes, we cannot reproduce all the emission lines seen in quasar spectra with the correct equivalent-width ratios, and and we find an angular dependence of emission-line equivalent width despite the remarkable similarities in the observed emission line properties of BAL and non-BAL quasars. Overall, our work suggests that a biconical wind can reproduce much of the qualitative behaviour expected from a unified model, but we cannot yet provide quantitative matches with quasar properties at all viewing angles. Whether disc winds can successfully unify quasars is therefore still an open question.
@@ -130,7 +127,6 @@ galaxies: active -- accretion, accretion discs -- (galaxies:) quasars: emission 
 (galaxies:) quasars: absorption lines -- methods: numerical -- radiative transfer.
 \end{keywords}
 
-\maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -146,9 +142,6 @@ typically exhibit a series of strong emission lines
 with an underlying blue continuum - the so-called {\sl `big blue bump'} (BBB). 
 The BBB is often attributed to emission from a 
 geometrically thin, optically thick accretion disc surrounding the central black hole (BH), similar to that described by \cite{shakurasunyaev1973}.
-% {\bf Note: the first half of this paragraph and the second do not follow from one another.  
-% The first half is about spectra the second about outflows and the connection to spectra is not made until the next paragrph.  
-% This needs fixing. JM: Knox, I like this structure...I start with inflow, then move to outflow.}
 In addition to the {\em inflowing} accreting material, 
 {\em outflows} are ubiquitous in AGN
 and quasars \citep{kellerman1989,ganguly2008}. These outflows can take the form of 
@@ -354,9 +347,6 @@ the \textsc{Chianti} database version 7.0 \citep{dere1997,landi2012}.
 We use ground state recombination rates from \cite{badnell2006} where available,
 and otherwise default to calculating recombination rates from the Milne
 relation. Free-free Gaunt factors are from \cite{sutherland1998}.
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -609,7 +599,7 @@ highlighted with an asterisk.}
 \subsection{Physical Conditions and Ionization State}
 
 
-\begin{figure} %fullpage
+\begin{figure*}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/fig2.eps}
 \caption
@@ -627,7 +617,7 @@ escaping the Sobolev region for each line. These photons do not
 necessarily escape to infinity.
 }
 \label{fig:wind}
-\end{figure} %fullpage
+\end{figure*}
 
 \noindent
 Fig.~\ref{fig:wind} shows the physical properties of the wind.
@@ -662,8 +652,6 @@ about the shape of the SED. In our case, the X-ray photons
 are dominant in the photoionization of the UV resonance line ions. 
 This explains why a factor of 100 increase in X-ray luminosity requires
 a clumping factor of 0.01, even though the value of $U_H$ decreases by only a factor of $\sim10$ compared to H13. 
-%This is also the reason for significant Lyman edge photoabsorption
-%at the highest inclinations (see section 4.3).
 
 The total line luminosity also increases dramatically compared to the unclumped model
 described by H13. This is because the denser outflow can absorb the increased
@@ -676,9 +664,6 @@ The radii of these emitting regions is important,
 and can be compared to observations. The line luminosities, $L$,
 shown in the figure correspond to the luminosity in $\LUM$ of photons
 escaping the Sobolev region for each line. 
-% This is equivalent to $\beta_{ul} n_u A_{ul}$, where the three quantities
-% represent the Sobolev escape probability, upper level number density and 
-% Einstein A coefficient for the line. 
 As shown in Fig.~\ref{fig:wind},
 the \civline\ line in the fiducial model is typically formed between 
 $100-1000~r_G$ ($\sim10^{17}-10^{18}~\rm{cm}$).
@@ -690,7 +675,7 @@ and also compares favourably with microlensing measurements of the size of the
 
 \subsection{Synthetic Spectra: Comparison to Observations}
 
-\begin{figure} %fullpage
+\begin{figure*}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/fig3.eps}
 \caption
@@ -708,7 +693,7 @@ due to the incomplete wavelength coverage.
 % HST STIS spectrum of PG0946+301 (Arav et al. 2000)
 }
 \label{fig:uvspec}
-\end{figure} %fullpage
+\end{figure*}
 
 \begin{figure} 
 \centering
@@ -725,7 +710,7 @@ from highly ionized (yellow) to low ionization (purple) material.
 \label{fig:sightline}
 \end{figure} 
 
-\begin{figure} %fullpage
+\begin{figure*}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/fig5.eps}
 \caption
@@ -736,7 +721,7 @@ compared to the non-BAL SDSS quasar composite. The spectra are normalised to the
 $2000$\AA, then an offset of 2 is applied per spectrum for clarity -- the dotted lines show the zero point of $F_\nu / F_{2000\AA}$ in each case.
 }
 \label{fig:sed}
-\end{figure} %fullpage
+\end{figure*}
 
 \noindent
 Fig.~\ref{fig:uvspec} shows the synthetic spectrum in the UV from the fiducial model. 
@@ -776,15 +761,9 @@ whereas at higher inclinations (and for the strongest BALs)
 the trough has a sharp edge at the terminal velocity.
 This offers one potential explanation for the wide range of BALQSO absorption
 line shapes (see e.g. Trump et al. 2006; Knigge et al 2008, Filiz Ak et al. 2014).
-% In addition, the line profile shape is strongly dependent 
-% on the density, ionization and velocity 
-% profiles intersected by the line of sight. Thus, small tweaks of the velocity
-% law and angular distributions of streamlines can dramatically alter
-% the shape of the line.
 
 The absorption profiles seen in BALQSOs are often non-black, but saturated, 
 with flat bases to the absorption troughs \citep{arav1999b,arav1999a}.
-%Non-black saturation is observed in the absorption troughs of BALQSOs \citep{arav1999b,arav1999a}.
 This is usually explained either as  partial covering of the continuum
 source or by scattered contributions to the BAL troughs, necessarily
 from an opacity source not co-spatial with the BAL forming region.
@@ -902,7 +881,7 @@ We shall explore this question further in a future study.
 \label{sec:xray}
 
 
-\begin{figure} %fullpage
+\begin{figure*}
 \centering
 \includegraphics[width=0.9\textwidth]{figures/fig6.eps}
 \caption
@@ -917,7 +896,7 @@ sample of BALQSOs. The dotted line shows the best fit relation for non-BALQSOs
 from Steffen et al. (2006).
 }
 \label{fig:xray}
-\end{figure} %fullpage
+\end{figure*}
 
 The main motivation for adding clumping to the model was
 to avoid over-ionization of the wind in the presence of strong X-rays. 
@@ -958,7 +937,7 @@ compared to BALQSOs.
 
 \subsection{LoBALs and Ionization Stratification}
 
-\begin{figure} %fullpage
+\begin{figure*}
 \centering
 \includegraphics[width=0.8\textwidth]{figures/fig7.eps}
 \caption
@@ -970,7 +949,7 @@ profiles appear at a subset of high inclinations, compared
 to the ubiquitous \civ\ profile.
 }
 \label{fig:lobal}
-\end{figure} %fullpage
+\end{figure*}
 
 
 At high inclinations, the synthetic spectra exhibit blue-shifted BALs in \al\ and \mg --
@@ -1004,7 +983,7 @@ effects \citep{goodrich1997,krolikvoit1998}.
 
 \label{sec:param_sens}
 
-\begin{figure} %fullpage
+\begin{figure*}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/fig8.eps}
 \caption
@@ -1018,7 +997,7 @@ We also show a higher X-ray luminosity model and a higher mass loss rate
 with a red star.
 }
 \label{fig:grid}
-\end{figure} %fullpage
+\end{figure*}
 
 Having selected an individual fiducial model from the simulation grid, it is important
 to briefly explore how specialised this model is, and how small parameter
@@ -1133,9 +1112,6 @@ Science, and the Participating Institutions.
 
 %% \texttt{mn2e.cls} \textsc{Latex} document class. 
 
-\bibliography{mybib.bib,stellar.bib,h14.bib,h13.bib,hamann.bib,krolik.bib}
-\clearpage
-\clearpage
-
+\bibliography{bibs/mybib.bib,bibs/stellar.bib,bibs/h14.bib,bibs/h13.bib,bibs/hamann.bib,bibs/krolik.bib}
 
 \end{document}
