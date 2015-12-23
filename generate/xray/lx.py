@@ -52,7 +52,7 @@ aaa = "06"
 vers = "pre"
 suffix1 = "_a%s_%s" % (aaa,vers)
 suffix2 = "_a%s_%s_xray" % (aaa,vers)
-fnames = [("../specs/fiducial_xray_fine", "../specs/h13.spec"), ("restart_xrays", "/Users/jmatthews/Documents/runs/qso_he_test/with_estfix/nextgen_a05_pre_he")]
+fnames = [("../specs/fiducial_xray_fine", "../specs/h13.spec"), ("restart_xrays", "../specs/webgrid/run5_thmin70_rmin50_a0p5_rv1e19_f0p01.spec")]
 #fnames = 
 # 9 before
 label=fnames[1][0][16:]
@@ -241,7 +241,7 @@ xlim(27.5,32.5)
 
 
 xlabel(r"$\log[L_{2500}$~(erg~s$^{-1}$~Hz$^{-1}$)]", fontsize=20)
-ylabel(r"$\log[L_{2kev}$~(erg~s$^{-1}$~Hz$^{-1}$)]", fontsize=20)
+ylabel(r"$\log[L_{2keV}$~(erg~s$^{-1}$~Hz$^{-1}$)]", fontsize=20)
 
 subplots_adjust(hspace=0)
 long_ticks()
@@ -251,5 +251,5 @@ savefig("lx%s.png" % suffix1)
 #savefig("lx.png", bbox="tight")
 #
 savefig("../../figures/lx.png", bbox="tight")
-#savefig("../../figures/alpha_ox_%s.eps" % label, bbox="tight")
+savefig("../../figures/fig6.eps", bbox="tight")
 clf()

@@ -18,7 +18,7 @@ figure(figsize=(12,6))
 #fnames = ['nextgen_p3_3',"nextgen_3_30", 'nextgen_30_300', 'nextgen_uv', 'nextgen_opt']
 #fnames = ['checkvol_a6',"checkvol_a6_xray","h13","fiducial_xray_fine","fiducial_uv","fiducial_xray"]
 #fnames = ["h13","fiducial_xray_fine","fiducial_uv","fiducial_xray"]
-fnames = ["/Users/jmatthews/Documents/runs/qso_he_test/with_estfix/nextgen_a05_pre_he"]
+fnames = ["../specs/webgrid/run5_thmin70_rmin50_a0p5_rv1e19_f0p01.spec"]
 NN = len(fnames) - 1
 NN = len(fnames) - 1
 
@@ -80,7 +80,7 @@ for iang in range(len(angles)):
 
 		f2000 = util.get_flux_at_wavelength(nu, lnu,nu_norm)
 
-		w,f = np.loadtxt("/Users/jmatthews/Documents/Python/examples/sdssedrqsobal/sdss_hst_combined.dat", unpack=True,usecols=(0,1))
+		w,f = np.loadtxt("/Users/jamesmatthews/Documents/Python/examples/sdssedrqsobal/sdss_hst_combined.dat", unpack=True,usecols=(0,1))
 		nuc = C / (w*ANGSTROM)
 		fl_to_fnu = w / nuc 
 		lnuc = f * fl_to_fnu
@@ -106,7 +106,7 @@ for iang in range(len(angles)):
 		xlim(14.64,15.5)
 		ylim(-4.6,1.2)
 		#ylim(lims[iang][0], lims[iang][1])
-		ylabel(r"$\log [F_\nu / F_{2000\AA}]$ (Arb.)", fontsize=20)
+		ylabel(r"$\log [F_\nu / F_{2000}]$ (Arb.)", fontsize=20)
 
 		#if iang == 0:
 		#	gca().set_xticklabels([])
@@ -121,6 +121,7 @@ subplots_adjust(hspace=0, wspace=0, left=0.08, right=0.97)
 xlabel(r"$\log \nu$", fontsize=20)
 
 savefig("sed.png",dpi=300)
+savefig("../../figures/fig5.eps")
 #sys.exit()
 
 

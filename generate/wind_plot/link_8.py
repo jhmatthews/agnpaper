@@ -9,6 +9,7 @@ import numpy as np
 from pretty import *
 
 set_pretty()
+big_tick_labels(18)
 
 from matplotlib.colors import LinearSegmentedColormap
 
@@ -45,7 +46,7 @@ xuse= np.append(x1000,1e19)
 print x1000, y1000
 
 
-root = "nextgen_a05_pre_he"
+root = "run64_thmin70_rmin50_a0p5_rv1e19_f0p01"
 d = r.read_pywind_summary(root)
 
 
@@ -121,11 +122,11 @@ for i in range(len(strings)):
 
 
 
-subplots_adjust(bottom=0.05, top=0.95, hspace = 0, wspace=0.13, left = 0.08, right=0.92)
+subplots_adjust(bottom=0.05, top=0.95, hspace = 0, wspace=0.2, left = 0.08, right=0.97)
 
 savefig("link8_%s.png" % root, dpi=300)
 savefig("../../figures/link8.png", dpi=300)
-#savefig("../../figures/wind.eps", bbox="tight")
+savefig("../../figures/fig2.eps", bbox="tight")
 
 
 
