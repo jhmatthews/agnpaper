@@ -282,8 +282,8 @@ Our approach to line transfer is based upon the macro-atom implementation develo
 terms of indivisible energy quanta of radiant or kinetic energy 
 (`$r-$packets' and `$k-$packets' respectively; see also section~\ref{sec:photon_sources}),
 which are reprocessed by `macro-atoms' with associated transition probabilities.
-We use the Sobolev approximation \citep[e.g.][]{sobolev1957,sobolev1960,rybickihummer1978}
-to compute the location of line interactions.
+{\bf We use the Sobolev approximation \citep[e.g.][]{sobolev1957,sobolev1960,rybickihummer1978}
+to compute the location and optical depth of line interactions}.
 In our case, for reasons of computational efficiency, we adopt the  hybrid macro-atom scheme 
 described by M15. In this scheme, the energy packets interact with either two-level 
 `simple atoms' or full macro-atoms. 
@@ -309,13 +309,10 @@ now improved {\sc PYTHON} to explicitly solve the
 rate equations between ions in non-LTE. This dispenses with a number of small assumptions 
 made in the modified Saha approach, is more numerically stable, and
 prepares for a more accurate treatment of other physical processes in future. 
-% in principle, allows 
-% the direct addition of extra physical processes that would previously have necessitated 
-% approximate treatments.
 
 In order to calculate the photoionization rate, 
 we model the SED in a grid cell using the technique described by H13. In this scheme,
-the mean intensity, $J_{\nu}$ in a series of $n$ bands is modeled as either a power law or exponential
+the mean intensity, $J_{\nu}$, in a series of $n$ bands is modeled as either a power law or exponential
 in frequency $\nu$, with the fit parameters deduced from band-limited radiation field estimators.
 This allows the calculation of a photoionization rate estimator. Ion abundances are
 then calculated by solving the rate equations between ions. We include collisional ionization and photoionization balanced with radiative, 
@@ -331,8 +328,22 @@ and cooling processes in the model. For radiative transfer purposes
 we treat electron scattering in the Thomson limit, 
 but take full account of Compton heating and cooling when
 calculating the thermal balance of the plasma (see H13).
-Adiabatic cooling is included, but is insignificant 
-in most of the outflow.
+{\bf 
+Adiabatic cooling in the cell is calculated using the estimator
+\begin{equation}
+C_{ad} = f_V n_e k_B T_e V (\Delta \cdot v),
+\end{equation}
+where $V$ is the cell volume, $T_e$ is the electron temperature,
+$n_e$ is the electron density and $\Delta \cdot v$ is the divergence of the 
+velocity field at the centre of the cell.
+For self-consistency, $k$-packets then have a finite 
+destruction probability of 
+\begin{equation}
+P_{k,destruct} = \frac{C_{ad}}{C_{tot}},
+\end{equation}
+where $C_{tot}$ is the sum over all cooling rates in the cell.
+We find that adiabatic cooling is insignificant in much of
+the outflow.
 
 
 \subsection{Atomic Data}
@@ -363,7 +374,9 @@ LK02, H13 and M15. A schematic is shown in Fig.~\ref{fig:cartoon},
 with key aspects marked. The general biconical
 geometry is similar to that invoked by \cite{MCGV95} and 
 \cite{elvis2000} to explain the phenomenonology
-of quasars and BALQSOs.
+of quasars and BALQSOs. {\bf However, we do not include the initial
+vertical component present in the Elvis (2000) model, which was
+invoked as a qualitative explanation for narrow absorption lines}.
 
 \begin{figure} 
 \centering
@@ -436,6 +449,7 @@ as it affects not only the projected velocities along the line of sight,
 but also the density and ionization state of the outflow.
 A wind that accelerates more slowly will have a denser wind base
 with correspondingly different ionization and emission characteristics.
+}
 
 \subsection{A Simple Approximation for Clumping}
 
@@ -505,7 +519,7 @@ following properties of quasars and BALQSOs:
 \begin{itemize}
 \item UV absorption lines 
 with $BI > 0$ at $\sim20\%$ of viewing angles (e.g. Knigge et al. 2010);
-\item Line emission emerging at low inclinations, with $EW\sim40$\AA in \civline\ \citep[e.g. ][]{shen2011};
+\item Line emission emerging at low inclinations, with $EW\sim40$\AA\ in \civline\ \citep[e.g. ][]{shen2011};
 \item H recombination lines with $EW\sim50$\AA\ in \la\ \citep[e.g. ][]{shen2011};
 \item  \mg\ and \al\ (LoBAL) absorption features with $BI > 0$ at a subset of 
 BAL viewing angles;
@@ -705,7 +719,6 @@ in the fiducial model, illustrating how geometric effects lead to
 the different emergent spectra. The colour gradient is approximate,
 but indicates the stratified ionization structure, 
 from highly ionized (yellow) to low ionization (purple) material.
-%[FIGURE NEEDS IMPROVING]
 }
 \label{fig:sightline}
 \end{figure} 
@@ -718,7 +731,7 @@ from highly ionized (yellow) to low ionization (purple) material.
 Synthetic spectra at two viewing angles, 
 this time in frequency space and including the optical band,
 compared to the non-BAL SDSS quasar composite. The spectra are normalised to the flux at 
-$2000$\AA, then an offset of 2 is applied per spectrum for clarity -- the dotted lines show the zero point of $F_\nu / F_{2000\AA}$ in each case.
+$2000$\AA, then an offset of 2 is applied per spectrum for clarity -- the dotted lines show the zero point of $F_\nu / F_{2000}$ in each case.
 }
 \label{fig:sed}
 \end{figure*}
@@ -842,9 +855,13 @@ due to a weakened continuum from wind attenuation,
 disc foreshortening and limb darkening. This effect also 
 leads to a redder continuum slope, as seen in quasars, which is
 due to Balmer continuum and Balmer and Fe~\textsc{ii} line emission.
-This extreme $89^\circ$ viewing angle cannot represent a typical quasar within a unified model,
-but does show that a model such as this can naturally reproduce quasar emission lines
-if the emissivity of the wind is increased {\em with respect to the disc continuum}.
+
+{\bf This extreme $89^\circ$ viewing angle cannot represent a typical quasar within a unified model, as
+extreme inclinations should be extremely underrepresented in quasar samples due to the
+compton-thick absorber or `Torus' expected at high inclinations ().}
+However, this spectrum does show that a model such as this can 
+naturally reproduce quasar emission lines if the emissivity of the wind is 
+increased {\em with respect to the disc continuum}.
 In addition, it neatly demonstrates how a stratified outflow can naturally
 reproduce the range of ionization states seen in quasars. 
 
@@ -1076,8 +1093,6 @@ it is not possible to achieve line ratios at low inclinations
 that are comparable to those at high inclinations. 
 We suggest that understanding the angular distribution of 
 line and continuum emission is a crucial question for theoretical models.
-% Furthermore, this is conclusion is independent of the assumed 
-% BLR geometry and size.
 \end{enumerate}
 Our work confirms a number of expected outcomes from a geometric unification 
 model, and suggests that a simple biconical geometry such as this can come close to 
@@ -1097,6 +1112,8 @@ The work of JHM, SWM, NSH and CK is supported by the
 Science and Technology Facilities Council (STFC),
 via two studentships and a consolidated grant, respectively.
 CK also acknowledges a Leverhulme fellowship.
+{\bf We would like to thank the anonymous referee for an insightful
+and constructive report.}
 We would like to thank Omer Blaes, Ivan Hubeny and Shane Davis for their
 assistance with \agn. We are grateful to Mike Brotherton, Mike DiPompeo,
 Sebastien Hoenig and Frederic Marin for helpful correspondence regarding
@@ -1104,7 +1121,8 @@ polarisation measurements and orientation indicators.
 We would also like to thank Daniel Proga, Daniel Capellupo, Sam Connolly and
 Dirk Grupe for useful discussions.  Simulations were conducted using \py\ version 80,
 and made use of the IRIDIS High Performance Computing Facility at the
-University of Southampton. Figures were produced using the {\tt matplotlib} plotting library \citep{matplotlib}. This work made use of the Sloan Digital Sky Survey.
+University of Southampton. Figures were produced using the {\tt matplotlib} 
+plotting library \citep{matplotlib}. This work made use of the Sloan Digital Sky Survey.
 Funding for the Sloan Digital Sky Survey has been provided by
 the Alfred P. Sloan Foundation, the U.S. Department of Energy Office of
 Science, and the Participating Institutions.
