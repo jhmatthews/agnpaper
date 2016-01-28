@@ -118,27 +118,10 @@ Knox~S.~Long$^2$, Stuart~A.~Sim$^3$, Nick~Higginbottom$^1$ and Sam~W.~Mangham$^1
 
 \maketitle
 \begin{abstract} 
-Various unification schemes interpret the complex phenomenology of quasars and 
-luminous active galactic nuclei (AGN) in terms of a simple picture involving a 
-central black hole, an accretion disc and an associated outflow. Here, we continue
-our tests of this paradigm by comparing quasar spectra to synthetic spectra of 
-biconical disc wind models, produced with our state-of-the-art Monte Carlo radiative 
-transfer code. Previously, we have shown that we could produce synthetic spectra 
-resembling those of observed broad absorption line (BAL) quasars, but only if the 
-X-ray luminosity was limited to 10$^{43}$~erg~s$^{-1}$. 
-{\bf Here, we introduce a simple treatment of clumping, and find that a volume filling factor of $\sim0.01$ 
+Various unification schemes interpret the complex phenomenology of quasars and luminous active galactic nuclei (AGN) in terms of a simple picture involving a central black hole, an accretion disc and an associated outflow. Here, we continue our tests of this paradigm by comparing quasar spectra to synthetic spectra of biconical disc wind models, produced with our state-of-the-art Monte Carlo radiative transfer code. Previously, we have shown that we could produce synthetic spectra resembling those of observed broad absorption line (BAL) quasars, but only if the X-ray X-ray luminosity was limited to 10$^{43}$~erg~s$^{-1}$. 
+ {\bf Here, we introduce a simple treatment of clumping, and find that a filling factor of $\sim0.01$ 
 moderates the ionization state sufficently for BAL features to form in the 
-rest-frame UV at more realistic X-ray luminosities.}
-Our fiducial model shows good agreement with X-ray properties of AGN and the dense, 
-X-ray heated wind produces strong line emission in, e.g., \la\ and \civline\ at low inclinations. 
-At high inclinations, the synthetic spectra possess prominent LoBAL features. 
-Despite these successes, we cannot reproduce all the emission lines seen in quasar 
-spectra with the correct equivalent-width ratios, and we find an angular dependence of 
-emission-line equivalent width despite the remarkable similarities in the observed emission 
-line properties of BAL and non-BAL quasars. Overall, our work suggests that a biconical wind 
-can reproduce much of the qualitative behaviour expected from a unified model, but we cannot 
-yet provide quantitative matches with quasar properties at all viewing angles. Whether disc 
-winds can successfully unify quasars is therefore still an open question.
+rest-frame UV at more realistic X-ray luminosities.} Our fiducial model shows good agreement with AGN X-ray properties and the wind produces strong line emission in, e.g., \la\ and \civline\ at low inclinations. At high inclinations, the spectra possess prominent LoBAL features. Despite these successes, we cannot reproduce all emission lines seen in quasar spectra with the correct equivalent-width ratios, and we find an angular dependence of emission-line equivalent width despite the similarities in the observed emission line properties of BAL and non-BAL quasars. Overall, our work suggests that biconical winds can reproduce much of the qualitative behaviour expected from a unified model, but we cannot yet provide quantitative matches with quasar properties at all viewing angles. Whether disc winds can successfully unify quasars is therefore still an open question.
 \end{abstract}
 
 \begin{keywords}
@@ -398,7 +381,11 @@ relation. Free-free Gaunt factors are from \cite{sutherland1998}.
 
 Our kinematic prescription for a biconical disc wind model
 follows \cite{SV93}, and is described further by
-LK02, H13 and M15. A schematic is shown in Fig.~\ref{fig:cartoon},
+LK02, H13 and M15. {\bf We emphasise that the purpose of this
+purely kinematic wind model is to provide a simple tool for 
+exploring different outflow geometries and kinematics, and
+the model itself is not hydrodynamic.}
+A schematic is shown in Fig.~\ref{fig:cartoon},
 with key aspects marked. The general biconical
 geometry is similar to that invoked by \cite{MCGV95} and 
 \cite{elvis2000} to explain the phenomenonology
@@ -455,7 +442,7 @@ In the SV93 model, a biconical disc wind rises from the accretion
 disc between launch radii $r_{min}$ and $r_{max}$.
 The opening angles of the wind are set to $\theta_{min}$ and $\theta_{max}$.
 The poloidal velocity along each individual streamline at a poloidal distance $l$ 
-is then given by
+is then given by \citep[e.g.][]{rybickihummer1978}
 \begin{equation}
 v_l=v_0+\left[v_{\infty}(r_0)-v_0\right]\frac{\left(l/R_v\right)^{\alpha}}{\left(l/R_v\right)^{\alpha}+1},
 \label{v_law}
@@ -504,9 +491,13 @@ both geometrically and optically thin. {\bf This approach
 allows one to treat clumps only in terms of their volume filling factor, $f_V$, 
 instead of having to specify separately their size and density distributions.
 In our model, $f_V$ is independent of position (see section~4.4).
-The inter-clump medium is assumed to be unimportant in determining the emergent
-spectrum, and is therefore modeled as a vacuum,
-although the outflow is still non-porous and axisymmetric.}
+The inter-clump medium is modeled as a vacuum,
+although the outflow is still non-porous and axisymmetric.
+This approach therefore assumes that the inter-clump medium
+is unimportant in determing the output spectrum, which
+we expect to be true only when density constrasts are large and
+the inter-clump medium is both very ionized and of low emissivity and opacity.
+}
 The density of the clumps is multiplied by the ``density enhancement'' 
 $D=1/f_V$. Opacities, $\kappa$, and emissivities, $\epsilon$, 
 can then be expressed as 
@@ -527,7 +518,8 @@ bound-free heating and also increasing the competing line cooling term
 (thermal line emission).
 
 {\bf 
-The smallest scale length in a MCRT model such as this is normally the Sobolev length, given by
+The shortest length scale in a Sobolev MCRT treatment such as ours 
+is normally the Sobolev length, given by
 \begin{equation}
 l_S = \frac{v_{th}}{| dv/ds |}
 \end{equation}
