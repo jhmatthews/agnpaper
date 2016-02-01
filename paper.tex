@@ -765,19 +765,6 @@ from highly ionized (yellow) to low ionization (purple) material.
 \label{fig:sightline}
 \end{figure} 
 
-\begin{figure*}
-\centering
-\includegraphics[width=1.0\textwidth]{figures/fig5.eps}
-\caption
-{
-Synthetic spectra at two viewing angles, 
-this time in frequency space and including the optical band,
-compared to the non-BAL SDSS quasar composite. The spectra are normalised to the flux at 
-$2000$\AA, then an offset of 2 is applied per spectrum for clarity -- the dotted lines show the zero point of $F_\nu / F_{2000}$ in each case.
-}
-\label{fig:sed}
-\end{figure*}
-
 \noindent
 Fig.~\ref{fig:uvspec} shows the synthetic spectrum in the UV from the fiducial model. 
 To assess the ability of the synthetic spectra to match real 
@@ -842,6 +829,20 @@ from plasma in polar regions is significant in some `outflow-from-inflow'
 simulations \citep{KP09, simproga2012}.
 
 \subsubsection{Broad emission lines (`quasar-like' angles)}
+
+\begin{figure*}
+\centering
+\includegraphics[width=1.0\textwidth]{figures/fig5.eps}
+\caption
+{
+Synthetic spectra at two viewing angles, 
+this time in frequency space and including the optical band,
+compared to the non-BAL SDSS quasar composite. The spectra are normalised to the flux at 
+$2000$\AA, then an offset of 2 is applied per spectrum for clarity -- the dotted lines show the zero point of $F_\nu / F_{2000}$ in each case.
+}
+\label{fig:sed}
+\end{figure*}
+
 
 \begin{table}
 \begin{tabular}{p{2cm}p{2cm}p{3cm}}
@@ -936,6 +937,9 @@ continuum and line emission is clearly crucially important in determining the em
 line EWs, as suggested by, e.g., the analysis of \cite{risaliti2011}. 
 We shall explore this question further in a future study.  
 
+\subsection{X-ray Properties}
+\label{sec:xray}
+
 \begin{figure*}
 \centering
 \includegraphics[width=0.9\textwidth]{figures/fig6.eps}
@@ -952,9 +956,6 @@ from Steffen et al. (2006).
 }
 \label{fig:xray}
 \end{figure*}
-
-\subsection{X-ray Properties}
-\label{sec:xray}
 
 The main motivation for adding clumping to the model was
 to avoid over-ionization of the wind in the presence of strong X-rays. 
@@ -995,9 +996,10 @@ compared to BALQSOs.
 
 \subsection{LoBALs and Ionization Stratification}
 
+
 \begin{figure*}
 \centering
-\includegraphics[width=0.8\textwidth]{figures/fig7.eps}
+\includegraphics[width=1.0\textwidth]{figures/fig7.eps}
 \caption
 {
 \civ , \mg , \al\ and Fe~\textsc{ii} line profiles for viewing angles
@@ -1009,6 +1011,22 @@ to the ubiquitous \civ\ profile.
 \label{fig:lobal}
 \end{figure*}
 
+
+\begin{figure*}
+\centering
+\includegraphics[width=1.0\textwidth]{figures/fig8.eps}
+\caption
+{
+The EW of the \civ~$1550$\AA\ line at $20^\circ$ plotted against a) the 
+$BI$ of \civ~$1550$\AA\ at $75^\circ$, b) the EW of the \mg~$2800$\AA\ line 
+at $20^\circ$ and c) the EW of \la\ at $20^\circ$. The circles correspond 
+to the simulation grid for two different values of $f_V$, and the fiducial 
+model is marked with an orange star. 
+We also show a higher X-ray luminosity model and a higher mass loss rate
+with a red star.
+}
+\label{fig:grid}
+\end{figure*}
 
 At high inclinations, the synthetic spectra exhibit blue-shifted BALs in \al\ and \mg --
 the absorption lines seen in LoBALQSOs, and we even see absorption in Fe~\textsc{ii}
@@ -1041,22 +1059,6 @@ effects \citep{goodrich1997,krolikvoit1998}.
 \subsection{Parameter Sensitivity}
 
 \label{sec:param_sens}
-
-\begin{figure*}
-\centering
-\includegraphics[width=1.0\textwidth]{figures/fig8.eps}
-\caption
-{
-The EW of the \civ~$1550$\AA\ line at $20^\circ$ plotted against a) the 
-$BI$ of \civ~$1550$\AA\ at $75^\circ$, b) the EW of the \mg~$2800$\AA\ line 
-at $20^\circ$ and c) the EW of \la\ at $20^\circ$. The circles correspond 
-to the simulation grid for two different values of $f_V$, and the fiducial 
-model is marked with an orange star. 
-We also show a higher X-ray luminosity model and a higher mass loss rate
-with a red star.
-}
-\label{fig:grid}
-\end{figure*}
 
 Having selected an individual fiducial model from the simulation grid, it is important
 to briefly explore how specialised this model is, and how small parameter
@@ -1177,7 +1179,7 @@ Science, and the Participating Institutions.
 
 
 %% \texttt{mn2e.cls} \textsc{Latex} document class. 
-
+\setlength{\bibsep}{0pt}
 \bibliography{bibs/mybib.bib,bibs/stellar.bib,bibs/h14.bib,bibs/h13.bib,bibs/hamann.bib,bibs/krolik.bib}
 
 \end{document}
