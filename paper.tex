@@ -119,9 +119,9 @@ Knox~S.~Long$^2$, Stuart~A.~Sim$^3$, Nick~Higginbottom$^1$ and Sam~W.~Mangham$^1
 \maketitle
 \begin{abstract} 
 Various unification schemes interpret the complex phenomenology of quasars and luminous active galactic nuclei (AGN) in terms of a simple picture involving a central black hole, an accretion disc and an associated outflow. Here, we continue our tests of this paradigm by comparing quasar spectra to synthetic spectra of biconical disc wind models, produced with our state-of-the-art Monte Carlo radiative transfer code. Previously, we have shown that we could produce synthetic spectra resembling those of observed broad absorption line (BAL) quasars, but only if the X-ray X-ray luminosity was limited to 10$^{43}$~erg~s$^{-1}$. 
- {\bf Here, we introduce a simple treatment of clumping, and find that a filling factor of $\sim0.01$ 
+Here, we introduce a simple treatment of clumping, and find that a filling factor of $\sim0.01$ 
 moderates the ionization state sufficently for BAL features to form in the 
-rest-frame UV at more realistic X-ray luminosities.} Our fiducial model shows good agreement with AGN X-ray properties and the wind produces strong line emission in, e.g., \la\ and \civline\ at low inclinations. At high inclinations, the spectra possess prominent LoBAL features. Despite these successes, we cannot reproduce all emission lines seen in quasar spectra with the correct equivalent-width ratios, and we find an angular dependence of emission-line equivalent width despite the similarities in the observed emission line properties of BAL and non-BAL quasars. Overall, our work suggests that biconical winds can reproduce much of the qualitative behaviour expected from a unified model, but we cannot yet provide quantitative matches with quasar properties at all viewing angles. Whether disc winds can successfully unify quasars is therefore still an open question.
+rest-frame UV at more realistic X-ray luminosities. Our fiducial model shows good agreement with AGN X-ray properties and the wind produces strong line emission in, e.g., \la\ and \civline\ at low inclinations. At high inclinations, the spectra possess prominent LoBAL features. Despite these successes, we cannot reproduce all emission lines seen in quasar spectra with the correct equivalent-width ratios, and we find an angular dependence of emission-line equivalent width despite the similarities in the observed emission line properties of BAL and non-BAL quasars. Overall, our work suggests that biconical winds can reproduce much of the qualitative behaviour expected from a unified model, but we cannot yet provide quantitative matches with quasar properties at all viewing angles. Whether disc winds can successfully unify quasars is therefore still an open question.
 \end{abstract}
 
 \begin{keywords}
@@ -200,7 +200,7 @@ causing it to `fail'.
 \cite{MCGV95} proposed a potential solution: 
 a region of `hitchhiking gas' that could shield the wind from the central X-ray source. 
 An additional or alternative solution is that the wind is clumped 
-{\bf \citep[e.g.][]{junk1983,weymann1985,hamann2013}}
+\citep[e.g.][]{junk1983,weymann1985,hamann2013}
 possibly on multiple scale lengths. Local density enhancements could lower the 
 ionization parameter of the plasma 
 without requiring excessively large total column densities 
@@ -212,7 +212,6 @@ and exhibit variability in these profile shapes \citep{capellupo2011,capellupo20
 AGN generally show variability in X-ray absorption components \citep[e.g.][]{risaliti2002}
 and many models for the BLR consist of clumps embedded in an outflow 
 \citep{krolik1981, emmering1992, dekool1995, cassidyraine1996}.
-{\bf 
 \cite{krolik1981} showed that BLR clouds would be short-lived, suggesting 
 that a confining mechanism is required, such as
 magnetic confinement \citep[e.g.][]{dekool1995}. Alternatively,
@@ -222,7 +221,7 @@ may be responsible for smaller-scale clumping, as is observed in O-star winds
 \citep[][and references therein]{fullerton2011}.
 Indeed, simple models of clumping have successfully explained the electron scattering 
 wings of emission lines formed in these line-driven flows 
-\citep{hillier1991eswingsmodel}.}
+\citep{hillier1991eswingsmodel}.
 Complex substructures are also produced in simulations of line-driven 
 outflows in AGN, although on very different scales to LDIs 
 \citep{PSK2000,PK04,progakurosawa2010,proga2014}.  
@@ -293,8 +292,8 @@ Our approach to line transfer is based upon the macro-atom implementation develo
 terms of indivisible energy quanta of radiant or kinetic energy 
 (`$r-$packets' and `$k-$packets' respectively; see also section~\ref{sec:photon_sources}),
 which are reprocessed by `macro-atoms' with associated transition probabilities.
-{\bf We use the Sobolev approximation \citep[e.g.][]{sobolev1957,sobolev1960,rybickihummer1978}
-to compute the location and optical depth of line interactions}.
+We use the Sobolev approximation \citep[e.g.][]{sobolev1957,sobolev1960,rybickihummer1978}
+to compute the location and optical depth of line interactions.
 In our case, for reasons of computational efficiency, we adopt the  hybrid macro-atom scheme 
 described by M15. In this scheme, the energy packets interact with either two-level 
 `simple atoms' or full macro-atoms. 
@@ -339,7 +338,7 @@ and cooling processes in the model. For radiative transfer purposes
 we treat electron scattering in the Thomson limit, 
 but take full account of Compton heating and cooling when
 calculating the thermal balance of the plasma (see H13).
-{\bf Adiabatic cooling in the cell is calculated using the estimator
+Adiabatic cooling in the cell is calculated using the estimator
 \begin{equation}
 C_{A} = f_V k_B T_e V (\nabla \cdot v) \left(n_e + \sum\limits_{i=1}^{ions} N_i\right),
 \end{equation}
@@ -354,7 +353,7 @@ destruction probability of
 P_{k,A} = \frac{C_{A}}{C_{tot}},
 \end{equation}
 where $C_{tot}$ is the sum over all cooling rates in the cell.
-}
+
 
 
 \subsection{Atomic Data}
@@ -381,17 +380,16 @@ relation. Free-free Gaunt factors are from \cite{sutherland1998}.
 
 Our kinematic prescription for a biconical disc wind model
 follows \cite{SV93}, and is described further by
-LK02, H13 and M15. {\bf We emphasise that the purpose of this
+LK02, H13 and M15. The purpose of this
 purely kinematic wind model is to provide a simple tool for 
-exploring different outflow geometries and kinematics, and
-the model itself is not hydrodynamic.}
+exploring different outflow geometries.
 A schematic is shown in Fig.~\ref{fig:cartoon},
 with key aspects marked. The general biconical
 geometry is similar to that invoked by \cite{MCGV95} and 
 \cite{elvis2000} to explain the phenomenonology
-of quasars and BALQSOs. {\bf However, we do not include the initial
+of quasars and BALQSOs. However, we do not include the initial
 vertical component present in the Elvis (2000) model, which was
-invoked as a qualitative explanation for narrow absorption lines}.
+invoked as a qualitative explanation for narrow absorption lines.
 
 \begin{figure} 
 \centering
@@ -474,20 +472,20 @@ kinematic parameters and mass loss rate. However, as already discussed,
 AGN winds exhibit significant substructure -- the outflow is expected to be
 {\em clumpy}, rather than smooth, and probably on a variety of scales. 
 A clumpy outflow offers a possible solution to the so-called `over-ionization problem' in 
-quasar and AGN outflows {\bf \citep[e.g.][]{junk1983,weymann1985,hamann2013}}. 
+quasar and AGN outflows \citep[e.g.][]{junk1983,weymann1985,hamann2013}. 
 This is the main motivation for incorporating clumping into our model.
 
-{\bf Deciding on how to implement clumping into our existing wind models was not straightforward.
-First, and most importantly, the physical scale lengths and density contrasts in AGN outflows are not well-constrained from observations or theory.  As a result, while one could envision in principle, clouds with a variety of sizes and density contrasts varying perhaps as function of radius, there would have been very little guidance on how to set nominal values of the various parameters of such a model.}  
+Deciding on how to implement clumping into our existing wind models was not straightforward.
+First, and most importantly, the physical scale lengths and density contrasts in AGN outflows are not well-constrained from observations or theory.  As a result, while one could envision in principle, clouds with a variety of sizes and density contrasts varying perhaps as function of radius, there would have been very little guidance on how to set nominal values of the various parameters of such a model.
 Second, there are significant computational difficulties associated with adequately resolving and realistically modelling a series of small scale, high density regions with a MCRT
-{\bf -- or for that matter, a hydrodynamical --} code. 
+-- or for that matter, a hydrodynamical -- code. 
 Given the lack of knowledge about the actual type of clumping, we have adopted
 a simple approximation used successfully in stellar wind modelling, known as 
 {\em microclumping} \citep[e.g.][]{hamann1998,hilliermiller1999,hamann2008}.  
 
 The underlying assumption of microclumping is that clump sizes are much smaller than the 
 typical photon mean free path, and thus the clumps are 
-both geometrically and optically thin. {\bf This approach 
+both geometrically and optically thin. This approach 
 allows one to treat clumps only in terms of their volume filling factor, $f_V$, 
 instead of having to specify separately their size and density distributions.
 In our model, $f_V$ is independent of position (see section~4.4).
@@ -497,7 +495,6 @@ This approach therefore assumes that the inter-clump medium
 is unimportant in determing the output spectrum, which
 we expect to be true only when density constrasts are large and
 the inter-clump medium is both very ionized and of low emissivity and opacity.
-}
 The density of the clumps is multiplied by the ``density enhancement'' 
 $D=1/f_V$. Opacities, $\kappa$, and emissivities, $\epsilon$, 
 can then be expressed as 
@@ -517,7 +514,6 @@ density. This allows an increase in the ionizing luminosity, amplifying the amou
 bound-free heating and also increasing the competing line cooling term
 (thermal line emission).
 
-{\bf 
 The shortest length scale in a Sobolev MCRT treatment such as ours 
 is normally the Sobolev length, given by
 \begin{equation}
@@ -530,7 +526,7 @@ Thus for the microclumping assumption to be formally correct,
 clumps should be no larger than $\sim10^{12}$~cm.
 This size scale is not unreasonable for quasar outflows, as
 \cite{dekool1995} suggest that BAL flows may have low filling factors with
-clump sizes of $\sim10^{11}$~cm. }
+clump sizes of $\sim10^{11}$~cm.
 % An additional concern with this approach to clumping is that the clumps
 % may rapidly cool and expand into the inter-clump medium. This is a well-known
 % issue in BLR and outflow models (REFs), and requires some kind of confining mechanism,
@@ -899,7 +895,7 @@ disc foreshortening and limb darkening. This effect also
 leads to a redder continuum slope, as seen in quasars, which is
 due to Balmer continuum and Balmer and Fe~\textsc{ii} line emission.
 
-{\bf The $89^\circ$ viewing angle cannot represent a typical quasar within a unified model, as
+The $89^\circ$ viewing angle cannot represent a typical quasar within a unified model, as
 extreme inclinations should be extremely underrepresented in quasar samples.
 This is in part due to the compton-thick absorber or `torus' 
 expected at high inclinations \cite[e.g.][]{antonucci1985,martinez2007}.
@@ -907,7 +903,7 @@ However, this spectrum does show that a wind model can
 naturally reproduce quasar emission lines if the emissivity of the wind is 
 increased {\em with respect to the disc continuum}.
 In addition, it neatly demonstrates how a stratified outflow can naturally
-reproduce the range of ionization states seen in quasars.}
+reproduce the range of ionization states seen in quasars.
 
 Despite a number of successes, 
 there are a some properties of the synthetic spectra
@@ -1062,18 +1058,18 @@ effects \citep{goodrich1997,krolikvoit1998}.
 
 Having selected an individual fiducial model from the simulation grid, it is important
 to briefly explore how specialised this model is, and how small parameter
-changes can affect the synthetic spectra. {\bf Fig.~\ref{fig:grid}
-shows the EW for} \civline\ {\bf and} \mgline\ {\bf at a low inclination, 
-and $BI$ for} \civline\ {\bf at a high inclination for the simulation
+changes can affect the synthetic spectra. Fig.~\ref{fig:grid}
+shows the EW for \civline\ and \mgline\ at a low inclination, 
+and $BI$ for \civline\ at a high inclination for the simulation
 grid. We find that almost all the models with $f_V=0.1$ are over-ionized, and 
-fail to produce strong} \civ\ {\bf BALs or emission lines. However, 
-the models with $f_V=0.01$ generally produce} \civ\ {\bf BALs and emission lines.
+fail to produce strong \civ\ BALs or emission lines. However, 
+the models with $f_V=0.01$ generally produce \civ\ BALs and emission lines.
 The fiducial model is representative of this family of models and 
 the spectra are generally similar, although it is clear from the figure
 that we have selected a model near the upper end of the EW distributions.
 
 We find that it is difficult to significantly increase line emission while
-keeping the luminosity and mass loss rate of the system fixed.}
+keeping the luminosity and mass loss rate of the system fixed.
 We show an additional point on figure 7 corresponding to a model with an order of
 magnitude higher X-ray luminosity and double the mass loss rate. As expected, 
 this results in far higher line EWs, but fails to produce BALs because
@@ -1162,8 +1158,8 @@ The work of JHM, SWM, NSH and CK is supported by the
 Science and Technology Facilities Council (STFC),
 via two studentships and a consolidated grant, respectively.
 CK also acknowledges a Leverhulme fellowship.
-{\bf We would like to thank the anonymous referee for a helpful
-and constructive report.}
+We would like to thank the anonymous referee for a helpful
+and constructive report.
 We would like to thank Omer Blaes, Ivan Hubeny and Shane Davis for their
 assistance with \agn. We are grateful to Mike Brotherton, Mike DiPompeo,
 Sebastien Hoenig and Frederic Marin for helpful correspondence regarding

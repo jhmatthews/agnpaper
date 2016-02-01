@@ -1,4 +1,4 @@
-FILE=paperbold
+FILE=paper
 
 paper:
 	latex ${FILE}
