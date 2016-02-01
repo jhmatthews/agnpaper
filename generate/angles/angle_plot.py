@@ -244,7 +244,7 @@ def BALnicity ( nu_line, nu_array, spec_array):
 #name = "../specs/checkvol_a6"
 name = "../specs/grid10/nextgen_a05"
 name = "../specs/webgrid/run6_thmin70_rmin50_a0p6_rv1e19_f0p01.spec"
-name = "../specs/webgrid/run5_thmin70_rmin50_a0p5_rv1e19_f0p01.spec"
+name = "../../../runs/referee_m16/rerun_adiab/run42_thmin70_rmin50_a0p5_rv1e19_f0p01.spec"
 s = r.read_spectrum(name)
 make_c4_plot(s, name)
 

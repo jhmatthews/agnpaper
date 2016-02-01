@@ -24,6 +24,7 @@ PYTHON = os.environ["PYTHON"]
 
 namea = "grid11/nextgen%s" % suffix
 namea = "../specs/webgrid/run5_thmin70_rmin50_a0p5_rv1e19_f0p01.spec"
+namea = "../../../runs/referee_m16/rerun_adiab/run42_thmin70_rmin50_a0p5_rv1e19_f0p01.spec"
 #nameb = "../specs/grid11/nextgen_uv"
 namec = "asi_thmin70_rmin50_a1_f0p01_mdotw5"
 #namec = "asi_thmin70_rmin50_a0p75_f0p01_mdotw5"

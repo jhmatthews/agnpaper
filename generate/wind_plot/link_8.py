@@ -46,7 +46,7 @@ xuse= np.append(x1000,1e19)
 print x1000, y1000
 
 
-root = "run64_thmin70_rmin50_a0p5_rv1e19_f0p01"
+root = "run42_thmin70_rmin50_a0p5_rv1e19_f0p01"
 d = r.read_pywind_summary(root)
 
 
