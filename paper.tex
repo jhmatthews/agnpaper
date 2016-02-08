@@ -118,7 +118,8 @@ Knox~S.~Long$^2$, Stuart~A.~Sim$^3$, Nick~Higginbottom$^1$ and Sam~W.~Mangham$^1
 
 \maketitle
 \begin{abstract} 
-Various unification schemes interpret the complex phenomenology of quasars and luminous active galactic nuclei (AGN) in terms of a simple picture involving a central black hole, an accretion disc and an associated outflow. Here, we continue our tests of this paradigm by comparing quasar spectra to synthetic spectra of biconical disc wind models, produced with our state-of-the-art Monte Carlo radiative transfer code. Previously, we have shown that we could produce synthetic spectra resembling those of observed broad absorption line (BAL) quasars, but only if the X-ray X-ray luminosity was limited to 10$^{43}$~erg~s$^{-1}$. 
+Various unification schemes interpret the complex phenomenology of quasars and luminous active galactic nuclei (AGN) in terms of a simple picture involving a central black hole, an accretion disc and an associated outflow. Here, we continue our tests of this paradigm by comparing quasar spectra to synthetic spectra of biconical disc wind models, produced with our state-of-the-art Monte Carlo radiative transfer code. Previously, we have shown that we could produce synthetic spectra resembling those of observed broad absorption line (BAL) quasars, but only if the X-ray
+luminosity was limited to 10$^{43}$~erg~s$^{-1}$. 
 Here, we introduce a simple treatment of clumping, and find that a filling factor of $\sim0.01$ 
 moderates the ionization state sufficently for BAL features to form in the 
 rest-frame UV at more realistic X-ray luminosities. Our fiducial model shows good agreement with AGN X-ray properties and the wind produces strong line emission in, e.g., \la\ and \civline\ at low inclinations. At high inclinations, the spectra possess prominent LoBAL features. Despite these successes, we cannot reproduce all emission lines seen in quasar spectra with the correct equivalent-width ratios, and we find an angular dependence of emission-line equivalent width despite the similarities in the observed emission line properties of BAL and non-BAL quasars. Overall, our work suggests that biconical winds can reproduce much of the qualitative behaviour expected from a unified model, but we cannot yet provide quantitative matches with quasar properties at all viewing angles. Whether disc winds can successfully unify quasars is therefore still an open question.
@@ -296,7 +297,7 @@ We use the Sobolev approximation \citep[e.g.][]{sobolev1957,sobolev1960,rybickih
 to compute the location and optical depth of line interactions.
 In our case, for reasons of computational efficiency, we adopt the  hybrid macro-atom scheme 
 described by M15. In this scheme, the energy packets interact with either two-level 
-`simple atoms' or full macro-atoms. 
+`simple-atoms' or full macro-atoms. 
 This allows one to treat non-LTE line transfer in radiative equilibrium
 without approximation for elements that are identified as 
 full macro-atoms, while maintaining the fast `two-level' 
@@ -314,7 +315,7 @@ Macro-atoms have their ion and level populations derived from
 MC rate estimators as described by Lucy (2002,2003). 
 Previously (LK02, H13, M15), we used a modified Saha approach to 
 calculate the ionization fractions
-of simple-ions. As part of  this effort, we have 
+of simple-atoms. As part of  this effort, we have 
 now improved {\sc PYTHON} to explicitly solve the 
 rate equations between ions in non-LTE. This dispenses with a number of small assumptions 
 made in the modified Saha approach, is more numerically stable, and
@@ -328,27 +329,27 @@ This allows the calculation of a photoionization rate estimator. Ion abundances 
 then calculated by solving the rate equations between ions. We include collisional ionization and photoionization balanced with radiative, 
 dielectronic and collisional (three-body) recombination.
 As in M15, we use a dilute Boltzmann approximation to calculate 
-the populations of levels for simple-ions. This dilute approximation 
+the populations of levels for simple-atoms. This dilute approximation 
 is not required for macro-atom levels. 
 
 \subsection{Physical Processes}
 
 We include  free-free, bound-free and bound-bound heating
-and cooling processes in the model. For radiative transfer purposes
+and cooling processes in the model. 
+For radiative transfer purposes
 we treat electron scattering in the Thomson limit, 
 but take full account of Compton heating and cooling when
 calculating the thermal balance of the plasma (see H13).
-Adiabatic cooling in the cell is calculated using the estimator
+Adiabatic cooling in a cell is calculated using the estimator
 \begin{equation}
 C_{A} = f_V k_B T_e V (\nabla \cdot v) \left(n_e + \sum\limits_{i=1}^{ions} N_i\right),
 \end{equation}
 where $V$ is the cell volume, $T_e$ is the electron temperature,
-$n_e$ is the electron density, $N_j$ is the number density of ion $j$
+$n_e$ is the electron density, $N_i$ is the number density of ion $i$
 and $\nabla \cdot v$ is the divergence of the 
 velocity field at the centre of the cell. The sum is over all ions 
 included in the simulation.
-For consistency, $k$-packets then have a finite 
-destruction probability of 
+For consistency, $k$-packets then have a destruction probability of 
 \begin{equation}
 P_{k,A} = \frac{C_{A}}{C_{tot}},
 \end{equation}
@@ -357,13 +358,15 @@ where $C_{tot}$ is the sum over all cooling rates in the cell.
 
 
 \subsection{Atomic Data}
-
-We use the same atomic data  described by LK02 as updated by H13 and M15, 
-with the addition of direct (collisional) ionization and recombination
-data from \cite{dere2007}. 
+We use the same atomic data  described by LK02 as updated by H13 and M15.
+As in M15, macro-atom level information comes from \textsc{Topbase} \citep{cunto1993}.
+H and He~\textsc{ii} are treated with 10 levels, and we include one He~\textsc{i} 
+level. This is because He is almost always completely ionized 
+and so He~\textsc{i} is unimportant in the simulation.
+% with the addition of direct (collisional) ionization and recombination
+% data from \cite{dere2007}. 
 Photoionization cross-sections are from \textsc{Topbase} \citep{cunto1993} and \cite{vfky}.
-%Dielectronic and 
-Radiative recombination rate coefficients are taken from 
+Dielectronic and Radiative recombination rate coefficients for simple-atoms are taken from 
 the \textsc{Chianti} database version 7.0 \citep{dere1997,landi2012}.
 We use ground state recombination rates from \cite{badnell2006} where available,
 and otherwise default to calculating recombination rates from the Milne
@@ -1118,7 +1121,7 @@ and temperature structure.
 LoBAL line profiles are seen at a subset of viewing angles, and Fe~\textsc{ii}
 absorption is seen at particularly high inclinations. 
 \smallskip
-\item The synthetic spectra show \la\ line and weak He~\textsc{ii}~$1640$\AA\ line
+\item The synthetic spectra show a \la\ line and weak He~\textsc{ii}~$1640$\AA\ line
 as a result of our improved treatment of recombination using macro-atoms. We also see
 Balmer emission lines and a Balmer recombination continuum in the optical spectrum, but this
 is only really significant at high inclination where the continuum is suppressed.  
